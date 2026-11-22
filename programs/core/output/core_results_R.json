@@ -1,0 +1,1492 @@
+{
+  "environment": {
+    "R": "R version 4.3.3 (2024-02-29)",
+    "survey": "4.2.1",
+    "haven": "2.5.4",
+    "seed": 20261117,
+    "n_boot": 200
+  },
+  "synthetic": {
+    "gap": 0.13,
+    "explained": 0.08,
+    "unexplained": 0.05,
+    "passed": true
+  },
+  "descriptives": {
+    "adhd_english": {
+      "est": 16.2880487026,
+      "lo": 14.8170733371,
+      "hi": 17.8744134399,
+      "n": 12763,
+      "survey_pkg_est": 16.2880487026,
+      "survey_pkg_se": 0.77960849044,
+      "se": 0.77960849044
+    },
+    "adhd_other": {
+      "est": 5.966614973,
+      "lo": 3.2532530554,
+      "hi": 10.6929196433,
+      "n": 844,
+      "survey_pkg_est": 5.966614973,
+      "survey_pkg_se": 1.8175724294,
+      "se": 1.8175724294
+    },
+    "psc_mean_english": {
+      "est": 2.4031727557,
+      "lo": 2.2919362281,
+      "hi": 2.5144092833,
+      "n": 12792,
+      "survey_pkg_est": 2.4031727557,
+      "survey_pkg_se": 0.056751202734,
+      "se": 0.056751202734
+    },
+    "psc_mean_other": {
+      "est": 1.4965787744,
+      "lo": 1.1818294918,
+      "hi": 1.811328057,
+      "n": 843,
+      "survey_pkg_est": 1.4965787744,
+      "survey_pkg_se": 0.16058034828,
+      "se": 0.16058034828
+    },
+    "psc_ge7_english": {
+      "est": 8.5252869241,
+      "lo": 7.4043016355,
+      "hi": 9.7980272212,
+      "n": 12792,
+      "survey_pkg_est": 8.5252869241,
+      "survey_pkg_se": 0.60935552519,
+      "se": 0.60935552519
+    },
+    "psc_ge7_other": {
+      "est": 3.584154191,
+      "lo": 1.4671564474,
+      "hi": 8.4925405031,
+      "n": 843,
+      "survey_pkg_est": 3.584154191,
+      "survey_pkg_se": 1.6130352123,
+      "se": 1.6130352123
+    },
+    "usual_english": {
+      "est": 83.7344358768,
+      "lo": 82.1064912424,
+      "hi": 85.240894297,
+      "n": 12794,
+      "survey_pkg_est": 83.7344358768,
+      "survey_pkg_se": 0.79924147861,
+      "se": 0.79924147861
+    },
+    "usual_other": {
+      "est": 61.8396068038,
+      "lo": 54.6805293291,
+      "hi": 68.5188698282,
+      "n": 840,
+      "survey_pkg_est": 61.8396068038,
+      "survey_pkg_se": 3.5513408528,
+      "se": 3.5513408528
+    },
+    "insured_english": {
+      "est": 96.907380411,
+      "lo": 95.9581424429,
+      "hi": 97.6391727127,
+      "n": 12805,
+      "survey_pkg_est": 96.907380411,
+      "survey_pkg_se": 0.42434601726,
+      "se": 0.42434601726
+    },
+    "insured_other": {
+      "est": 87.3754147873,
+      "lo": 81.0822990427,
+      "hi": 91.7871252163,
+      "n": 843,
+      "survey_pkg_est": 87.3754147873,
+      "survey_pkg_se": 2.6968196635,
+      "se": 2.6968196635
+    },
+    "preventive_english": {
+      "est": 85.9948474254,
+      "lo": 84.19887152,
+      "hi": 87.6167126818,
+      "n": 12766,
+      "survey_pkg_est": 85.9948474254,
+      "survey_pkg_se": 0.87105886676,
+      "se": 0.87105886676
+    },
+    "preventive_other": {
+      "est": 72.7641806441,
+      "lo": 66.0673681856,
+      "hi": 78.5680751099,
+      "n": 844,
+      "survey_pkg_est": 72.7641806441,
+      "survey_pkg_se": 3.1989879824,
+      "se": 3.1989879824
+    },
+    "incident_english": {
+      "est": 10.31727102,
+      "lo": 9.0160547544,
+      "hi": 11.7819631762,
+      "n": 12893
+    },
+    "incident_spanish": {
+      "est": 2.986182898,
+      "lo": 1.4774461063,
+      "hi": 5.9426785943,
+      "n": 361
+    },
+    "incident_other_language": {
+      "est": 1.138042129,
+      "lo": 0.58361304309,
+      "hi": 2.2074805532,
+      "n": 441
+    },
+    "incident_nonenglish": {
+      "est": 2.5224236156,
+      "lo": 1.3505582276,
+      "hi": 4.6630408178,
+      "n": 802
+    },
+    "psc_mean_complete_items_english": {
+      "est": 2.3982878337,
+      "lo": 2.2864302296,
+      "hi": 2.5101454378,
+      "n": 12635
+    },
+    "psc_ge7_complete_items_english": {
+      "est": 8.5641281014,
+      "lo": 7.4347332458,
+      "hi": 9.8468364743,
+      "n": 12635
+    },
+    "psc_mean_complete_items_other": {
+      "est": 1.5351111715,
+      "lo": 1.2136140921,
+      "hi": 1.8566082509,
+      "n": 826
+    },
+    "psc_ge7_complete_items_other": {
+      "est": 3.6148073861,
+      "lo": 1.4484525482,
+      "hi": 8.7340860407,
+      "n": 826
+    }
+  },
+  "primary": {
+    "n": 12977,
+    "terms": {
+      "gap": {
+        "est": 9.7741392163,
+        "lo": 5.5193635199,
+        "hi": 14.0289149127
+      },
+      "explained": {
+        "est": 8.1934823034,
+        "lo": 3.6420884138,
+        "hi": 12.744876193
+      },
+      "unexplained": {
+        "est": 1.5806569129,
+        "lo": -2.9481354594,
+        "hi": 6.1094492853
+      },
+      "block:demographics": {
+        "est": 1.7259658414,
+        "lo": -1.4677982236,
+        "hi": 4.9197299065
+      },
+      "block:concentration_fidget": {
+        "est": 3.3770369639,
+        "lo": 1.8851909303,
+        "hi": 4.8688829974
+      },
+      "block:other_attention": {
+        "est": 2.171939712,
+        "lo": 0.29807588086,
+        "hi": 4.0458035431
+      },
+      "block:persistence_homework_calm": {
+        "est": 0.26293526354,
+        "lo": -0.49351852927,
+        "hi": 1.0193890563
+      },
+      "block:access": {
+        "est": 0.65560452257,
+        "lo": -0.25557715959,
+        "hi": 1.5667862047
+      }
+    },
+    "outside01_english": [2557, 2567, 2557, 2539, 2539, 2562],
+    "outside01_other": [262, 263, 263, 265, 260, 265]
+  },
+  "bootstrap": {
+    "gap": {
+      "est": 9.7741392163,
+      "lo": 5.7462404034,
+      "hi": 13.8020380293,
+      "se": 2.0550504148
+    },
+    "explained": {
+      "est": 8.1934823034,
+      "lo": 3.7568211191,
+      "hi": 12.6301434876,
+      "se": 2.263602645
+    },
+    "unexplained": {
+      "est": 1.5806569129,
+      "lo": -2.8146213521,
+      "hi": 5.975935178,
+      "se": 2.2424889107
+    },
+    "block:demographics": {
+      "est": 1.7259658414,
+      "lo": -1.2220435641,
+      "hi": 4.6739752469,
+      "se": 1.5040864314
+    },
+    "block:concentration_fidget": {
+      "est": 3.3770369639,
+      "lo": 1.7698941331,
+      "hi": 4.9841797946,
+      "se": 0.81997083201
+    },
+    "block:other_attention": {
+      "est": 2.171939712,
+      "lo": 0.35937022156,
+      "hi": 3.9845092024,
+      "se": 0.92478035227
+    },
+    "block:persistence_homework_calm": {
+      "est": 0.26293526354,
+      "lo": -0.53992674731,
+      "hi": 1.0657972744,
+      "se": 0.40962347492
+    },
+    "block:access": {
+      "est": 0.65560452257,
+      "lo": -0.24529991021,
+      "hi": 1.5565089553,
+      "se": 0.45964511876
+    }
+  },
+  "reference_variants": {
+    "english_reference": {
+      "gap": 9.7741392163,
+      "explained": 8.1934823034,
+      "unexplained": 1.5806569129
+    },
+    "other_reference": {
+      "gap": 9.7741392163,
+      "explained": 7.2460131347,
+      "unexplained": 2.5281260816
+    },
+    "pooled_reference": {
+      "gap": 9.7741392163,
+      "explained": 8.6627417702,
+      "unexplained": 1.1113974461
+    },
+    "threefold": {
+      "gap": 9.7741392163,
+      "endowments": 7.2460131347,
+      "coefficients": 1.5806569129,
+      "interaction": 0.94746916872
+    }
+  },
+  "logit_vs_lpm": {
+    "gap": 9.9353704603,
+    "naive_explained": 3.8485179354,
+    "naive_unexplained": 3.2028935627,
+    "naive_residual": 2.8839589623,
+    "fairlie_explained": 7.0735483786,
+    "fairlie_unexplained": 2.8618220818,
+    "fairlie_residual": 4.5796699766e-14,
+    "lpm_explained": 7.7686034952,
+    "lpm_unexplained": 2.1667669651,
+    "lpm_residual": 0,
+    "n": 13341
+  },
+  "sensitivity": {
+    "no_preventive_available": {
+      "n": 13016,
+      "gap": {
+        "est": 9.7866716737,
+        "lo": 5.5423869558,
+        "hi": 14.0309563916
+      },
+      "explained": {
+        "est": 8.0380036324,
+        "lo": 3.50136241,
+        "hi": 12.5746448549
+      },
+      "unexplained": {
+        "est": 1.7486680413,
+        "lo": -2.7755582808,
+        "hi": 6.2728943633
+      }
+    },
+    "no_preventive_samecase": {
+      "n": 12977,
+      "gap": {
+        "est": 9.7741392163,
+        "lo": 5.5193635309,
+        "hi": 14.0289149017
+      },
+      "explained": {
+        "est": 8.1727317266,
+        "lo": 3.6315000321,
+        "hi": 12.7139634211
+      },
+      "unexplained": {
+        "est": 1.6014074897,
+        "lo": -2.9315074939,
+        "hi": 6.1343224732
+      }
+    },
+    "total_score_6to17": {
+      "n": 13210,
+      "gap": {
+        "est": 10.2030253236,
+        "lo": 6.1295025853,
+        "hi": 14.2765480618
+      },
+      "explained": {
+        "est": 9.6274969411,
+        "lo": 5.2977061485,
+        "hi": 13.9572877336
+      },
+      "unexplained": {
+        "est": 0.57552838251,
+        "lo": -3.7002167294,
+        "hi": 4.8512734944
+      }
+    },
+    "total_score_allages": {
+      "n": 20276,
+      "gap": {
+        "est": 10.6830912649,
+        "lo": 7.5171861948,
+        "hi": 13.848996335
+      },
+      "explained": {
+        "est": 7.7015256189,
+        "lo": 4.022905567,
+        "hi": 11.3801456709
+      },
+      "unexplained": {
+        "est": 2.981565646,
+        "lo": -0.86477829035,
+        "hi": 6.8279095823
+      }
+    },
+    "earlier_caregiver_mh_rule": {
+      "n": 13103,
+      "gap": {
+        "est": 9.6652468095,
+        "lo": 5.4939335961,
+        "hi": 13.836560023
+      },
+      "explained": {
+        "est": 8.8895561649,
+        "lo": 4.3795917451,
+        "hi": 13.3995205848
+      },
+      "unexplained": {
+        "est": 0.7756906446,
+        "lo": -3.7095767055,
+        "hi": 5.2609579947
+      },
+      "block:demographics": {
+        "est": 2.4086737801,
+        "lo": -0.79179490898,
+        "hi": 5.6091424692
+      },
+      "block:concentration_fidget": {
+        "est": 3.3653819163,
+        "lo": 1.8934144276,
+        "hi": 4.837349405
+      },
+      "block:other_attention": {
+        "est": 2.190514529,
+        "lo": 0.36148927423,
+        "hi": 4.0195397838
+      },
+      "block:persistence_homework_calm": {
+        "est": 0.28154523894,
+        "lo": -0.47334156964,
+        "hi": 1.0364320475
+      },
+      "block:access": {
+        "est": 0.64344070059,
+        "lo": -0.27076572004,
+        "hi": 1.5576471212
+      }
+    },
+    "earlier_caregiver_mh_rule_no_preventive": {
+      "n": 13143,
+      "gap": {
+        "est": 9.6616446209,
+        "lo": 5.5008290176,
+        "hi": 13.8224602243
+      },
+      "explained": {
+        "est": 8.8459732275,
+        "lo": 4.3559395248,
+        "hi": 13.3360069302
+      },
+      "unexplained": {
+        "est": 0.81567139344,
+        "lo": -3.6555550058,
+        "hi": 5.2868977926
+      }
+    }
+  },
+  "brief_method_points": {
+    "primary": {
+      "n": 13103,
+      "gap": 9.6652468095,
+      "explained": 8.9058922303,
+      "unexplained": 0.75935457926,
+      "explained:Intercept": -0,
+      "explained:AGE": 0.13371918766,
+      "explained:FPL": 0.58564181776,
+      "explained:CAREGIVER_POOR_MH": 0.0074057782637,
+      "explained:PSCCONCENTRATE_W2_C": 1.9516916033,
+      "explained:PSCFIDGET_W2_C": 1.4135780519,
+      "explained:PSCMOTOR_W2_C": 0.60976632006,
+      "explained:PSCDAYDREAMS_W2_C": 0.0048536544456,
+      "explained:PSCDISTEASY_W2_C": 1.5754961588,
+      "explained:LOW_PERSIST_W2": 0.093994316929,
+      "explained:K7Q83_R_W2_C": 0.10845139635,
+      "explained:K7Q85_R_W2_C": 0.079174745647,
+      "explained:INSURED_W2": 0.27777672385,
+      "explained:USUAL_SOURCE_W2": 0.13383674868,
+      "explained:PREVENTIVE_W2": 0.22887608775,
+      "explained:SEX=2": 0.00083868829782,
+      "explained:RACE=2": 0.021649834556,
+      "explained:RACE=3": -0.0037738091108,
+      "explained:RACE=4": 0.62104616064,
+      "explained:RACE=5": 0.017632849592,
+      "explained:RACE=7": -0.16116346088,
+      "explained:HISPANIC=2": 1.2645663909,
+      "explained:EDUCATION=2": -0.23349413297,
+      "explained:EDUCATION=3": 0.17432711797,
+      "block:demographics": 2.4283964227,
+      "block:concentration_fidget": 3.3652696551,
+      "block:other_attention": 2.1901161333,
+      "block:persistence_homework_calm": 0.28162045893,
+      "block:access": 0.64048956028
+    },
+    "no_preventive": {
+      "n": 13143,
+      "gap": 9.6616446209,
+      "explained": 8.8636547579,
+      "unexplained": 0.79798986307,
+      "explained:Intercept": -0,
+      "explained:AGE": 0.12267273276,
+      "explained:FPL": 0.61842206876,
+      "explained:CAREGIVER_POOR_MH": 0.01066340777,
+      "explained:PSCCONCENTRATE_W2_C": 1.9694282641,
+      "explained:PSCFIDGET_W2_C": 1.4316947451,
+      "explained:PSCMOTOR_W2_C": 0.61719337557,
+      "explained:PSCDAYDREAMS_W2_C": -0.0085663328705,
+      "explained:PSCDISTEASY_W2_C": 1.5813406393,
+      "explained:LOW_PERSIST_W2": 0.096946490374,
+      "explained:K7Q83_R_W2_C": 0.10694140707,
+      "explained:K7Q85_R_W2_C": 0.077089703455,
+      "explained:INSURED_W2": 0.2983993696,
+      "explained:USUAL_SOURCE_W2": 0.13441097192,
+      "explained:SEX=2": 0.0035737953287,
+      "explained:RACE=2": 0.023396575121,
+      "explained:RACE=3": -0.003690427018,
+      "explained:RACE=4": 0.64140981919,
+      "explained:RACE=5": 0.016031831885,
+      "explained:RACE=7": -0.15721022681,
+      "explained:HISPANIC=2": 1.4246450832,
+      "explained:EDUCATION=2": -0.16374358484,
+      "explained:EDUCATION=3": 0.022605048921,
+      "block:demographics": 2.5587761243,
+      "block:concentration_fidget": 3.4011230092,
+      "block:other_attention": 2.189967682,
+      "block:persistence_homework_calm": 0.2809776009,
+      "block:access": 0.43281034151
+    }
+  },
+  "falsification": {
+    "skip_counts_primary": {
+      "structural_zero_S4Q01_no": 1249,
+      "arbitrary_missing_K4Q20R_with_visit": 37,
+      "S4Q01_missing": 13,
+      "S4Q01_missing_without_K4Q20R": 12,
+      "preventive_missing_total": 49
+    },
+    "preventive_english": {
+      "correct": 85.9948474254,
+      "dropped_skips": 97.1715249212
+    },
+    "insured_english": {
+      "currins": 96.907380411,
+      "currcov": 97.3553733363
+    },
+    "preventive_other": {
+      "correct": 72.7641806441,
+      "dropped_skips": 98.8514632325
+    },
+    "insured_other": {
+      "currins": 87.3754147873,
+      "currcov": 87.554574776
+    },
+    "currins_currcov_disagree_all": 93,
+    "currins_currcov_disagree_primary": 65,
+    "decomp_dropped_skips": {
+      "n": 11817,
+      "gap": 8.8415367977,
+      "explained": 5.9210120338,
+      "access": 0.3200521141
+    },
+    "decomp_currcov": {
+      "n": 12977,
+      "explained": 8.1937206304,
+      "access": 0.66130900211
+    },
+    "subset_vs_domain": {
+      "domain": {
+        "est": 5.966614973,
+        "se": 1.8175724294
+      },
+      "remove": {
+        "est": 5.966614973,
+        "se": 1.8127473831,
+        "singletons": 14,
+        "df": 765
+      },
+      "adjust": {
+        "est": 5.966614973,
+        "se": 1.8135242842,
+        "singletons": 14,
+        "df": 765
+      }
+    },
+    "model_n": {
+      "model_n": 12977,
+      "design_matrix_n": 13021,
+      "missing_outcome": 44
+    }
+  },
+  "self_check": [
+    {
+      "figure": "primary n",
+      "computed": 12977,
+      "reference": 12977,
+      "tolerance": 0,
+      "result": "PASS"
+    },
+    {
+      "figure": "gap (point)",
+      "computed": 9.7741,
+      "reference": 9.7741392163,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "gap (95% CI low, Taylor)",
+      "computed": 5.5194,
+      "reference": 5.5193635199,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "gap (95% CI high, Taylor)",
+      "computed": 14.0289,
+      "reference": 14.0289149127,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "explained (point)",
+      "computed": 8.1935,
+      "reference": 8.1934823034,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "explained (95% CI low, Taylor)",
+      "computed": 3.6421,
+      "reference": 3.6420884138,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "explained (95% CI high, Taylor)",
+      "computed": 12.7449,
+      "reference": 12.744876193,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "unexplained (point)",
+      "computed": 1.5807,
+      "reference": 1.5806569129,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "unexplained (95% CI low, Taylor)",
+      "computed": -2.9481,
+      "reference": -2.9481354594,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "unexplained (95% CI high, Taylor)",
+      "computed": 6.1094,
+      "reference": 6.1094492853,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:demographics (point)",
+      "computed": 1.726,
+      "reference": 1.7259658414,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:demographics (95% CI low, Taylor)",
+      "computed": -1.4678,
+      "reference": -1.4677982236,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:demographics (95% CI high, Taylor)",
+      "computed": 4.9197,
+      "reference": 4.9197299065,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:concentration_fidget (point)",
+      "computed": 3.377,
+      "reference": 3.3770369639,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:concentration_fidget (95% CI low, Taylor)",
+      "computed": 1.8852,
+      "reference": 1.8851909303,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:concentration_fidget (95% CI high, Taylor)",
+      "computed": 4.8689,
+      "reference": 4.8688829974,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:other_attention (point)",
+      "computed": 2.1719,
+      "reference": 2.171939712,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:other_attention (95% CI low, Taylor)",
+      "computed": 0.2981,
+      "reference": 0.29807588086,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:other_attention (95% CI high, Taylor)",
+      "computed": 4.0458,
+      "reference": 4.0458035431,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:persistence_homework_calm (point)",
+      "computed": 0.2629,
+      "reference": 0.26293526354,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:persistence_homework_calm (95% CI low, Taylor)",
+      "computed": -0.4935,
+      "reference": -0.49351852927,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:persistence_homework_calm (95% CI high, Taylor)",
+      "computed": 1.0194,
+      "reference": 1.0193890563,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:access (point)",
+      "computed": 0.6556,
+      "reference": 0.65560452257,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:access (95% CI low, Taylor)",
+      "computed": -0.2556,
+      "reference": -0.25557715959,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:access (95% CI high, Taylor)",
+      "computed": 1.5668,
+      "reference": 1.5667862047,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "no_preventive_samecase n",
+      "computed": 12977,
+      "reference": 12977,
+      "tolerance": 0,
+      "result": "PASS"
+    },
+    {
+      "figure": "no_preventive_samecase gap",
+      "computed": 9.7741,
+      "reference": 9.7741392163,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "no_preventive_samecase explained",
+      "computed": 8.1727,
+      "reference": 8.1727317266,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "no_preventive_samecase unexplained",
+      "computed": 1.6014,
+      "reference": 1.6014074897,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "no_preventive_available n",
+      "computed": 13016,
+      "reference": 13016,
+      "tolerance": 0,
+      "result": "PASS"
+    },
+    {
+      "figure": "no_preventive_available gap",
+      "computed": 9.7867,
+      "reference": 9.7866716737,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "no_preventive_available explained",
+      "computed": 8.038,
+      "reference": 8.0380036324,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "no_preventive_available unexplained",
+      "computed": 1.7487,
+      "reference": 1.7486680413,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "total_score_6to17 n",
+      "computed": 13210,
+      "reference": 13210,
+      "tolerance": 0,
+      "result": "PASS"
+    },
+    {
+      "figure": "total_score_6to17 gap",
+      "computed": 10.203,
+      "reference": 10.2030253236,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "total_score_6to17 explained",
+      "computed": 9.6275,
+      "reference": 9.6274969411,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "total_score_6to17 unexplained",
+      "computed": 0.5755,
+      "reference": 0.57552838251,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "total_score_allages n",
+      "computed": 20276,
+      "reference": 20276,
+      "tolerance": 0,
+      "result": "PASS"
+    },
+    {
+      "figure": "total_score_allages gap",
+      "computed": 10.6831,
+      "reference": 10.6830912649,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "total_score_allages explained",
+      "computed": 7.7015,
+      "reference": 7.7015256189,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "total_score_allages unexplained",
+      "computed": 2.9816,
+      "reference": 2.981565646,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "adhd_english",
+      "computed": 16.288,
+      "reference": 16.2880487026,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "adhd_english CI low",
+      "computed": 14.8171,
+      "reference": 14.8170733371,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "adhd_english CI high",
+      "computed": 17.8744,
+      "reference": 17.8744134399,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "adhd_other",
+      "computed": 5.9666,
+      "reference": 5.966614973,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "adhd_other CI low",
+      "computed": 3.2533,
+      "reference": 3.2532530554,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "adhd_other CI high",
+      "computed": 10.6929,
+      "reference": 10.6929196433,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "psc_ge7_english",
+      "computed": 8.5253,
+      "reference": 8.5252869241,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "psc_ge7_english CI low",
+      "computed": 7.4043,
+      "reference": 7.4043016355,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "psc_ge7_english CI high",
+      "computed": 9.798,
+      "reference": 9.7980272212,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "psc_ge7_other",
+      "computed": 3.5842,
+      "reference": 3.584154191,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "psc_ge7_other CI low",
+      "computed": 1.4672,
+      "reference": 1.4671564474,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "psc_ge7_other CI high",
+      "computed": 8.4925,
+      "reference": 8.4925405031,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "usual_english",
+      "computed": 83.7344,
+      "reference": 83.7344358768,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "usual_english CI low",
+      "computed": 82.1065,
+      "reference": 82.1064912424,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "usual_english CI high",
+      "computed": 85.2409,
+      "reference": 85.240894297,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "usual_other",
+      "computed": 61.8396,
+      "reference": 61.8396068038,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "usual_other CI low",
+      "computed": 54.6805,
+      "reference": 54.6805293291,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "usual_other CI high",
+      "computed": 68.5189,
+      "reference": 68.5188698282,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "insured_english",
+      "computed": 96.9074,
+      "reference": 96.907380411,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "insured_english CI low",
+      "computed": 95.9581,
+      "reference": 95.9581424429,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "insured_english CI high",
+      "computed": 97.6392,
+      "reference": 97.6391727127,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "insured_other",
+      "computed": 87.3754,
+      "reference": 87.3754147873,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "insured_other CI low",
+      "computed": 81.0823,
+      "reference": 81.0822990427,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "insured_other CI high",
+      "computed": 91.7871,
+      "reference": 91.7871252163,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "preventive_english",
+      "computed": 85.9948,
+      "reference": 85.9948474254,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "preventive_english CI low",
+      "computed": 84.1989,
+      "reference": 84.19887152,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "preventive_english CI high",
+      "computed": 87.6167,
+      "reference": 87.6167126818,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "preventive_other",
+      "computed": 72.7642,
+      "reference": 72.7641806441,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "preventive_other CI low",
+      "computed": 66.0674,
+      "reference": 66.0673681856,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "preventive_other CI high",
+      "computed": 78.5681,
+      "reference": 78.5680751099,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_english",
+      "computed": 10.3173,
+      "reference": 10.31727102,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_english CI low",
+      "computed": 9.0161,
+      "reference": 9.0160547544,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_english CI high",
+      "computed": 11.782,
+      "reference": 11.7819631762,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_spanish",
+      "computed": 2.9862,
+      "reference": 2.986182898,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_spanish CI low",
+      "computed": 1.4774,
+      "reference": 1.4774461063,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_spanish CI high",
+      "computed": 5.9427,
+      "reference": 5.9426785943,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_other_language",
+      "computed": 1.138,
+      "reference": 1.138042129,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_other_language CI low",
+      "computed": 0.5836,
+      "reference": 0.58361304309,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_other_language CI high",
+      "computed": 2.2075,
+      "reference": 2.2074805532,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_nonenglish",
+      "computed": 2.5224,
+      "reference": 2.5224236156,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_nonenglish CI low",
+      "computed": 1.3506,
+      "reference": 1.3505582276,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_nonenglish CI high",
+      "computed": 4.663,
+      "reference": 4.6630408178,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "psc_mean_english",
+      "computed": 2.4032,
+      "reference": 2.4031727557,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "psc_mean_other",
+      "computed": 1.4966,
+      "reference": 1.4965787744,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "survey pkg SE = adhd_english",
+      "computed": 0.7796,
+      "reference": 0.77960849044,
+      "tolerance": 1e-06,
+      "result": "PASS"
+    },
+    {
+      "figure": "survey pkg SE = adhd_other",
+      "computed": 1.8176,
+      "reference": 1.8175724294,
+      "tolerance": 1e-06,
+      "result": "PASS"
+    },
+    {
+      "figure": "survey pkg SE = psc_mean_english",
+      "computed": 0.0568,
+      "reference": 0.056751202734,
+      "tolerance": 1e-06,
+      "result": "PASS"
+    },
+    {
+      "figure": "survey pkg SE = psc_mean_other",
+      "computed": 0.1606,
+      "reference": 0.16058034828,
+      "tolerance": 1e-06,
+      "result": "PASS"
+    },
+    {
+      "figure": "survey pkg SE = psc_ge7_english",
+      "computed": 0.6094,
+      "reference": 0.60935552519,
+      "tolerance": 1e-06,
+      "result": "PASS"
+    },
+    {
+      "figure": "survey pkg SE = psc_ge7_other",
+      "computed": 1.613,
+      "reference": 1.6130352123,
+      "tolerance": 1e-06,
+      "result": "PASS"
+    },
+    {
+      "figure": "survey pkg SE = usual_english",
+      "computed": 0.7992,
+      "reference": 0.79924147861,
+      "tolerance": 1e-06,
+      "result": "PASS"
+    },
+    {
+      "figure": "survey pkg SE = usual_other",
+      "computed": 3.5513,
+      "reference": 3.5513408528,
+      "tolerance": 1e-06,
+      "result": "PASS"
+    },
+    {
+      "figure": "survey pkg SE = insured_english",
+      "computed": 0.4243,
+      "reference": 0.42434601726,
+      "tolerance": 1e-06,
+      "result": "PASS"
+    },
+    {
+      "figure": "survey pkg SE = insured_other",
+      "computed": 2.6968,
+      "reference": 2.6968196635,
+      "tolerance": 1e-06,
+      "result": "PASS"
+    },
+    {
+      "figure": "survey pkg SE = preventive_english",
+      "computed": 0.8711,
+      "reference": 0.87105886676,
+      "tolerance": 1e-06,
+      "result": "PASS"
+    },
+    {
+      "figure": "survey pkg SE = preventive_other",
+      "computed": 3.199,
+      "reference": 3.1989879824,
+      "tolerance": 1e-06,
+      "result": "PASS"
+    },
+    {
+      "figure": "bootstrap gap CI low vs Taylor (MC tol)",
+      "computed": 5.7462,
+      "reference": 5.5193635199,
+      "tolerance": 0.5,
+      "result": "PASS"
+    },
+    {
+      "figure": "bootstrap gap CI high vs Taylor (MC tol)",
+      "computed": 13.802,
+      "reference": 14.0289149127,
+      "tolerance": 0.5,
+      "result": "PASS"
+    },
+    {
+      "figure": "bootstrap explained CI low vs Taylor (MC tol)",
+      "computed": 3.7568,
+      "reference": 3.6420884138,
+      "tolerance": 0.5,
+      "result": "PASS"
+    },
+    {
+      "figure": "bootstrap explained CI high vs Taylor (MC tol)",
+      "computed": 12.6301,
+      "reference": 12.744876193,
+      "tolerance": 0.5,
+      "result": "PASS"
+    },
+    {
+      "figure": "bootstrap unexplained CI low vs Taylor (MC tol)",
+      "computed": -2.8146,
+      "reference": -2.9481354594,
+      "tolerance": 0.5,
+      "result": "PASS"
+    },
+    {
+      "figure": "bootstrap unexplained CI high vs Taylor (MC tol)",
+      "computed": 5.9759,
+      "reference": 6.1094492853,
+      "tolerance": 0.5,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief n, earlier caregiver-MH rule",
+      "computed": 13103,
+      "reference": 13103,
+      "tolerance": 0,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief gap (point), earlier rule",
+      "computed": 9.6652,
+      "reference": 9.67,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief explained (point), earlier rule",
+      "computed": 8.8896,
+      "reference": 8.91,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief unexplained (point), earlier rule",
+      "computed": 0.7757,
+      "reference": 0.76,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:demographics (point), earlier rule",
+      "computed": 2.4087,
+      "reference": 2.43,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:concentration_fidget (point), earlier rule",
+      "computed": 3.3654,
+      "reference": 3.37,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:other_attention (point), earlier rule",
+      "computed": 2.1905,
+      "reference": 2.19,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:persistence_homework_calm (point), earlier rule",
+      "computed": 0.2815,
+      "reference": 0.28,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:access (point), earlier rule",
+      "computed": 0.6434,
+      "reference": 0.64,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief no-preventive n, earlier rule",
+      "computed": 13143,
+      "reference": 13143,
+      "tolerance": 0,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief no-preventive gap (point), earlier rule",
+      "computed": 9.6616,
+      "reference": 9.66,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief no-preventive explained (point), earlier rule",
+      "computed": 8.846,
+      "reference": 8.86,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief n, brief method",
+      "computed": 13103,
+      "reference": 13103,
+      "tolerance": 0,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief gap (point), brief method",
+      "computed": 9.6652,
+      "reference": 9.67,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief explained (point), brief method",
+      "computed": 8.9059,
+      "reference": 8.91,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief unexplained (point), brief method",
+      "computed": 0.7594,
+      "reference": 0.76,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:demographics (point), brief method",
+      "computed": 2.4284,
+      "reference": 2.43,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:concentration_fidget (point), brief method",
+      "computed": 3.3653,
+      "reference": 3.37,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:other_attention (point), brief method",
+      "computed": 2.1901,
+      "reference": 2.19,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:persistence_homework_calm (point), brief method",
+      "computed": 0.2816,
+      "reference": 0.28,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:access (point), brief method",
+      "computed": 0.6405,
+      "reference": 0.64,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief no-preventive n, brief method",
+      "computed": 13143,
+      "reference": 13143,
+      "tolerance": 0,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief no-preventive gap (point), brief method",
+      "computed": 9.6616,
+      "reference": 9.66,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief no-preventive explained (point), brief method",
+      "computed": 8.8637,
+      "reference": 8.86,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief PSC mean other (complete-item scoring)",
+      "computed": 1.5351,
+      "reference": 1.54,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief S4Q01-missing count that stays missing",
+      "computed": 12,
+      "reference": 12,
+      "tolerance": 0,
+      "result": "PASS"
+    },
+    {
+      "figure": "identity: gap - explained - unexplained",
+      "computed": -0,
+      "reference": 0,
+      "tolerance": 1e-09,
+      "result": "PASS"
+    },
+    {
+      "figure": "identity: sum of blocks - explained",
+      "computed": 0,
+      "reference": 0,
+      "tolerance": 1e-09,
+      "result": "PASS"
+    }
+  ]
+}

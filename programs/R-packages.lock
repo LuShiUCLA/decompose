@@ -1,0 +1,5 @@
+# Exact versions used for the logged reference runs (R 4.3.3, 2024-02-29, Linux).
+# Install, e.g.: install.packages("remotes"); remotes::install_version("survey", "4.2.1")
+survey    4.2.1   # cross-check of hand-coded Taylor standard errors (Lumley, 2004)
+haven     2.5.4   # reads the Census Stata file
+jsonlite  1.8.8   # writes the JSON the lab reads

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3 Survey reality</title>
+<meta name="description" content="Interactive lab: Oaxaca-Blinder decomposition on survey data, taught with the NSCH-LC household-language ADHD study.">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="m3">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="inner">
+<a class="brand" href="../index.html">Decomposition Lab</a>
+<nav class="mods" aria-label="Lab sections"><a href="../index.html" data-page="home">Start</a><a href="../modules/1-question.html" data-page="m1">1 Question</a><a href="../modules/2-machine.html" data-page="m2">2 Machine</a><a href="../modules/3-survey.html" data-page="m3">3 Survey</a><a href="../modules/4-traps.html" data-page="m4">4 Traps</a><a href="../modules/5-defence.html" data-page="m5">5 Defence</a><a href="../exercises.html" data-page="ex">Exercises</a><a href="../why-this-lab-works.html" data-page="why">Why it works</a><a href="../source.html" data-page="src">Sources</a></nav>
+</div></header>
+<main id="main">
+<h1>Module 3. The survey reality</h1>
+<p class="lede">The NSCH-LC is not a simple random sample. Weights, strata and primary sampling units (PSUs) are load-bearing: they decide what the estimates mean and how uncertain they are.</p>
+
+<section class="screen">
+<h2>The design, from the Census documentation</h2>
+<p>The <a href="https://www2.census.gov/programs-surveys/nsch-lc/technical-documentation/source-and-accuracy/2024/NSCH-LC-Source-and-Accuracy-Statement.pdf">Source and Accuracy Statement</a> (pp. 6&ndash;7) specifies Taylor-series variance estimation with:</p>
+<ul>
+<li><b>Weight</b> <code>FWC</code>, the final child/young-adult longitudinal weight;</li>
+<li><b>Strata</b> original state <code>FIPSSTO</code> &times; <code>STRATUM</code>, with stratum &ldquo;2A&rdquo; recoded to &ldquo;2&rdquo; (the lab calls the combination <code>STRATACROSS</code>): <span data-num="core.design.strata" data-dp="0"></span> strata;</li>
+<li><b>PSU</b> the household, <code>HHID</code>: <span data-num="core.design.psus" data-dp="0"></span> PSUs, one sampled child each.</li>
+</ul>
+<p>Design degrees of freedom = PSUs &minus; strata = <span data-num="core.design.df" data-dp="0"></span>.</p>
+</section>
+
+<section class="screen">
+<h2>Weights: do it wrong, see what breaks</h2>
+<p>Unweighted, the sample shares reporting an ADHD diagnosis (ages 6&ndash;17) are <b><span data-num="desc.adhd_unweighted_english.est"></span>%</b> (English) and <b><span data-num="desc.adhd_unweighted_other.est"></span>%</b> (other-language). Weighted: <b><span data-num="desc.adhd_english.est"></span>%</b> and <b><span data-num="desc.adhd_other.est"></span>%</b>.</p>
+<p>Here the weights move the rates by well under a percentage point. That is a finding about this file, not a licence: unweighted shares describe the respondents, weighted estimates describe the population the longitudinal weight targets: the 2018/2019 NSCH child cohort followed up in 2024, with a nonresponse adjustment and raking to the average of 2018 and 2019 American Community Survey child population estimates (Source and Accuracy Statement, &ldquo;Final Weights Produced&rdquo; and &ldquo;Population Controls&rdquo;). It is not a cross-section of all children in 2024.</p>
+</section>
+
+<section class="screen">
+<h2>Taylor linearisation in one paragraph</h2>
+<p>Every estimate here (a mean, a regression coefficient, a decomposition term) can be written as a weighted sum of per-child <em>influence values</em>. Sum those within each PSU, compare the PSU totals within each stratum, and add up the squared deviations, multiplied by n<sub>h</sub>/(n<sub>h</sub>&minus;1). That is the with-replacement Taylor variance the Census documentation describes. For the decomposition, the influence of each child includes both its effect on the group means and its effect on the English coefficients (product rule), which is why the programs carry both.</p>
+<p>Check yourself: the R program computes the descriptive SEs both by hand and with the <code>survey</code> package (Lumley, 2004); they agree to at least six decimals.</p>
+</section>
+
+<section class="screen">
+<h2>Domain estimation versus pre-subsetting</h2>
+<p>To estimate something for other-language children, keep the <em>whole</em> design and let children outside the domain contribute zeros. Pre-subsetting the file first discards PSUs from the variance calculation and can leave strata with a single PSU.</p>
+</section>
+
+<section class="screen"><h2>Falsification sandbox, survey cases</h2><div data-cases="subset,modeln"></div>
+<p class="why">Why diagnose instead of being told: generating an answer, even a wrong one, before feedback is a desirable difficulty when feedback follows (Bjork &amp; Bjork, 2020; Kornell, Hays &amp; Bjork, 2009).</p></section>
+
+<section class="screen"><div data-quiz="m3-a"></div></section>
+
+<section class="screen">
+<h2>Singleton strata: two conventions</h2>
+<p>In the pre-subset file, <span data-num="fals.subset_vs_domain.remove.singletons" data-dp="0"></span> strata have one PSU, which has no within-stratum deviation. Two common conventions:</p>
+<ul>
+<li><b>Remove</b> (a singleton contributes zero; R <code>survey</code>: <code>options(survey.lonely.psu = "remove")</code>): SE <b data-num="fals.subset_vs_domain.remove.se" data-dp="3"></b> pp.</li>
+<li><b>Adjust</b> (centre the singleton at the grand mean, so it adds variance; <code>"adjust"</code>): SE <b data-num="fals.subset_vs_domain.adjust.se" data-dp="3"></b> pp.</li>
+</ul>
+<p>Domain estimation on the full design needs neither convention: SE <b data-num="fals.subset_vs_domain.domain.se" data-dp="3"></b> pp. The full NSCH-LC frame has no singleton strata; the lab's programs stop with an error if they ever find one.</p>
+</section>
+
+<section class="screen">
+<h2>Model n versus design-matrix n</h2>
+<p>The decomposition uses <b data-num="primary.n" data-dp="0"></b> children. <span data-num="fals.model_n.design_matrix_n" data-dp="0"></span> have every covariate, but <span data-num="fals.model_n.missing_outcome" data-dp="0"></span> of them have no ADHD answer. Report the model n; never &ldquo;correct&rdquo; it to the design-matrix n.</p>
+</section>
+
+<section class="screen">
+<h2>The PSU bootstrap: a second opinion on the variance</h2>
+<p>Resample households within each stratum (n<sub>h</sub>&minus;1 draws with replacement, weights rescaled; Rao &amp; Wu, 1988), refit, repeat 200 times (seed 20261117), and combine with the between-implicate variance (Rubin's rules). In this file each household contributed one child, so resampling households is the same as resampling children; what the bootstrap must respect here is the stratification. In a file with several children per household, resampling children one by one would ignore the clustering.</p>
+<div class="tablewrap"><table><thead><tr><th>Component</th><th class="n">Taylor 95% CI</th><th class="n">Bootstrap 95% CI</th></tr></thead><tbody>
+<tr><td>Gap</td><td class="n" data-ci="primary.terms.gap"></td><td class="n" data-ci="boot.gap"></td></tr>
+<tr><td>Explained</td><td class="n" data-ci="primary.terms.explained"></td><td class="n" data-ci="boot.explained"></td></tr>
+<tr><td>Unexplained</td><td class="n" data-ci="primary.terms.unexplained"></td><td class="n" data-ci="boot.unexplained"></td></tr>
+</tbody></table></div>
+<p class="note">Point estimates are identical by construction. Interval limits differ by Monte Carlo error (200 replicates) and by method; the R program uses R's random-number generator and so gives slightly different bootstrap limits. The seed fixes the replicates, not the estimate.</p>
+<p class="causal"><strong>Compositional, not causal.</strong> A narrower interval is more precise, not more causal.</p>
+</section>
+
+<section class="screen"><div data-quiz="m3-b"></div></section>
+
+<section class="screen">
+<h2>Six versions of family income</h2>
+<p>Income relative to the federal poverty level is multiply imputed by the Census Bureau (<code>FPL_I1</code>&ndash;<code>FPL_I6</code>). The programs run the whole decomposition six times, average the estimates, and add the between-implicate variance with Rubin's rules, as the Census <a href="https://www2.census.gov/programs-surveys/nsch-lc/technical-documentation/2024/NSCH-Analysis-with-Imputed-Data-Guide.pdf">guide to multiply imputed data</a> describes. For the t critical value the programs use the Barnard&ndash;Rubin small-sample degrees of freedom (as the project pipeline did); with thousands of design df the critical value is essentially 1.96.</p>
+</section>
+
+<section class="screen"><div data-quiz="m3-c"></div></section>
+
+<nav class="nextprev" aria-label="Previous and next"><a href="../modules/2-machine.html">&larr; Module 2</a><a href="../modules/4-traps.html">Module 4: The two traps &rarr;</a></nav>
+</main>
+<footer><div class="inner">
+<p>Numbers on this page are generated by the lab's programs from the NSCH-LC 2024 public-use file (see <a href="../source.html">Sources</a>). Your answers are stored only in this browser; nothing is sent anywhere. <button type="button" class="secondary" id="reset-progress">Clear my progress</button></p>
+<p>Content CC BY 4.0, code MIT. Not affiliated with or endorsed by the U.S. Census Bureau.</p>
+</div></footer>
+<script src="../assets/lab-data.js"></script>
+<script src="../assets/quizzes.js"></script>
+<script src="../assets/interactions.js"></script>
+<script src="../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+# Run on 22 November 2026 (200 bootstrap replicates, the program's default):
+#   python3 -I data-notes/logged_reference/pipeline/original/nsch-lc-adhd-language-gap-replication-2026-11-17.py --data-dir <folder with nschlc_2024_puf.dta and NSCH-LC-Variable-List.xlsx> --out-dir <scratch> --skip-download --sections E,F
+# Run time about 2 minutes. Scratch paths below are replaced by <scratch>.
+  verifying the public-use file ...
+    rows: 43,536 (expected 43,536); waves: [1, 2]; distinct HHID: 21,768 (expected 21,768)
+    OK — this is the NSCH-LC 2024 public-use file.
+
+Loading the public-use file ...
+Loaded 43,536 long-file rows, 21,768 distinct HHIDs (WAVE values: [np.int64(1), np.int64(2)])
+Constructing wave-level variables ...
+Building the analytic (wide) file ...
+  PSC 90th-percentile cutoff (Wave 2 score): 6.0
+Analytic (wide) file: 21,768 children (inner join on HHID, Wave 1 + Wave 2)
+Extracting item-level variables ...
+  item-level wide file: 21,768 rows
+Analytic + items file: 21,768 children
+
+========================================================================
+SECTION E — Tier 2 Oaxaca-Blinder (all ages)
+========================================================================
+Complete-case n = 21,204 (of 21,768)
+  bootstrap replicates kept: 200/200
+  gap 10.90pp; explained 5.02pp; unexplained 5.88pp; check sum 10.90
+                               component  estimate_pp  boot_se_pp  ci_low_pp  ci_high_pp  n_boot
+                                  gap_pp    10.896732    1.474205   8.007289   13.786174     200
+                            explained_pp     5.015404    1.684685   1.713422    8.317386     200
+                          unexplained_pp     5.881328    1.746922   2.457361    9.305294     200
+                  explained_Intercept_pp    -0.000000    0.000000  -0.000000    0.000000     200
+                unexplained_Intercept_pp   -10.183291    5.538752 -21.039245    0.672663     200
+                  explained_SC_AGE_W2_pp     0.207759    0.421033  -0.617465    1.032983     200
+                unexplained_SC_AGE_W2_pp    11.199626    2.890459   5.534326   16.864925     200
+                   explained_SC_SEX=2_pp     0.001060    0.155807  -0.304321    0.306442     200
+                 unexplained_SC_SEX=2_pp     0.640320    1.296220  -1.900272    3.180912     200
+               explained_HIGRADE_W1=2_pp     0.055918    0.394386  -0.717078    0.828915     200
+             unexplained_HIGRADE_W1=2_pp    -0.836680    1.412832  -3.605831    1.932471     200
+               explained_HIGRADE_W1=3_pp    -0.610522    1.502445  -3.555313    2.334270     200
+             unexplained_HIGRADE_W1=3_pp    -3.363733    2.028680  -7.339946    0.612480     200
+                explained_FPL_MEAN_W1_pp     0.006700    0.383172  -0.744317    0.757716     200
+              unexplained_FPL_MEAN_W1_pp     3.588815    2.200336  -0.723844    7.901474     200
+  explained_PARENT_POOR_MENTHEALTH_W1_pp     0.069313    0.089656  -0.106414    0.245039     200
+unexplained_PARENT_POOR_MENTHEALTH_W1_pp     0.345503    0.258145  -0.160461    0.851468     200
+          explained_PSC_ADHD_SCORE_W2_pp     5.285176    1.141845   3.047160    7.523191     200
+        unexplained_PSC_ADHD_SCORE_W2_pp     4.490768    1.958918   0.651289    8.330247     200
+             block        kind  estimate_pp  boot_se_pp  ci_low_pp  ci_high_pp  n_boot
+      demographics   explained    -0.269772    1.222854  -2.666565    2.127022     200
+      demographics unexplained    11.573851    5.093742   1.590117   21.557584     200
+symptoms_psc_total   explained     5.285176    1.141845   3.047160    7.523191     200
+symptoms_psc_total unexplained     4.490768    1.958918   0.651289    8.330247     200
+             TOTAL         gap    10.896732    1.474205   8.007289   13.786174     200
+             TOTAL   explained     5.015404    1.684685   1.713422    8.317386     200
+             TOTAL unexplained     5.881328    1.746922   2.457361    9.305294     200
+
+========================================================================
+SECTION F — Nathan synthesis decomposition
+========================================================================
+
+PRIMARY SAMPLE W2 ages 6-17: n=13,712
+  W2 ever-diagnosed English: 16.29% (n=12,763)
+    PSCATT mean English: 2.40 (n=12,635)
+  W2 ever-diagnosed NonEnglish: 5.97% (n=844)
+    PSCATT mean NonEnglish: 1.54 (n=826)
+  diagnosis | PSC>=5 English: 52.87% (n=2,584)
+  diagnosis | PSC>=5 NonEnglish: 37.56% (n=80)
+
+DISTRACTED / TEMPER (W1 ages 3-5) — threshold check
+  DISTRACTED_W1 <=3 Always/Most/Half:  Eng 32.86% (n=3,074)  NonEng 54.61% (n=203)
+  TEMPER_W1 <=3 Always/Most/Half:  Eng 29.88% (n=3,074)  NonEng 47.82% (n=203)
+
+=== primary_6to17: complete-case n=11,928 (input n=13,607) ===
+  bootstrap replicates kept: 200/200
+  gap 8.78pp; explained 7.00pp; unexplained 1.78pp; check sum 8.78
+             block        kind  estimate_pp  boot_se_pp  ci_low_pp  ci_high_pp  n_boot
+      demographics   explained     1.728684    1.984526  -2.160988    5.618355     200
+      demographics unexplained     3.291829    8.861535 -14.076780   20.660438     200
+   symptoms_global   explained     3.269629    0.926189   1.454297    5.084960     200
+   symptoms_global unexplained    -2.564171    2.528925  -7.520865    2.392523     200
+symptoms_other_psc   explained     1.620097    1.181572  -0.695784    3.935979     200
+symptoms_other_psc unexplained     6.184559    2.392553   1.495155   10.873964     200
+ symptoms_concrete   explained     0.044381    0.395794  -0.731375    0.820138     200
+ symptoms_concrete unexplained    -4.429123    7.193819 -18.529009    9.670763     200
+            access   explained     0.339600    0.563063  -0.764004    1.443203     200
+            access unexplained    24.568043   15.172703  -5.170455   54.306540     200
+             TOTAL         gap     8.781804    2.507499   3.867106   13.696502     200
+             TOTAL   explained     7.002391    2.849782   1.416819   12.587963     200
+             TOTAL unexplained     1.779413    2.621421  -3.358572    6.917399     200
+
+=== sensA_allages_psconly: complete-case n=18,042 (input n=21,481) ===
+  bootstrap replicates kept: 200/200
+  gap 9.64pp; explained 5.67pp; unexplained 3.97pp; check sum 9.64
+             block        kind  estimate_pp  boot_se_pp  ci_low_pp  ci_high_pp  n_boot
+      demographics   explained     1.588762    1.926625  -2.187423    5.364947     200
+      demographics unexplained    11.988340    5.959758   0.307214   23.669466     200
+   symptoms_global   explained     3.015925    0.900856   1.250247    4.781603     200
+   symptoms_global unexplained     0.916113    2.190808  -3.377872    5.210097     200
+symptoms_other_psc   explained     1.149605    0.925511  -0.664396    2.963607     200
+symptoms_other_psc unexplained     4.453745    2.303908  -0.061914    8.969404     200
+            access   explained    -0.086847    0.453701  -0.976100    0.802406     200
+            access unexplained    10.640015   11.387509 -11.679503   32.959533     200
+             TOTAL         gap     9.636290    2.096382   5.527382   13.745199     200
+             TOTAL   explained     5.667445    2.451007   0.863472   10.471418     200
+             TOTAL unexplained     3.968845    2.553298  -1.035618    8.973309     200
+
+=== sensB_primary_W1access: complete-case n=11,624 (input n=13,607) ===
+  bootstrap replicates kept: 200/200
+  gap 8.69pp; explained 7.59pp; unexplained 1.10pp; check sum 8.69
+             block        kind  estimate_pp  boot_se_pp  ci_low_pp  ci_high_pp  n_boot
+      demographics   explained     3.435628    2.380040  -1.229249    8.100506     200
+      demographics unexplained     6.488522    9.159260 -11.463627   24.440671     200
+   symptoms_global   explained     2.932324    0.858944   1.248794    4.615855     200
+   symptoms_global unexplained    -2.343494    2.378222  -7.004809    2.317821     200
+symptoms_other_psc   explained     1.436701    1.139263  -0.796255    3.669657     200
+symptoms_other_psc unexplained     5.689385    2.337979   1.106946   10.271823     200
+ symptoms_concrete   explained     0.036861    0.442482  -0.830405    0.904127     200
+ symptoms_concrete unexplained     3.628717    5.753187  -7.647528   14.904963     200
+            access   explained    -0.386182    0.584326  -1.531461    0.759097     200
+            access unexplained     2.967908   14.155912 -24.777680   30.713496     200
+            school   explained     0.129870    0.262989  -0.385588    0.645329     200
+            school unexplained    -0.316776    1.047795  -2.370454    1.736903     200
+             TOTAL         gap     8.688561    2.625721   3.542147   13.834974     200
+             TOTAL   explained     7.585203    3.165790   1.380254   13.790151     200
+             TOTAL unexplained     1.103358    3.136467  -5.044116    7.250833     200
+
+=== sensC_primary_noCheckup: complete-case n=13,143 (input n=13,607) ===
+  bootstrap replicates kept: 200/200
+  gap 9.66pp; explained 8.86pp; unexplained 0.80pp; check sum 9.66
+             block        kind  estimate_pp  boot_se_pp  ci_low_pp  ci_high_pp  n_boot
+      demographics   explained     2.561218    1.636522  -0.646364    5.768800     200
+      demographics unexplained     5.324213    7.093049  -8.578163   19.226589     200
+   symptoms_global   explained     3.402141    0.804728   1.824875    4.979407     200
+   symptoms_global unexplained    -1.059356    1.756267  -4.501638    2.382927     200
+symptoms_other_psc   explained     2.189857    0.945424   0.336826    4.042888     200
+symptoms_other_psc unexplained     4.282602    1.808805   0.737344    7.827859     200
+ symptoms_concrete   explained     0.278743    0.397651  -0.500652    1.058139     200
+ symptoms_concrete unexplained     0.473429    5.517670 -10.341203   11.288062     200
+            access   explained     0.429041    0.507793  -0.566232    1.424315     200
+            access unexplained     3.498353    4.843224  -5.994367   12.991073     200
+             TOTAL         gap     9.661645    2.092942   5.559477   13.763812     200
+             TOTAL   explained     8.861000    2.211613   4.526238   13.195763     200
+             TOTAL unexplained     0.800644    2.194194  -3.499976    5.101264     200
+
+========================================================================
+FIGURES
+========================================================================
+  saved figure2_synthesis_blocks.png/.pdf
+  saved figure3_sensitivity.png/.pdf
+  saved nsch_lc_adhd_language_gap_tables.xlsx
+  saved results_summary.md
+
+========================================================================
+SECTION 11 — Verification against the known values
+========================================================================
+[PASS] PUF rows: computed 43536.0000, expected 43536.0000 (tol ±0.0)
+[PASS] Analytic N (children): computed 21768.0000, expected 21768.0000 (tol ±0.0)
+[PASS] PSC 90th-percentile cutoff: computed 6.0000, expected 6.0000 (tol ±0.0)
+[PASS] PREV_CHECKUP_W2 zero-visits count (corrected recode): computed 784.0000, expected 784.0000 (tol ±0.0)
+[PASS] PREV_CHECKUP_W1 zero-visits count (corrected recode): computed 727.0000, expected 727.0000 (tol ±0.0)
+[PASS] Tier 2 Oaxaca gap_pp: computed 10.8967, expected 10.9000 (tol ±0.05)
+[PASS] Tier 2 Oaxaca explained_pp: computed 5.0154, expected 5.0200 (tol ±0.05)
+[PASS] Tier 2 Oaxaca unexplained_pp: computed 5.8813, expected 5.8800 (tol ±0.05)
+[PASS] Tier 2 Oaxaca PSC-score explained: computed 5.2852, expected 5.2900 (tol ±0.05)
+[PASS] Synthesis primary gap: computed 8.7818, expected 8.7800 (tol ±0.05)
+[PASS] Synthesis primary explained: computed 7.0024, expected 7.0000 (tol ±0.05)
+[PASS] Synthesis primary unexplained: computed 1.7794, expected 1.7800 (tol ±0.05)
+[PASS] Synthesis primary explained symptoms_global: computed 3.2696, expected 3.2700 (tol ±0.05)
+[PASS] Synthesis primary explained symptoms_concrete: computed 0.0444, expected 0.0400 (tol ±0.05)
+[PASS] Synthesis primary explained access: computed 0.3396, expected 0.3400 (tol ±0.05)
+[PASS] Synthesis sensC gap: computed 9.6616, expected 9.6600 (tol ±0.05)
+[PASS] Synthesis sensC explained: computed 8.8610, expected 8.8600 (tol ±0.05)
+
+Verification: 17/17 checks passed. A FAIL means the program did not reproduce the published analysis — do not quote its tables until the discrepancy is understood.
+
+Done. Outputs in <scratch>/out
+Cite the data as: HRSA/MCHB, NSCH-LC Public Use Microdata File, via https://www.census.gov/programs-surveys/nschlc/data.html

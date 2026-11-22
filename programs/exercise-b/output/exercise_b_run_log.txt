@@ -1,0 +1,63 @@
+synthetic: gap 0.0998; Oaxaca explained 0.0998; DFL explained 0.0972; DFL unexplained 0.0026 (true explained 0.1, unexplained 0)
+synthetic dry run: PASS
+
+STEP 1  Load and harmonise ten annual files
+children=431222  strata=102  PSUs=431222  design df=431120
+  sample flow: all children                      431222
+  sample flow: CSHCN                             103751
+  sample flow: and publicly insured               35392
+  sample flow: and coordination need              13400
+  sample flow: and household language known       13301
+  sample flow: and outcome known                  13174
+  analysis sample by year: {2016: 1041, 2017: 542, 2018: 860, 2019: 854, 2020: 1191, 2021: 1536, 2022: 1817, 2023: 1905, 2024: 1793, 2025: 1635}
+
+STEP 2  Descriptives (domain estimation on the full pooled design)
+  navigated, english           63.68 (61.83, 65.50) n=12257
+  navigated, other             66.46 (60.32, 72.09) n=917
+  navigated, spanish           66.33 (59.09, 72.89) n=638
+  navigated, other_nonenglish  67.01 (56.93, 75.75) n=279
+
+STEP 3  Oaxaca-Blinder (LPM, English reference, year fixed effects)
+  n = 13044 (English 12139, other-language 905)
+  gap                        -2.57 ( -8.84,   3.70)
+  explained                  -1.10 ( -5.12,   2.91)
+  unexplained                -1.47 ( -8.79,   5.86)
+  block:demographics          0.84 ( -2.52,   4.20)
+  block:ses                  -1.95 ( -3.96,   0.05)
+  block:coverage             -0.61 ( -1.22,   0.00)
+  block:health                0.24 ( -0.29,   0.77)
+  block:usual_source          0.27 ( -0.36,   0.90)
+  block:survey_year           0.11 ( -0.85,   1.08)
+
+STEP 4  DFL reweighting, PSU bootstrap (Rao-Wu, 200 replicates)
+  DFL gap            -2.57 ( -8.87,   3.74)
+  DFL explained      -0.94 ( -6.96,   5.08)
+  DFL unexplained    -1.63 (-10.25,   7.00)
+  reweighted English effective sample size 156 of 12139; largest single-child weight share 0.0465
+
+STEP 5  Falsification
+  without 2016: gap  -3.43  Oaxaca explained  -1.19  DFL explained  -1.37
+  without 2017: gap  -0.79  Oaxaca explained  -0.20  DFL explained   0.04
+  without 2018: gap  -2.87  Oaxaca explained  -1.34  DFL explained  -1.84
+  without 2019: gap  -1.60  Oaxaca explained  -1.36  DFL explained  -1.26
+  without 2020: gap  -2.72  Oaxaca explained   0.77  DFL explained   0.36
+  without 2021: gap  -4.95  Oaxaca explained  -0.45  DFL explained   0.68
+  without 2022: gap  -2.81  Oaxaca explained  -1.36  DFL explained  -0.19
+  without 2023: gap  -1.72  Oaxaca explained  -1.64  DFL explained  -1.79
+  without 2024: gap  -2.37  Oaxaca explained  -1.76  DFL explained  -1.28
+  without 2025: gap  -2.49  Oaxaca explained  -2.27  DFL explained  -2.18
+  2016_2021_rereleased   n=  5944 gap  -0.83 (-10.16, 8.50)  explained  -5.40 (-11.24, 0.44)
+  2022_2025              n=  7100 gap  -4.05 (-12.45, 4.35)  explained   3.99 (-1.32, 9.29)
+  2016-2018, enhanced_weights  n= 2391 gap  -3.88 (-18.73, 10.96)  explained  -2.91 (-13.19, 7.38)
+  2016-2018, original_weights  n= 2391 gap  -4.24 (-18.75, 10.27)  explained  -1.39 (-11.96, 9.18)
+  skip trap (K5Q22 skip as missing): n=5989 navigated English 22.29% vs other 31.87%; gap -8.47 pp (correct coding: n=13044, gap -2.57 pp)
+
+SELF-CHECK
+[PASS] Oaxaca identity: gap - explained - unexplained             computed     0.0000  reference     0.0000  tol ±1e-09
+[PASS] Oaxaca blocks sum to explained                             computed    -0.0000  reference     0.0000  tol ±1e-09
+[PASS] DFL identity: gap - explained - unexplained                computed     0.0000  reference     0.0000  tol ±1e-09
+[PASS] DFL gap equals Oaxaca gap (same sample)                    computed    -2.5684  reference    -2.5684  tol ±1e-09
+[PASS] No singleton strata in the pooled design                   computed     0.0000  reference     0.0000  tol ±0
+[PASS] skip trap changes the analysed n by 7055 children (if 0, your code is not reading K5Q21)
+
+SELF-CHECK: 6 PASS, 0 FAIL

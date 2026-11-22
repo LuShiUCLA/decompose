@@ -1,0 +1,47 @@
+<!--{"out": "modules/4-traps.html", "title": "4 The two traps", "page": "m4", "prev": ["modules/3-survey.html", "Module 3"], "next": ["modules/5-defence.html", "Module 5: From description to defence"]}-->
+<h1>Module 4. The two traps</h1>
+<p class="lede">Two coding decisions quietly change the study's numbers. You will find both in the codebook yourself. The lab will not point at them until you have looked.</p>
+
+<section class="screen">
+<h2>Read the codebook: preventive visits</h2>
+<p>These rows are copied from the official <a href="https://www2.census.gov/programs-surveys/nsch-lc/technical-documentation/2024/NSCH-LC-Variable-List.xlsx">NSCH-LC 2024 Variable List</a>. Read every column.</p>
+<div class="tablewrap"><table class="codebook">
+<thead><tr><th>Variable</th><th>Description</th><th>Universe</th><th>Question (2024)</th><th>Values</th></tr></thead>
+<tbody>
+<tr><td>S4Q01</td><td>Doctor Visit</td><td>All Children</td><td>During the past 12 months, did this child/person see a doctor, nurse, or other health care professional for medical care &hellip;?</td><td>1 = Yes<br>2 = No</td></tr>
+<tr><td>K4Q20R</td><td>Preventive Visit &ndash; How Many Times</td><td>Skip if S4Q01 = 2</td><td>If yes, during the past 12 months, how many times did this child/person visit a doctor, nurse, or other health care professional to receive a PREVENTIVE check-up?</td><td>1 = 0 visits<br>2 = 1 visit<br>3 = 2 or more visits</td></tr>
+</tbody></table></div>
+<p class="note">The question text is abridged with &hellip; where the Variable List gives year-specific wording.</p>
+</section>
+
+<section class="screen"><div data-quiz="m4-find1"></div></section>
+<section class="screen"><div data-quiz="m4-a"></div></section>
+
+<section class="screen"><h2>Falsification sandbox: preventive visits</h2><div data-cases="skips"></div></section>
+
+<section class="screen">
+<h2>Read the codebook: insurance</h2>
+<div class="tablewrap"><table class="codebook">
+<thead><tr><th>Variable</th><th>Description</th><th>Question</th><th>Values</th></tr></thead>
+<tbody>
+<tr><td>CURRCOV</td><td>Health Insurance Coverage &ndash; Currently Covered (Use CURRINS)</td><td>Is this child/person CURRENTLY covered by ANY kind of health insurance or health coverage plan?</td><td>1 = Yes<br>2 = No</td></tr>
+<tr><td>CURRINS</td><td>Health Insurance Coverage &ndash; Currently Covered</td><td>(derived)</td><td>1 = Currently insured (does not include Indian Health Service or a religious health share)<br>2 = Currently uninsured, or only insured through Indian Health Service or a religious health share</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="screen"><div data-quiz="m4-find2"></div></section>
+
+<section class="screen"><h2>Falsification sandbox: insurance</h2><div data-cases="currcov"></div></section>
+
+<section class="screen"><div data-quiz="m4-b"></div></section>
+
+<section class="screen">
+<h2>What each falsification check proves</h2>
+<ul>
+<li><b>Re-run with the skips dropped.</b> The other-language preventive-visit rate jumps from <span data-num="fals.preventive_other.correct"></span>% to <span data-num="fals.preventive_other.dropped_skips"></span>%. If your program shows no change, it is not reading S4Q01.</li>
+<li><b>Re-run with CURRCOV.</b> The insured rate moves (English <span data-num="fals.insured_english.currins"></span>% &rarr; <span data-num="fals.insured_english.currcov"></span>%) and <span data-num="fals.currins_currcov_disagree_primary" data-dp="0"></span> children change status. If nothing moves, your program is not reading the variable you think it is.</li>
+<li><b>Re-run on a pre-subset file.</b> Singleton strata appear and the design df falls (Module 3).</li>
+</ul>
+<p>A check that cannot fail proves nothing. Each of these is built so that a specific coding error would make it fail.</p>
+<p class="causal"><strong>Compositional, not causal.</strong> Correct coding makes the description accurate; it does not make it causal.</p>
+</section>

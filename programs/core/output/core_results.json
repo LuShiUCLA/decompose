@@ -1,0 +1,1937 @@
+{
+  "environment": {
+    "python": "3.13.18",
+    "numpy": "2.2.6",
+    "pandas": "2.3.0",
+    "scipy": "1.15.3",
+    "seed": 20261117,
+    "n_boot": 200
+  },
+  "synthetic": {
+    "gap": 0.13,
+    "explained": 0.08000000000000038,
+    "unexplained": 0.04999999999999963,
+    "passed": 1.0
+  },
+  "design": {
+    "children": 21768,
+    "strata": 102,
+    "psus": 21768,
+    "df": 21666
+  },
+  "descriptives": {
+    "adhd_english": {
+      "est": 16.288048702585176,
+      "lo": 14.817073337104766,
+      "hi": 17.874413439910693,
+      "n": 12763
+    },
+    "adhd_other": {
+      "est": 5.966614973034543,
+      "lo": 3.2532530554430914,
+      "hi": 10.692919643349684,
+      "n": 844
+    },
+    "psc_mean_english": {
+      "est": 2.4031727557009965,
+      "lo": 2.2919362280729096,
+      "hi": 2.5144092833290834,
+      "n": 12792
+    },
+    "psc_mean_other": {
+      "est": 1.4965787744171017,
+      "lo": 1.181829491794878,
+      "hi": 1.8113280570393255,
+      "n": 843
+    },
+    "psc_ge7_english": {
+      "est": 8.52528692408827,
+      "lo": 7.404301635504234,
+      "hi": 9.798027221228113,
+      "n": 12792
+    },
+    "psc_ge7_other": {
+      "est": 3.5841541909840324,
+      "lo": 1.4671564473605894,
+      "hi": 8.492540503059617,
+      "n": 843
+    },
+    "usual_english": {
+      "est": 83.73443587680455,
+      "lo": 82.10649124240068,
+      "hi": 85.24089429698878,
+      "n": 12794
+    },
+    "usual_other": {
+      "est": 61.83960680375671,
+      "lo": 54.68052932914526,
+      "hi": 68.51886982818989,
+      "n": 840
+    },
+    "insured_english": {
+      "est": 96.90738041099787,
+      "lo": 95.95814244291725,
+      "hi": 97.6391727126659,
+      "n": 12805
+    },
+    "insured_other": {
+      "est": 87.37541478728693,
+      "lo": 81.08229904269868,
+      "hi": 91.78712521630283,
+      "n": 843
+    },
+    "preventive_english": {
+      "est": 85.99484742539649,
+      "lo": 84.19887151997196,
+      "hi": 87.61671268183825,
+      "n": 12766
+    },
+    "preventive_other": {
+      "est": 72.76418064414716,
+      "lo": 66.06736818562376,
+      "hi": 78.56807510987348,
+      "n": 844
+    },
+    "psc_mean_complete_items_english": {
+      "est": 2.39828783372064,
+      "lo": 2.2864302296101964,
+      "hi": 2.5101454378310835,
+      "n": 12635
+    },
+    "psc_ge7_complete_items_english": {
+      "est": 8.564128101437255,
+      "lo": 7.434733245751238,
+      "hi": 9.846836474290615,
+      "n": 12635
+    },
+    "psc_mean_complete_items_other": {
+      "est": 1.5351111715245203,
+      "lo": 1.213614092112995,
+      "hi": 1.8566082509360455,
+      "n": 826
+    },
+    "psc_ge7_complete_items_other": {
+      "est": 3.6148073860977967,
+      "lo": 1.4484525482402402,
+      "hi": 8.734086040718953,
+      "n": 826
+    },
+    "adhd_unweighted_english": {
+      "est": 16.861239520488912,
+      "n": 12763
+    },
+    "adhd_unweighted_other": {
+      "est": 6.042654028436019,
+      "n": 844
+    },
+    "incident_english": {
+      "est": 10.317271020008857,
+      "lo": 9.016054754357556,
+      "hi": 11.78196317618129,
+      "n": 12893
+    },
+    "incident_spanish": {
+      "est": 2.986182898047583,
+      "lo": 1.4774461063170727,
+      "hi": 5.942678594259015,
+      "n": 361
+    },
+    "incident_other_language": {
+      "est": 1.1380421290394054,
+      "lo": 0.5836130430920818,
+      "hi": 2.207480553240148,
+      "n": 441
+    },
+    "incident_nonenglish": {
+      "est": 2.522423615635916,
+      "lo": 1.350558227592821,
+      "hi": 4.66304081777711,
+      "n": 802
+    }
+  },
+  "primary": {
+    "n": 12977,
+    "n_english": 12198,
+    "n_other": 779,
+    "mean_english": 16.14034792851674,
+    "mean_other": 6.366208712215631,
+    "events_english": 2062,
+    "events_other": 48,
+    "terms": {
+      "gap": {
+        "est": 9.77413921630111,
+        "lo": 5.519363519856444,
+        "hi": 14.028914912745776
+      },
+      "explained": {
+        "est": 8.193482303377433,
+        "lo": 3.6420884137603657,
+        "hi": 12.744876192994498
+      },
+      "unexplained": {
+        "est": 1.5806569129236785,
+        "lo": -2.948135459420264,
+        "hi": 6.109449285267621
+      },
+      "explained:Intercept": {
+        "est": -7.580551357025758e-14,
+        "lo": -1.0382799355901751e-13,
+        "hi": -4.778303358149764e-14
+      },
+      "explained:AGE": {
+        "est": 0.16520298155717747,
+        "lo": -0.7239903270479022,
+        "hi": 1.054396290162257
+      },
+      "explained:FPL": {
+        "est": 0.5603309862870044,
+        "lo": -0.4538055484064499,
+        "hi": 1.5744675209804586
+      },
+      "explained:CAREGIVER_POOR_MH": {
+        "est": -0.00042912780490819344,
+        "lo": -0.1927291924994743,
+        "hi": 0.1918709368896579
+      },
+      "explained:PSCCONCENTRATE_W2_C": {
+        "est": 1.9259920570530065,
+        "lo": 0.7843943882030193,
+        "hi": 3.0675897259029936
+      },
+      "explained:PSCFIDGET_W2_C": {
+        "est": 1.4510449068075049,
+        "lo": 0.5586643234272227,
+        "hi": 2.343425490187787
+      },
+      "explained:PSCMOTOR_W2_C": {
+        "est": 0.5671828379892211,
+        "lo": -0.5751996206266924,
+        "hi": 1.7095652966051347
+      },
+      "explained:PSCDAYDREAMS_W2_C": {
+        "est": 0.019876850058015667,
+        "lo": -0.3494192503331745,
+        "hi": 0.3891729504492058
+      },
+      "explained:PSCDISTEASY_W2_C": {
+        "est": 1.584880023953246,
+        "lo": 0.5106023727488788,
+        "hi": 2.6591576751576134
+      },
+      "explained:LOW_PERSIST_W2": {
+        "est": 0.09332444194628718,
+        "lo": -0.17971252739638088,
+        "hi": 0.3663614112889552
+      },
+      "explained:K7Q83_R_W2_C": {
+        "est": 0.07720777052661687,
+        "lo": -0.36400196257451695,
+        "hi": 0.5184175036277507
+      },
+      "explained:K7Q85_R_W2_C": {
+        "est": 0.09240305106428694,
+        "lo": -0.2938722346560484,
+        "hi": 0.47867833678462224
+      },
+      "explained:INSURED_W2": {
+        "est": 0.32582254113911785,
+        "lo": -0.21313116082835962,
+        "hi": 0.8647762431065954
+      },
+      "explained:USUAL_SOURCE_W2": {
+        "est": 0.06822007217012037,
+        "lo": -0.6253056471749651,
+        "hi": 0.7617457915152058
+      },
+      "explained:PREVENTIVE_W2": {
+        "est": 0.2615619092587474,
+        "lo": -0.2583161295275401,
+        "hi": 0.7814399480450349
+      },
+      "explained:SEX=2": {
+        "est": -0.013461045736282902,
+        "lo": -0.20727290480507463,
+        "hi": 0.1803508133325088
+      },
+      "explained:RACE=2": {
+        "est": 0.03846315845883441,
+        "lo": -0.2266006323503411,
+        "hi": 0.30352694926800994
+      },
+      "explained:RACE=3": {
+        "est": -0.0026165572295514966,
+        "lo": -0.04300144585234598,
+        "hi": 0.03776833139324298
+      },
+      "explained:RACE=4": {
+        "est": 0.6652752537871888,
+        "lo": 0.18062523557517696,
+        "hi": 1.1499252719992006
+      },
+      "explained:RACE=5": {
+        "est": 0.01898087609339766,
+        "lo": -0.07439629986617075,
+        "hi": 0.11235805205296608
+      },
+      "explained:RACE=7": {
+        "est": -0.16225109127520856,
+        "lo": -0.3702759456900415,
+        "hi": 0.04577376313962434
+      },
+      "explained:HISPANIC=2": {
+        "est": 1.0340249891428617,
+        "lo": -0.8886997531707211,
+        "hi": 2.956749731456444
+      },
+      "explained:EDUCATION=2": {
+        "est": -0.022397700429207107,
+        "lo": -0.9610470121738814,
+        "hi": 0.9162516113154674
+      },
+      "explained:EDUCATION=3": {
+        "est": -0.5551568814399689,
+        "lo": -3.8130133691878556,
+        "hi": 2.702699606307918
+      },
+      "block:demographics": {
+        "est": 1.725965841411337,
+        "lo": -1.4677982236462388,
+        "hi": 4.919729906468913
+      },
+      "block:concentration_fidget": {
+        "est": 3.37703696386051,
+        "lo": 1.8851909303156031,
+        "hi": 4.868882997405417
+      },
+      "block:other_attention": {
+        "est": 2.1719397120004826,
+        "lo": 0.29807588086008285,
+        "hi": 4.045803543140883
+      },
+      "block:persistence_homework_calm": {
+        "est": 0.262935263537191,
+        "lo": -0.4935185292664953,
+        "hi": 1.0193890563408772
+      },
+      "block:access": {
+        "est": 0.6556045225679856,
+        "lo": -0.25557715959371125,
+        "hi": 1.5667862047296823
+      }
+    },
+    "explained_share": 0.8382817271225798,
+    "calculator": {
+      "demographics": {
+        "contribution": 1.725965841411337,
+        "columns": [
+          "AGE",
+          "FPL",
+          "CAREGIVER_POOR_MH",
+          "SEX=2",
+          "RACE=2",
+          "RACE=3",
+          "RACE=4",
+          "RACE=5",
+          "RACE=7",
+          "HISPANIC=2",
+          "EDUCATION=2",
+          "EDUCATION=3"
+        ],
+        "mean_english": [
+          11.693172651052118,
+          2.695340902985954,
+          0.07369729729382944,
+          0.48553583522151283,
+          0.14763858935926408,
+          0.013214572985238274,
+          0.038848993178034925,
+          0.004172439869159016,
+          0.07417521399287315,
+          0.8119562194083255,
+          0.16526551488646646,
+          0.7961244330710722
+        ],
+        "mean_other": [
+          11.574092143149576,
+          1.739993572400735,
+          0.03624225877068663,
+          0.4799151458062217,
+          0.09577083964970888,
+          0.012303107745657042,
+          0.1633230764563843,
+          0.011130255825577745,
+          0.04184072487321323,
+          0.28810281191278536,
+          0.2555752044285169,
+          0.46185094350722117
+        ],
+        "coef_english": [
+          0.013873217747138225,
+          0.005869008093077181,
+          -0.0001145714493506776,
+          -0.02394910079831485,
+          0.007415621204740378,
+          -0.02870715322894443,
+          -0.053446889205000035,
+          -0.027279934123419013,
+          -0.05017895618352514,
+          0.019738823387374163,
+          0.002480099371704537,
+          -0.016607864481395736
+        ],
+        "coef_other": [
+          0.00948247233659669,
+          -0.018329960909121496,
+          -0.01364408986344546,
+          -0.0362975400627133,
+          0.14536211925599507,
+          -0.015950809245967774,
+          0.024276905784090155,
+          0.0043540982222525825,
+          0.04005003468476045,
+          0.049530828267545596,
+          -0.004827744883281631,
+          0.013810037944758926
+        ]
+      },
+      "concentration_fidget": {
+        "contribution": 3.37703696386051,
+        "columns": [
+          "PSCCONCENTRATE_W2_C",
+          "PSCFIDGET_W2_C"
+        ],
+        "mean_english": [
+          0.6109398087475761,
+          0.5386442765227204
+        ],
+        "mean_other": [
+          0.37255320253460716,
+          0.26125404119744383
+        ],
+        "coef_english": [
+          0.08079279652701503,
+          0.05231059792375042
+        ],
+        "coef_other": [
+          0.10829432661523085,
+          0.06272340297429284
+        ]
+      },
+      "other_attention": {
+        "contribution": 2.1719397120004826,
+        "columns": [
+          "PSCMOTOR_W2_C",
+          "PSCDAYDREAMS_W2_C",
+          "PSCDISTEASY_W2_C"
+        ],
+        "mean_english": [
+          0.23425375845728033,
+          0.3261770596173424,
+          0.6843994115456765
+        ],
+        "mean_other": [
+          0.1895757807069782,
+          0.21835578953040333,
+          0.5037829228039897
+        ],
+        "coef_english": [
+          0.12694908466070523,
+          0.0018434998996012984,
+          0.0877483575832272
+        ],
+        "coef_other": [
+          0.08110120495897506,
+          -0.011768530093175024,
+          0.024250488613024385
+        ]
+      },
+      "persistence_homework_calm": {
+        "contribution": 0.262935263537191,
+        "columns": [
+          "LOW_PERSIST_W2",
+          "K7Q83_R_W2_C",
+          "K7Q85_R_W2_C"
+        ],
+        "mean_english": [
+          0.18432136987534253,
+          1.5888293426678957,
+          2.097850745228205
+        ],
+        "mean_other": [
+          0.15899953838501246,
+          1.5663818669132619,
+          1.944955261642004
+        ],
+        "coef_english": [
+          0.03685532856575798,
+          0.034394856406373,
+          0.006043543530322198
+        ],
+        "coef_other": [
+          -0.057041270648382686,
+          0.00024479441834239035,
+          0.034365395407926956
+        ]
+      },
+      "access": {
+        "contribution": 0.6556045225679856,
+        "columns": [
+          "INSURED_W2",
+          "USUAL_SOURCE_W2",
+          "PREVENTIVE_W2"
+        ],
+        "mean_english": [
+          0.9682262395696252,
+          0.8398522243496639,
+          0.8618099935652436
+        ],
+        "mean_other": [
+          0.8954180856367798,
+          0.6434968188363915,
+          0.7434593293527317
+        ],
+        "coef_english": [
+          0.04475083126536089,
+          0.0034743159727023223,
+          0.022100586506982656
+        ],
+        "coef_other": [
+          0.017066924774132543,
+          -0.012969387687262026,
+          0.002629749736342174
+        ]
+      }
+    },
+    "outside01_english": [
+      2557,
+      2567,
+      2557,
+      2539,
+      2539,
+      2562
+    ],
+    "outside01_other": [
+      262,
+      263,
+      263,
+      265,
+      260,
+      265
+    ],
+    "outside01_share_english": 0.20933759632726678,
+    "outside01_share_other": 0.337612323491656,
+    "design_matrix_rows": 13021
+  },
+  "bootstrap": {
+    "gap": {
+      "est": 9.77413921630111,
+      "lo": 5.732439150535712,
+      "hi": 13.815839282066507,
+      "se": 2.0620918702884685
+    },
+    "explained": {
+      "est": 8.193482303377433,
+      "lo": 3.995774162512824,
+      "hi": 12.391190444242039,
+      "se": 2.1416878269717388
+    },
+    "unexplained": {
+      "est": 1.5806569129236785,
+      "lo": -3.1766923587435754,
+      "hi": 6.338006184590933,
+      "se": 2.427219016156762
+    },
+    "block:demographics": {
+      "est": 1.725965841411337,
+      "lo": -1.339328059838697,
+      "hi": 4.791259742661371,
+      "se": 1.5639254598214458
+    },
+    "block:concentration_fidget": {
+      "est": 3.37703696386051,
+      "lo": 1.8792724436292172,
+      "hi": 4.874801484091803,
+      "se": 0.764165571546578
+    },
+    "block:other_attention": {
+      "est": 2.1719397120004826,
+      "lo": 0.4651986356971182,
+      "hi": 3.8786807883038468,
+      "se": 0.8707862634200839
+    },
+    "block:persistence_homework_calm": {
+      "est": 0.262935263537191,
+      "lo": -0.4543166916439398,
+      "hi": 0.9801872187183218,
+      "se": 0.3659448750924137
+    },
+    "block:access": {
+      "est": 0.6556045225679856,
+      "lo": -0.3093590091181389,
+      "hi": 1.6205680542541103,
+      "se": 0.49232833249292074
+    }
+  },
+  "reference_variants": {
+    "english_reference": {
+      "gap": 9.77413921630111,
+      "explained": 8.193482303377431,
+      "unexplained": 1.5806569129235106
+    },
+    "other_reference": {
+      "gap": 9.77413921630111,
+      "explained": 7.246013134660689,
+      "unexplained": 2.528126081640255
+    },
+    "pooled_reference": {
+      "gap": 9.77413921630111,
+      "explained": 8.662741770187111,
+      "unexplained": 1.1113974461138303
+    },
+    "threefold": {
+      "gap": 9.77413921630111,
+      "endowments": 7.246013134660689,
+      "coefficients": 1.5806569129235106,
+      "interaction": 0.9474691687167413
+    }
+  },
+  "logit_vs_lpm": {
+    "gap": 9.93537046030997,
+    "naive_explained": 3.8485179353584567,
+    "naive_unexplained": 3.202893562676363,
+    "naive_residual": 2.883958962275152,
+    "fairlie_explained": 7.073548378552793,
+    "fairlie_unexplained": 2.8618220817571776,
+    "fairlie_residual": 0.0,
+    "lpm_explained": 7.768603495235321,
+    "lpm_unexplained": 2.16676696507465,
+    "lpm_residual": 0.0,
+    "n": 13341
+  },
+  "sensitivity": {
+    "no_preventive_available": {
+      "n": 13016,
+      "gap": {
+        "est": 9.78667167370893,
+        "lo": 5.542386955847631,
+        "hi": 14.030956391570232
+      },
+      "explained": {
+        "est": 8.038003632449541,
+        "lo": 3.501362409988996,
+        "hi": 12.574644854910089
+      },
+      "unexplained": {
+        "est": 1.74866804125939,
+        "lo": -2.775558280828108,
+        "hi": 6.2728943633468885
+      }
+    },
+    "no_preventive_samecase": {
+      "n": 12977,
+      "gap": {
+        "est": 9.77413921630111,
+        "lo": 5.51936353085262,
+        "hi": 14.028914901749602
+      },
+      "explained": {
+        "est": 8.172731726634245,
+        "lo": 3.6315000321304796,
+        "hi": 12.713963421138008
+      },
+      "unexplained": {
+        "est": 1.6014074896668662,
+        "lo": -2.931507493861878,
+        "hi": 6.134322473195611
+      }
+    },
+    "total_score_6to17": {
+      "n": 13210,
+      "gap": {
+        "est": 10.203025323563331,
+        "lo": 6.12950258534795,
+        "hi": 14.27654806177871
+      },
+      "explained": {
+        "est": 9.627496941057938,
+        "lo": 5.2977061484784205,
+        "hi": 13.957287733637456
+      },
+      "unexplained": {
+        "est": 0.5755283825053927,
+        "lo": -3.7002167293545356,
+        "hi": 4.851273494365321
+      }
+    },
+    "total_score_allages": {
+      "n": 20276,
+      "gap": {
+        "est": 10.683091264902993,
+        "lo": 7.51718619478829,
+        "hi": 13.848996335017693
+      },
+      "explained": {
+        "est": 7.701525618925688,
+        "lo": 4.02290556700059,
+        "hi": 11.380145670850785
+      },
+      "unexplained": {
+        "est": 2.981565645977306,
+        "lo": -0.8647782903454619,
+        "hi": 6.827909582300073
+      }
+    },
+    "earlier_caregiver_mh_rule": {
+      "n": 13103,
+      "gap": {
+        "est": 9.665246809527952,
+        "lo": 5.493933596087904,
+        "hi": 13.836560022967998
+      },
+      "explained": {
+        "est": 8.88955616492391,
+        "lo": 4.379591745085967,
+        "hi": 13.399520584761854
+      },
+      "unexplained": {
+        "est": 0.7756906446040409,
+        "lo": -3.7095767054662896,
+        "hi": 5.260957994674371
+      },
+      "block:demographics": {
+        "est": 2.408673780112637,
+        "lo": -0.7917949089801757,
+        "hi": 5.60914246920545
+      },
+      "block:concentration_fidget": {
+        "est": 3.3653819162902865,
+        "lo": 1.893414427559906,
+        "hi": 4.837349405020667
+      },
+      "block:other_attention": {
+        "est": 2.1905145289966192,
+        "lo": 0.3614892742308345,
+        "hi": 4.019539783762403
+      },
+      "block:persistence_homework_calm": {
+        "est": 0.2815452389376571,
+        "lo": -0.47334156963850793,
+        "hi": 1.036432047513822
+      },
+      "block:access": {
+        "est": 0.6434407005867903,
+        "lo": -0.2707657200351614,
+        "hi": 1.557647121208742
+      },
+      "bootstrap": {
+        "gap": {
+          "est": 9.665246809527952,
+          "lo": 5.69728725555668,
+          "hi": 13.633206363499223,
+          "se": 2.0244691601894242
+        },
+        "explained": {
+          "est": 8.88955616492391,
+          "lo": 4.603634723564219,
+          "hi": 13.175477606283604,
+          "se": 2.186694612938618
+        },
+        "unexplained": {
+          "est": 0.7756906446040409,
+          "lo": -4.05883855844837,
+          "hi": 5.610219847656451,
+          "se": 2.466596532169597
+        },
+        "block:demographics": {
+          "est": 2.408673780112637,
+          "lo": -0.8130122365446975,
+          "hi": 5.630359796769971,
+          "se": 1.6437173554374156
+        },
+        "block:concentration_fidget": {
+          "est": 3.3653819162902865,
+          "lo": 1.9029723868720039,
+          "hi": 4.827791445708569,
+          "se": 0.7461273109276954
+        },
+        "block:other_attention": {
+          "est": 2.1905145289966192,
+          "lo": 0.5199262178961442,
+          "hi": 3.8611028400970944,
+          "se": 0.8523409750512627
+        },
+        "block:persistence_homework_calm": {
+          "est": 0.2815452389376571,
+          "lo": -0.43472443095659596,
+          "hi": 0.9978149088319103,
+          "se": 0.36544370912972096
+        },
+        "block:access": {
+          "est": 0.6434407005867903,
+          "lo": -0.3240055244579458,
+          "hi": 1.6108869256315266,
+          "se": 0.4935950127779266
+        }
+      }
+    },
+    "earlier_caregiver_mh_rule_no_preventive": {
+      "n": 13143,
+      "gap": {
+        "est": 9.661644620942454,
+        "lo": 5.500829017621629,
+        "hi": 13.822460224263278
+      },
+      "explained": {
+        "est": 8.845973227498815,
+        "lo": 4.355939524755557,
+        "hi": 13.336006930242075
+      },
+      "unexplained": {
+        "est": 0.8156713934436363,
+        "lo": -3.655555005755188,
+        "hi": 5.286897792642461
+      }
+    },
+    "brief_method": {
+      "gap": {
+        "est": 9.665246809527952,
+        "lo": 5.547988086534095,
+        "hi": 13.782505532521808
+      },
+      "explained": {
+        "est": 8.90589223027074,
+        "lo": 4.557813647190098,
+        "hi": 13.253970813351385
+      },
+      "unexplained": {
+        "est": 0.7593545792572098,
+        "lo": -3.550853819022083,
+        "hi": 5.069562977536503
+      },
+      "block:demographics": {
+        "est": 2.4283964226746693,
+        "lo": -0.7214410328597755,
+        "hi": 5.578233878209114
+      },
+      "block:concentration_fidget": {
+        "est": 3.3652696551067236,
+        "lo": 1.804685587248664,
+        "hi": 4.925853722964783
+      },
+      "block:other_attention": {
+        "est": 2.1901161332778027,
+        "lo": 0.3256695778920193,
+        "hi": 4.054562688663586
+      },
+      "block:persistence_homework_calm": {
+        "est": 0.281620458927376,
+        "lo": -0.5034393604688003,
+        "hi": 1.0666802783235525
+      },
+      "block:access": {
+        "est": 0.6404895602842507,
+        "lo": -0.2961283636726731,
+        "hi": 1.5771074842411748
+      },
+      "n": 13103
+    },
+    "brief_method_no_preventive": {
+      "gap": {
+        "est": 9.661644620942452,
+        "lo": 5.559477381921949,
+        "hi": 13.763811859962956
+      },
+      "explained": {
+        "est": 8.863654757876661,
+        "lo": 4.529727929506358,
+        "hi": 13.197581586246965
+      },
+      "unexplained": {
+        "est": 0.7979898630657913,
+        "lo": -3.5068291271873546,
+        "hi": 5.102808853318938
+      },
+      "block:demographics": {
+        "est": 2.5587761242801466,
+        "lo": -0.6202929013149096,
+        "hi": 5.737845149875203
+      },
+      "block:concentration_fidget": {
+        "est": 3.4011230092144342,
+        "lo": 1.8231567386848964,
+        "hi": 4.979089279743973
+      },
+      "block:other_attention": {
+        "est": 2.189967681966984,
+        "lo": 0.33737597099336436,
+        "hi": 4.042559392940603
+      },
+      "block:persistence_homework_calm": {
+        "est": 0.28097760090255414,
+        "lo": -0.49814687785627815,
+        "hi": 1.0601020796613865
+      },
+      "block:access": {
+        "est": 0.4328103415126393,
+        "lo": -0.48409958532908276,
+        "hi": 1.3497202683543614
+      },
+      "n": 13143
+    }
+  },
+  "falsification": {
+    "skip_counts_primary": {
+      "structural_zero_S4Q01_no": 1249,
+      "arbitrary_missing_K4Q20R_with_visit": 37,
+      "S4Q01_missing": 13,
+      "S4Q01_missing_without_K4Q20R": 12,
+      "preventive_missing_total": 49
+    },
+    "skip_counts_all": {
+      "structural_zero_S4Q01_no": 2348,
+      "arbitrary_missing_K4Q20R_with_visit": 264,
+      "S4Q01_missing": 175
+    },
+    "preventive_english": {
+      "correct": 85.99484742539649,
+      "dropped_skips": 97.17152492119088,
+      "n_correct": 12766,
+      "n_dropped": 11697
+    },
+    "preventive_other": {
+      "correct": 72.76418064414716,
+      "dropped_skips": 98.851463232463,
+      "n_correct": 844,
+      "n_dropped": 670
+    },
+    "decomp_dropped_skips": {
+      "n": 11817,
+      "gap": 8.841536797674447,
+      "explained": 5.92101203382874,
+      "access": 0.3200521140985141
+    },
+    "currins_currcov_disagree_all": 93,
+    "currins_currcov_disagree_primary": 65,
+    "insured_english": {
+      "currins": 96.90738041099787,
+      "currcov": 97.35537333626479
+    },
+    "insured_other": {
+      "currins": 87.37541478728693,
+      "currcov": 87.55457477602792
+    },
+    "decomp_currcov": {
+      "n": 12977,
+      "explained": 8.193720630417317,
+      "access": 0.6613090021088575
+    },
+    "subset_vs_domain": {
+      "domain": {
+        "est": 5.966614973034543,
+        "se": 1.8175724293929414,
+        "lo": 3.2532530554430914,
+        "hi": 10.692919643349684,
+        "strata": 102,
+        "df": 21666
+      },
+      "remove": {
+        "est": 5.966614973034543,
+        "se": 1.8127473831098073,
+        "lo": 3.255512212806199,
+        "hi": 10.686069395440038,
+        "strata": 81,
+        "singletons": 14,
+        "df": 765
+      },
+      "adjust": {
+        "est": 5.966614973034543,
+        "se": 1.813524284188314,
+        "lo": 3.2546561970405357,
+        "hi": 10.688664022785007,
+        "strata": 81,
+        "singletons": 14,
+        "df": 765
+      }
+    },
+    "model_n": {
+      "model_n": 12977,
+      "design_matrix_n": 13021,
+      "missing_outcome": 44
+    }
+  },
+  "self_check": [
+    {
+      "figure": "primary n",
+      "computed": 12977,
+      "reference": 12977,
+      "tolerance": 0,
+      "result": "PASS"
+    },
+    {
+      "figure": "gap (point)",
+      "computed": 9.7741,
+      "reference": 9.77413921630111,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "gap (95% CI low, Taylor)",
+      "computed": 5.5194,
+      "reference": 5.519363519856448,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "gap (95% CI high, Taylor)",
+      "computed": 14.0289,
+      "reference": 14.02891491274577,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "explained (point)",
+      "computed": 8.1935,
+      "reference": 8.19348230337711,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "explained (95% CI low, Taylor)",
+      "computed": 3.6421,
+      "reference": 3.64208841376004,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "explained (95% CI high, Taylor)",
+      "computed": 12.7449,
+      "reference": 12.74487619299418,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "unexplained (point)",
+      "computed": 1.5807,
+      "reference": 1.5806569129240011,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "unexplained (95% CI low, Taylor)",
+      "computed": -2.9481,
+      "reference": -2.948135459419964,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "unexplained (95% CI high, Taylor)",
+      "computed": 6.1094,
+      "reference": 6.109449285267966,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:demographics (point)",
+      "computed": 1.726,
+      "reference": 1.7259658414110848,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:demographics (95% CI low, Taylor)",
+      "computed": -1.4678,
+      "reference": -1.4677982236465228,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:demographics (95% CI high, Taylor)",
+      "computed": 4.9197,
+      "reference": 4.919729906468692,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:concentration_fidget (point)",
+      "computed": 3.377,
+      "reference": 3.3770369638605144,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:concentration_fidget (95% CI low, Taylor)",
+      "computed": 1.8852,
+      "reference": 1.885190930315608,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:concentration_fidget (95% CI high, Taylor)",
+      "computed": 4.8689,
+      "reference": 4.868882997405421,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:other_attention (point)",
+      "computed": 2.1719,
+      "reference": 2.1719397120004977,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:other_attention (95% CI low, Taylor)",
+      "computed": 0.2981,
+      "reference": 0.2980758808600933,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:other_attention (95% CI high, Taylor)",
+      "computed": 4.0458,
+      "reference": 4.045803543140902,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:persistence_homework_calm (point)",
+      "computed": 0.2629,
+      "reference": 0.2629352635371624,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:persistence_homework_calm (95% CI low, Taylor)",
+      "computed": -0.4935,
+      "reference": -0.4935185292665149,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:persistence_homework_calm (95% CI high, Taylor)",
+      "computed": 1.0194,
+      "reference": 1.01938905634084,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:access (point)",
+      "computed": 0.6556,
+      "reference": 0.655604522567925,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:access (95% CI low, Taylor)",
+      "computed": -0.2556,
+      "reference": -0.2555771595937663,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "block:access (95% CI high, Taylor)",
+      "computed": 1.5668,
+      "reference": 1.5667862047296164,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "no_preventive_samecase n",
+      "computed": 12977,
+      "reference": 12977,
+      "tolerance": 0,
+      "result": "PASS"
+    },
+    {
+      "figure": "no_preventive_samecase gap",
+      "computed": 9.7741,
+      "reference": 9.77413921630111,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "no_preventive_samecase explained",
+      "computed": 8.1727,
+      "reference": 8.172731726633973,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "no_preventive_samecase unexplained",
+      "computed": 1.6014,
+      "reference": 1.6014074896671369,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "no_preventive_available n",
+      "computed": 13016,
+      "reference": 13016,
+      "tolerance": 0,
+      "result": "PASS"
+    },
+    {
+      "figure": "no_preventive_available gap",
+      "computed": 9.7867,
+      "reference": 9.78667167370893,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "no_preventive_available explained",
+      "computed": 8.038,
+      "reference": 8.038003632449513,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "no_preventive_available unexplained",
+      "computed": 1.7487,
+      "reference": 1.7486680412594184,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "total_score_6to17 n",
+      "computed": 13210,
+      "reference": 13210,
+      "tolerance": 0,
+      "result": "PASS"
+    },
+    {
+      "figure": "total_score_6to17 gap",
+      "computed": 10.203,
+      "reference": 10.203025323563333,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "total_score_6to17 explained",
+      "computed": 9.6275,
+      "reference": 9.627496941058116,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "total_score_6to17 unexplained",
+      "computed": 0.5755,
+      "reference": 0.5755283825052127,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "total_score_allages n",
+      "computed": 20276,
+      "reference": 20276,
+      "tolerance": 0,
+      "result": "PASS"
+    },
+    {
+      "figure": "total_score_allages gap",
+      "computed": 10.6831,
+      "reference": 10.683091264902991,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "total_score_allages explained",
+      "computed": 7.7015,
+      "reference": 7.701525618925582,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "total_score_allages unexplained",
+      "computed": 2.9816,
+      "reference": 2.9815656459774105,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "adhd_english",
+      "computed": 16.288,
+      "reference": 16.28804870258517,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "adhd_english CI low",
+      "computed": 14.8171,
+      "reference": 14.81707333710476,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "adhd_english CI high",
+      "computed": 17.8744,
+      "reference": 17.87441343991069,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "adhd_other",
+      "computed": 5.9666,
+      "reference": 5.96661497303454,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "adhd_other CI low",
+      "computed": 3.2533,
+      "reference": 3.25325305544309,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "adhd_other CI high",
+      "computed": 10.6929,
+      "reference": 10.69291964334968,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "psc_ge7_english",
+      "computed": 8.5253,
+      "reference": 8.52528692408827,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "psc_ge7_english CI low",
+      "computed": 7.4043,
+      "reference": 7.404301635504231,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "psc_ge7_english CI high",
+      "computed": 9.798,
+      "reference": 9.79802722122811,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "psc_ge7_other",
+      "computed": 3.5842,
+      "reference": 3.5841541909840298,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "psc_ge7_other CI low",
+      "computed": 1.4672,
+      "reference": 1.46715644736059,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "psc_ge7_other CI high",
+      "computed": 8.4925,
+      "reference": 8.49254050305961,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "usual_english",
+      "computed": 83.7344,
+      "reference": 83.73443587680455,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "usual_english CI low",
+      "computed": 82.1065,
+      "reference": 82.10649124240068,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "usual_english CI high",
+      "computed": 85.2409,
+      "reference": 85.24089429698878,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "usual_other",
+      "computed": 61.8396,
+      "reference": 61.83960680375671,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "usual_other CI low",
+      "computed": 54.6805,
+      "reference": 54.68052932914526,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "usual_other CI high",
+      "computed": 68.5189,
+      "reference": 68.51886982818989,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "insured_english",
+      "computed": 96.9074,
+      "reference": 96.90738041099785,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "insured_english CI low",
+      "computed": 95.9581,
+      "reference": 95.95814244291721,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "insured_english CI high",
+      "computed": 97.6392,
+      "reference": 97.63917271266585,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "insured_other",
+      "computed": 87.3754,
+      "reference": 87.37541478728693,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "insured_other CI low",
+      "computed": 81.0823,
+      "reference": 81.08229904269868,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "insured_other CI high",
+      "computed": 91.7871,
+      "reference": 91.78712521630283,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "preventive_english",
+      "computed": 85.9948,
+      "reference": 85.99484742539647,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "preventive_english CI low",
+      "computed": 84.1989,
+      "reference": 84.19887151997195,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "preventive_english CI high",
+      "computed": 87.6167,
+      "reference": 87.61671268183822,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "preventive_other",
+      "computed": 72.7642,
+      "reference": 72.76418064414716,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "preventive_other CI low",
+      "computed": 66.0674,
+      "reference": 66.06736818562378,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "preventive_other CI high",
+      "computed": 78.5681,
+      "reference": 78.56807510987348,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_english",
+      "computed": 10.3173,
+      "reference": 10.31727102000885,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_english CI low",
+      "computed": 9.0161,
+      "reference": 9.01605475435755,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_english CI high",
+      "computed": 11.782,
+      "reference": 11.78196317618129,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_spanish",
+      "computed": 2.9862,
+      "reference": 2.98618289804758,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_spanish CI low",
+      "computed": 1.4774,
+      "reference": 1.47744610631707,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_spanish CI high",
+      "computed": 5.9427,
+      "reference": 5.94267859425901,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_other_language",
+      "computed": 1.138,
+      "reference": 1.1380421290394,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_other_language CI low",
+      "computed": 0.5836,
+      "reference": 0.58361304309208,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_other_language CI high",
+      "computed": 2.2075,
+      "reference": 2.20748055324014,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_nonenglish",
+      "computed": 2.5224,
+      "reference": 2.52242361563591,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_nonenglish CI low",
+      "computed": 1.3506,
+      "reference": 1.35055822759282,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "incident_nonenglish CI high",
+      "computed": 4.663,
+      "reference": 4.6630408177771,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "psc_mean_english",
+      "computed": 2.4032,
+      "reference": 2.403172755700996,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "psc_mean_other",
+      "computed": 1.4966,
+      "reference": 1.4965787744171015,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "bootstrap gap CI low vs Taylor (MC tol)",
+      "computed": 5.7324,
+      "reference": 5.519363519856448,
+      "tolerance": 0.5,
+      "result": "PASS"
+    },
+    {
+      "figure": "bootstrap gap CI high vs Taylor (MC tol)",
+      "computed": 13.8158,
+      "reference": 14.02891491274577,
+      "tolerance": 0.5,
+      "result": "PASS"
+    },
+    {
+      "figure": "bootstrap explained CI low vs Taylor (MC tol)",
+      "computed": 3.9958,
+      "reference": 3.64208841376004,
+      "tolerance": 0.5,
+      "result": "PASS"
+    },
+    {
+      "figure": "bootstrap explained CI high vs Taylor (MC tol)",
+      "computed": 12.3912,
+      "reference": 12.74487619299418,
+      "tolerance": 0.5,
+      "result": "PASS"
+    },
+    {
+      "figure": "bootstrap unexplained CI low vs Taylor (MC tol)",
+      "computed": -3.1767,
+      "reference": -2.948135459419964,
+      "tolerance": 0.5,
+      "result": "PASS"
+    },
+    {
+      "figure": "bootstrap unexplained CI high vs Taylor (MC tol)",
+      "computed": 6.338,
+      "reference": 6.109449285267966,
+      "tolerance": 0.5,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief n, earlier caregiver-MH rule",
+      "computed": 13103,
+      "reference": 13103,
+      "tolerance": 0,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief gap (point), earlier rule",
+      "computed": 9.6652,
+      "reference": 9.67,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief explained (point), earlier rule",
+      "computed": 8.8896,
+      "reference": 8.91,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief unexplained (point), earlier rule",
+      "computed": 0.7757,
+      "reference": 0.76,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:demographics (point), earlier rule",
+      "computed": 2.4087,
+      "reference": 2.43,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:concentration_fidget (point), earlier rule",
+      "computed": 3.3654,
+      "reference": 3.37,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:other_attention (point), earlier rule",
+      "computed": 2.1905,
+      "reference": 2.19,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:persistence_homework_calm (point), earlier rule",
+      "computed": 0.2815,
+      "reference": 0.28,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:access (point), earlier rule",
+      "computed": 0.6434,
+      "reference": 0.64,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief no-preventive n, earlier rule",
+      "computed": 13143,
+      "reference": 13143,
+      "tolerance": 0,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief no-preventive gap (point), earlier rule",
+      "computed": 9.6616,
+      "reference": 9.66,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief no-preventive explained (point), earlier rule",
+      "computed": 8.846,
+      "reference": 8.86,
+      "tolerance": 0.05,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief n, brief method",
+      "computed": 13103,
+      "reference": 13103,
+      "tolerance": 0,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief gap est, brief method",
+      "computed": 9.6652,
+      "reference": 9.67,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief gap lo, brief method",
+      "computed": 5.548,
+      "reference": 5.55,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief gap hi, brief method",
+      "computed": 13.7825,
+      "reference": 13.78,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief explained est, brief method",
+      "computed": 8.9059,
+      "reference": 8.91,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief explained lo, brief method",
+      "computed": 4.5578,
+      "reference": 4.56,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief explained hi, brief method",
+      "computed": 13.254,
+      "reference": 13.25,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief unexplained est, brief method",
+      "computed": 0.7594,
+      "reference": 0.76,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief unexplained lo, brief method",
+      "computed": -3.5509,
+      "reference": -3.55,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief unexplained hi, brief method",
+      "computed": 5.0696,
+      "reference": 5.07,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:demographics est, brief method",
+      "computed": 2.4284,
+      "reference": 2.43,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:demographics lo, brief method",
+      "computed": -0.7214,
+      "reference": -0.72,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:demographics hi, brief method",
+      "computed": 5.5782,
+      "reference": 5.58,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:concentration_fidget est, brief method",
+      "computed": 3.3653,
+      "reference": 3.37,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:concentration_fidget lo, brief method",
+      "computed": 1.8047,
+      "reference": 1.8,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:concentration_fidget hi, brief method",
+      "computed": 4.9259,
+      "reference": 4.93,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:other_attention est, brief method",
+      "computed": 2.1901,
+      "reference": 2.19,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:other_attention lo, brief method",
+      "computed": 0.3257,
+      "reference": 0.33,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:other_attention hi, brief method",
+      "computed": 4.0546,
+      "reference": 4.05,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:persistence_homework_calm est, brief method",
+      "computed": 0.2816,
+      "reference": 0.28,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:persistence_homework_calm lo, brief method",
+      "computed": -0.5034,
+      "reference": -0.5,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:persistence_homework_calm hi, brief method",
+      "computed": 1.0667,
+      "reference": 1.07,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:access est, brief method",
+      "computed": 0.6405,
+      "reference": 0.64,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:access lo, brief method",
+      "computed": -0.2961,
+      "reference": -0.3,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief block:access hi, brief method",
+      "computed": 1.5771,
+      "reference": 1.58,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief no-preventive n, brief method",
+      "computed": 13143,
+      "reference": 13143,
+      "tolerance": 0,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief no-preventive gap est, brief method",
+      "computed": 9.6616,
+      "reference": 9.66,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief no-preventive gap lo, brief method",
+      "computed": 5.5595,
+      "reference": 5.56,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief no-preventive gap hi, brief method",
+      "computed": 13.7638,
+      "reference": 13.76,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief no-preventive explained est, brief method",
+      "computed": 8.8637,
+      "reference": 8.86,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief no-preventive explained lo, brief method",
+      "computed": 4.5297,
+      "reference": 4.53,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief no-preventive explained hi, brief method",
+      "computed": 13.1976,
+      "reference": 13.2,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief PSC mean other (complete-item scoring)",
+      "computed": 1.5351,
+      "reference": 1.54,
+      "tolerance": 0.005,
+      "result": "PASS"
+    },
+    {
+      "figure": "brief S4Q01-missing count that stays missing",
+      "computed": 12,
+      "reference": 12,
+      "tolerance": 0,
+      "result": "PASS"
+    },
+    {
+      "figure": "identity: gap - explained - unexplained",
+      "computed": -0.0,
+      "reference": 0.0,
+      "tolerance": 1e-09,
+      "result": "PASS"
+    },
+    {
+      "figure": "identity: sum of blocks - explained",
+      "computed": 0.0,
+      "reference": 0.0,
+      "tolerance": 1e-09,
+      "result": "PASS"
+    }
+  ]
+}

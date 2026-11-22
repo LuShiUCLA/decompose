@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1 The question</title>
+<meta name="description" content="Interactive lab: Oaxaca-Blinder decomposition on survey data, taught with the NSCH-LC household-language ADHD study.">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="m1">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="inner">
+<a class="brand" href="../index.html">Decomposition Lab</a>
+<nav class="mods" aria-label="Lab sections"><a href="../index.html" data-page="home">Start</a><a href="../modules/1-question.html" data-page="m1">1 Question</a><a href="../modules/2-machine.html" data-page="m2">2 Machine</a><a href="../modules/3-survey.html" data-page="m3">3 Survey</a><a href="../modules/4-traps.html" data-page="m4">4 Traps</a><a href="../modules/5-defence.html" data-page="m5">5 Defence</a><a href="../exercises.html" data-page="ex">Exercises</a><a href="../why-this-lab-works.html" data-page="why">Why it works</a><a href="../source.html" data-page="src">Sources</a></nav>
+</div></header>
+<main id="main">
+<h1>Module 1. The question</h1>
+<p class="lede">Before any formula: what is the gap, who is in each group, and what would it mean to &ldquo;explain&rdquo; it?</p>
+
+<section class="screen">
+<h2>The gap</h2>
+<p>In the National Survey of Children's Health Longitudinal Cohort (NSCH-LC), caregivers of children first surveyed in 2018/2019 were surveyed again in 2024. Among children aged 6&ndash;17 at follow-up:</p>
+<div class="kpi">
+<div><span class="note">English-language households</span><b><span data-num="desc.adhd_english.est"></span>%</b><span class="note">reported ever diagnosed with ADHD (95% CI <span data-num="desc.adhd_english.lo"></span>&ndash;<span data-num="desc.adhd_english.hi"></span>)</span></div>
+<div><span class="note">Other-language households</span><b><span data-num="desc.adhd_other.est"></span>%</b><span class="note">(95% CI <span data-num="desc.adhd_other.lo"></span>&ndash;<span data-num="desc.adhd_other.hi"></span>)</span></div>
+</div>
+<p class="note">Survey-weighted estimates, all children with an answer (n = <span data-num="desc.adhd_english.n" data-dp="0"></span> and <span data-num="desc.adhd_other.n" data-dp="0"></span>). The decomposition later uses the <span data-num="primary.n" data-dp="0"></span> children with every covariate observed; there the gap is <span data-num="primary.terms.gap.est"></span> percentage points.</p>
+</section>
+
+<section class="screen">
+<h2>Who is in each group</h2>
+<p>The grouping variable is <code>HHLANGUAGE</code> at baseline (2018/2019): &ldquo;What is the primary language spoken in the household?&rdquo; 1 = English, 2 = Spanish, 3 = Other language. Spanish and other languages are combined as &ldquo;other-language&rdquo; for the decomposition (only <span data-num="primary.n_other" data-dp="0"></span> such children have complete data).</p>
+<p>This is <em>household</em> language. It is not the child's bilingualism, not the parent's English proficiency, and not ethnicity. In 2024, NSCH-LC paper questionnaires were available in English and Spanish, and telephone assistance in English, Spanish, Mandarin, Russian, Hindi and Portuguese (<a href="https://www2.census.gov/programs-surveys/nsch-lc/technical-documentation/methodology/2024/NSCH-LC-Methodology-Report.pdf">Methodology Report</a>).</p>
+</section>
+
+<section class="screen"><div data-quiz="m1-a"></div></section>
+
+<section class="screen" id="predict-bars">
+<h2>Predict before you learn <span class="mine">builder's addition</span></h2>
+<p>The <span data-num="primary.terms.gap.est"></span>-point gap will be split into five groups of measured characteristics plus an unexplained remainder. Drag each slider to your best guess (in pp). Commit, then reveal.</p>
+<div class="pb-form"></div>
+<p class="pb-sum note" aria-live="polite"></p>
+<div class="row"><button type="button">Reveal the actual split</button></div>
+<div class="pb-out bars"></div>
+<div class="feedback hidden" role="status" aria-live="polite"></div>
+<p class="why">Why predict first: attempting an answer before seeing it, even unsuccessfully, can improve later learning (Kornell, Hays &amp; Bjork, 2009), and the gap between your guess and the result is the feedback.</p>
+</section>
+
+<section class="screen">
+<h2>What would &ldquo;explaining&rdquo; the gap mean?</h2>
+<p>The two groups differ in many measured ways: age, income, caregiver-reported attention items, access to care. A decomposition asks a <b>counterfactual accounting question</b>: if the other-language group had the English group's <em>distribution</em> of those measured characteristics, and those characteristics related to reported diagnosis the way they do among English-language households, how much of the gap would remain?</p>
+<p class="causal"><strong>Compositional, not causal.</strong> The answer is arithmetic about group differences in measured characteristics. It does not say that any characteristic causes diagnosis, and it does not say what would happen if anyone intervened.</p>
+</section>
+
+<section class="screen" data-writing="counterfactual">
+<h2>Write the question in your own words</h2>
+<label for="cf-text">One or two sentences: what exact question will the decomposition answer?</label>
+<textarea id="cf-text" rows="4"></textarea>
+<div class="row"><button type="button" class="check">Get checklist feedback</button></div>
+<div class="feedback hidden" role="status" aria-live="polite"></div>
+<div class="model hidden">
+<h3>A model answer</h3>
+<p>&ldquo;How much smaller would the gap in <em>caregiver-reported</em> ADHD diagnosis between English- and other-language households be if other-language children had the same distribution of measured demographics, reported attention items, behaviours and access to care as English-language children, holding the English group's associations fixed?&rdquo;</p>
+<h3>Why &ldquo;Do other-language children have less ADHD?&rdquo; is the wrong question</h3>
+<ol>
+<li>The outcome is a <em>report of having been told</em> about a diagnosis, not ADHD itself. Lower reported diagnosis is compatible with less disorder, less recognition, less access, different reporting, or all of these.</li>
+<li>A decomposition does not estimate how common a disorder is; it partitions a difference between two observed means.</li>
+<li>Even a fully &ldquo;explained&rdquo; gap is not a causal answer: the covariates are associations, and some (the attention items) are caregiver reports that may themselves differ by language.</li>
+</ol>
+</div>
+<p class="why">Why write it: explaining material to yourself is associated with better learning from examples (Chi et al., 1989). The checklist is keyword-based and transparent; compare your text with the model answer yourself.</p>
+</section>
+
+<section class="screen"><div data-quiz="m1-b"></div></section>
+
+<nav class="nextprev" aria-label="Previous and next"><a href="../index.html">&larr; Start</a><a href="../modules/2-machine.html">Module 2: The machine &rarr;</a></nav>
+</main>
+<footer><div class="inner">
+<p>Numbers on this page are generated by the lab's programs from the NSCH-LC 2024 public-use file (see <a href="../source.html">Sources</a>). Your answers are stored only in this browser; nothing is sent anywhere. <button type="button" class="secondary" id="reset-progress">Clear my progress</button></p>
+<p>Content CC BY 4.0, code MIT. Not affiliated with or endorsed by the U.S. Census Bureau.</p>
+</div></footer>
+<script src="../assets/lab-data.js"></script>
+<script src="../assets/quizzes.js"></script>
+<script src="../assets/interactions.js"></script>
+<script src="../assets/app.js"></script>
+</body>
+</html>

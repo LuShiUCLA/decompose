@@ -1,0 +1,48 @@
+<!--{"out": "index.html", "title": "Decomposition Lab", "page": "home", "next": ["modules/1-question.html", "Module 1: The question"]}-->
+<h1>Run your first falsifiable decomposition, then defend it</h1>
+<p class="lede">A self-paced lab for researchers and students who know basic regression but have never run an Oaxaca&ndash;Blinder decomposition. You learn it on a real study: why children in households whose primary language is not English are less often reported to have an ADHD diagnosis.</p>
+
+<section class="screen" aria-labelledby="bar">
+<h2 id="bar">Your goal</h2>
+<p><b>Reproduce the study's headline decomposition from the raw Census public-use file, within &plusmn;0.1 percentage points on every figure, and defend each modelling choice under questioning.</b></p>
+<p>The headline you will reproduce: gap <b data-ci="primary.terms.gap"></b> pp, explained <b data-ci="primary.terms.explained"></b> pp, unexplained <b data-ci="primary.terms.unexplained"></b> pp, n = <b data-num="primary.n" data-dp="0"></b> children aged 6&ndash;17.</p>
+<p class="causal"><strong>Read this on every results screen:</strong> &ldquo;explained&rdquo; means <em>accounted for by differences in measured characteristics (composition)</em>. It never means &ldquo;caused by&rdquo;.</p>
+<div data-progress><div class="progress" aria-hidden="true"><div></div></div><p class="ptext note"></p></div>
+<p class="why">Why a specific, hard goal: people given specific, difficult goals tend to outperform those told to &ldquo;do their best&rdquo; (Locke &amp; Latham, 2002). See <a href="why-this-lab-works.html">Why this lab works this way</a>.</p>
+</section>
+
+<section class="screen" aria-labelledby="plan">
+<h2 id="plan">Plan: two days, with a night's sleep in between</h2>
+<ol>
+<li><b>Day 1 (core, about 5&ndash;6 hours):</b> Modules 1&ndash;5 in order, then run the core program on your computer and enter your numbers below.</li>
+<li><b>Day 2 (about 6 hours):</b> <a href="exercises.html">Exercise A</a> (access-to-care gap, same file) and <a href="exercises.html#exercise-b">Exercise B</a> (care navigation, pooled annual NSCH 2016&ndash;2025).</li>
+</ol>
+<p class="note">The hours are the builder's estimates; no learner has been timed.</p>
+<p class="why">Why split across days: spreading practice over sessions improves retention compared with massing it (Cepeda et al., 2006), and sleep after learning supports memory consolidation (Diekelmann &amp; Born, 2010). The lab does not claim more than that; see the Why page for limits.</p>
+</section>
+
+<section class="screen" aria-labelledby="repro">
+<h2 id="repro">Checkpoint: did you reproduce the headline?</h2>
+<p>Run <code>python programs/core/decomposition_lab_core.py</code> or <code>Rscript programs/core/decomposition_lab_core.R</code> (instructions in <code>programs/README.md</code>), then type your three numbers in percentage points.</p>
+<div data-reproduce>
+<div class="row">
+<label>Gap <input type="number" step="0.01" name="gap" inputmode="decimal"></label>
+<label>Explained <input type="number" step="0.01" name="explained" inputmode="decimal"></label>
+<label>Unexplained <input type="number" step="0.01" name="unexplained" inputmode="decimal"></label>
+<button type="button">Check</button>
+</div>
+<div class="feedback hidden" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="screen">
+<h2>What you will be able to do</h2>
+<ol>
+<li>Say in plain language what a decomposition shows and does not show, and why a logit decomposition does not add up on the probability scale while a linear-probability one does.</li>
+<li>Design a twofold Oaxaca&ndash;Blinder decomposition on survey data: grouping variable, reference coefficients, covariate blocks, variance estimator.</li>
+<li>Run it in Python and R on the real public-use file and diagnose a result that does not reproduce.</li>
+<li>Build checks that expose coding errors: a wrong skip rule, a wrong insurance variable, a subsetting mistake, a misreported n.</li>
+<li>Apply the same machinery to two new questions (the exercises).</li>
+</ol>
+<p class="note">Builder's additions are marked <span class="mine">builder's addition</span>. This lab does not teach causal inference and does not replace the <a href="https://www2.census.gov/programs-surveys/nsch-lc/technical-documentation/methodology/2024/NSCH-LC-Methodology-Report.pdf">NSCH-LC Methodology Report</a>.</p>
+</section>

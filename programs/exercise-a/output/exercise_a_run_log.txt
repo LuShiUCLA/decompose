@@ -1,0 +1,99 @@
+synthetic: gap -0.1333 (true -0.1333); LPM explained 0.0007; Fairlie explained, English logit 0.0007, pooled logit -0.0197  (English-reference values near 0 because y does not depend on x within group)
+synthetic dry run: PASS
+
+==============================================================================
+OUTCOME PREVENTIVE_W2
+==============================================================================
+
+--- A: all blocks (incl. other access): n=13564 (English 12729, other-language 835)
+                                       LPM Oaxaca (95% CI)    Fairlie, English logit: mean over orders [min, max]
+gap                            13.22 (   6.67,  19.77)      13.22
+explained                      13.18 (   7.51,  18.86)      15.15  (7.75, 22.55)
+unexplained                     0.04 (  -9.32,   9.40)      -1.93
+block:demographics              4.11 (   0.27,   7.94)       4.57 [  4.05,   5.08]  as-listed   4.92
+block:ses                       4.11 (  -0.01,   8.22)       5.12 [  4.50,   5.79]  as-listed   4.79
+block:insurance                 1.65 (   0.22,   3.07)       1.91 [  1.77,   2.01]  as-listed   1.83
+block:health                    1.74 (   1.08,   2.41)       1.64 [  1.35,   1.91]  as-listed   1.82
+block:other_access              1.58 (   0.40,   2.76)       1.93 [  1.62,   2.21]  as-listed   1.81
+Fairlie explained, POOLED logit (no group indicator; different reference)     11.51
+LPM explained share 99.7%  |  Fairlie explained share 114.6%   ('explained' = compositional, not causal)
+
+--- B: without the other access variable, same children as A: n=13564 (English 12729, other-language 835)
+                                       LPM Oaxaca (95% CI)    Fairlie, English logit: mean over orders [min, max]
+gap                            13.22 (   6.67,  19.77)      13.22
+explained                      12.13 (   6.39,  17.87)      13.45  (6.19, 20.71)
+unexplained                     1.09 (  -8.38,  10.57)      -0.23
+block:demographics              4.24 (   0.49,   7.99)       4.74 [  4.27,   5.22]  as-listed   4.94
+block:ses                       4.40 (   0.36,   8.45)       4.92 [  4.37,   5.56]  as-listed   4.39
+block:insurance                 1.70 (   0.25,   3.16)       1.99 [  1.88,   2.06]  as-listed   2.00
+block:health                    1.78 (   1.11,   2.46)       1.78 [  1.43,   2.10]  as-listed   2.10
+Fairlie explained, POOLED logit (no group indicator; different reference)     10.31
+LPM explained share 91.7%  |  Fairlie explained share 101.7%   ('explained' = compositional, not causal)
+
+--- C: TRAPS IN (K4Q20R skips dropped, CURRCOV): n=12327 (English 11663, other-language 664)
+                                       LPM Oaxaca (95% CI)    Fairlie, English logit: mean over orders [min, max]
+gap                            -1.68 (  -2.87,  -0.48)      -1.68
+explained                       2.96 (  -0.41,   6.33)       2.97
+unexplained                    -4.64 (  -8.73,  -0.55)      -4.65
+block:demographics             -0.56 (  -1.72,   0.60)      -0.91 [ -1.57,  -0.29]  as-listed  -1.57
+block:ses                       2.84 (  -0.70,   6.37)       3.03 [  2.43,   3.71]  as-listed   3.66
+block:insurance                 0.44 (  -0.47,   1.34)       0.57 [  0.45,   0.71]  as-listed   0.63
+block:health                    0.16 (  -0.06,   0.37)       0.18 [  0.12,   0.28]  as-listed   0.18
+block:other_access              0.09 (  -0.27,   0.46)       0.10 [  0.05,   0.18]  as-listed   0.08
+Fairlie explained, POOLED logit (no group indicator; different reference)      0.10
+LPM explained share -177.0%  |  Fairlie explained share -177.6%   ('explained' = compositional, not causal)
+
+==============================================================================
+OUTCOME USUAL_SOURCE_W2
+==============================================================================
+
+--- A: all blocks (incl. other access): n=13564 (English 12729, other-language 835)
+                                       LPM Oaxaca (95% CI)    Fairlie, English logit: mean over orders [min, max]
+gap                            21.85 (  14.69,  29.02)      21.85
+explained                       7.34 (   2.53,  12.14)       7.51  (1.32, 13.70)
+unexplained                    14.52 (   5.71,  23.33)      14.34
+block:demographics              1.44 (  -1.81,   4.68)       1.26 [  1.03,   1.51]  as-listed   1.03
+block:ses                       3.72 (   0.14,   7.31)       3.86 [  3.60,   4.12]  as-listed   3.92
+block:insurance                 0.67 (  -0.34,   1.67)       0.68 [  0.58,   0.77]  as-listed   0.66
+block:health                    0.41 (  -0.22,   1.03)       0.51 [  0.44,   0.58]  as-listed   0.56
+block:other_access              1.10 (   0.16,   2.05)       1.21 [  1.05,   1.38]  as-listed   1.35
+Fairlie explained, POOLED logit (no group indicator; different reference)     12.66
+LPM explained share 33.6%  |  Fairlie explained share 34.4%   ('explained' = compositional, not causal)
+
+--- B: without the other access variable, same children as A: n=13564 (English 12729, other-language 835)
+                                       LPM Oaxaca (95% CI)    Fairlie, English logit: mean over orders [min, max]
+gap                            21.85 (  14.69,  29.02)      21.85
+explained                       7.25 (   2.57,  11.92)       7.47  (1.33, 13.61)
+unexplained                    14.61 (   5.78,  23.44)      14.38
+block:demographics              1.79 (  -1.35,   4.94)       1.84 [  1.63,   2.06]  as-listed   1.63
+block:ses                       4.09 (   0.58,   7.60)       4.27 [  4.11,   4.43]  as-listed   4.37
+block:insurance                 0.81 (  -0.24,   1.86)       0.78 [  0.72,   0.83]  as-listed   0.83
+block:health                    0.55 (  -0.08,   1.19)       0.59 [  0.50,   0.67]  as-listed   0.65
+Fairlie explained, POOLED logit (no group indicator; different reference)     12.29
+LPM explained share 33.2%  |  Fairlie explained share 34.2%   ('explained' = compositional, not causal)
+
+--- C: TRAPS IN (K4Q20R skips dropped, CURRCOV): n=12327 (English 11663, other-language 664)
+                                       LPM Oaxaca (95% CI)    Fairlie, English logit: mean over orders [min, max]
+gap                            17.32 (   9.34,  25.29)      17.32
+explained                       7.99 (   2.39,  13.59)       8.52
+unexplained                     9.33 (  -0.65,  19.31)       8.80
+block:demographics              2.57 (  -0.96,   6.09)       2.93 [  2.73,   3.12]  as-listed   2.73
+block:ses                       4.73 (   0.49,   8.98)       4.76 [  4.52,   4.99]  as-listed   4.88
+block:insurance                 0.46 (  -0.85,   1.76)       0.47 [  0.42,   0.52]  as-listed   0.45
+block:health                    0.28 (  -0.40,   0.95)       0.43 [  0.32,   0.53]  as-listed   0.51
+block:other_access             -0.04 (  -0.20,   0.12)      -0.06 [ -0.07,  -0.04]  as-listed  -0.04
+Fairlie explained, POOLED logit (no group indicator; different reference)     10.80
+LPM explained share 46.1%  |  Fairlie explained share 49.2%   ('explained' = compositional, not causal)
+[INFO] PREVENTIVE_W2: complete-case gap 13.22 pp vs all-available descriptive gap 13.23 pp (different samples: decomposition requires complete covariates)
+[INFO] USUAL_SOURCE_W2: complete-case gap 21.85 pp vs all-available descriptive gap 21.89 pp (different samples: decomposition requires complete covariates)
+[PASS] PREVENTIVE_W2 LPM identity: 5.97e-16
+[PASS] PREVENTIVE_W2 LPM blocks sum to explained: 1.78e-15
+[PASS] USUAL_SOURCE_W2 LPM identity: 5.33e-15
+[PASS] USUAL_SOURCE_W2 LPM blocks sum to explained: 6.22e-15
+[PASS] PREVENTIVE_W2 spec B uses the same children as A: 0.00e+00
+[PASS] USUAL_SOURCE_W2 spec B uses the same children as A: 0.00e+00
+[PASS] preventive_english: 85.9948 vs logged 85.9948 (tol ±0.05)
+[PASS] preventive_other: 72.7642 vs logged 72.7642 (tol ±0.05)
+[PASS] usual_english: 83.7344 vs logged 83.7344 (tol ±0.05)
+[PASS] usual_other: 61.8396 vs logged 61.8396 (tol ±0.05)
+[PASS] falsification: traps-in changes the preventive-visit gap by -14.89 pp (if ~0, your code is not applying the S4Q01 structural-zero rule)

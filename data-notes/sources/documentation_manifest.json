@@ -1,0 +1,32 @@
+[
+  {
+    "file": "NSCH-LC-Methodology-Report.pdf",
+    "url": "https://www2.census.gov/programs-surveys/nsch-lc/technical-documentation/methodology/2024/NSCH-LC-Methodology-Report.pdf",
+    "bytes": 1877963,
+    "sha256": "8dacb1191a12d277527f512bbe5f4b6e16adb03a186caf732dae0e2824c1a8af"
+  },
+  {
+    "file": "NSCH-LC-Source-and-Accuracy-Statement.pdf",
+    "url": "https://www2.census.gov/programs-surveys/nsch-lc/technical-documentation/source-and-accuracy/2024/NSCH-LC-Source-and-Accuracy-Statement.pdf",
+    "bytes": 1299156,
+    "sha256": "7872a140862b080001696590d249c0af435741472e9ebb6d8899fa269926ac47"
+  },
+  {
+    "file": "NSCH-LC-FAQs.pdf",
+    "url": "https://www2.census.gov/programs-surveys/nsch-lc/technical-documentation/2024/NSCH-LC-FAQs.pdf",
+    "bytes": 1797661,
+    "sha256": "b8381da3c0392213b82a028bdaff3cafee7f914a4b4a37c9253299182e7001b7"
+  },
+  {
+    "file": "NSCH-Analysis-with-Imputed-Data-Guide.pdf",
+    "url": "https://www2.census.gov/programs-surveys/nsch-lc/technical-documentation/2024/NSCH-Analysis-with-Imputed-Data-Guide.pdf",
+    "bytes": 402360,
+    "sha256": "39a1c695e086ae5b5b989cffcb9bb3d9ed36182b81c16cc09986133d5b6f1993"
+  },
+  {
+    "file": "NSCH-LC2_3_2024_INFO_COPY.pdf",
+    "url": "https://www2.census.gov/programs-surveys/nsch-lc/technical-documentation/questionnaires/NSCH-LC2_3_2024_INFO_COPY.pdf",
+    "bytes": 7935812,
+    "sha256": "37f3b6628773eb81ad6ca217169f2533e06c217872b2ae7fad21c80088a786a3"
+  }
+]

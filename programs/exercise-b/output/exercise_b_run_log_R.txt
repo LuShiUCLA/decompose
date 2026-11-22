@@ -1,0 +1,105 @@
+synthetic: Oaxaca explained 0.1021; DFL explained 0.0992; DFL unexplained 0.0033 -> PASS
+children=431222 strata=102 PSUs=431222 df=431120
+  sample flow: all children                      431222
+  sample flow: CSHCN                             103751
+  sample flow: and publicly insured               35392
+  sample flow: and coordination need              13400
+  sample flow: and household language known       13301
+  sample flow: and outcome known                  13174
+Oaxaca n=13044 (English 12139, other 905)
+  gap                        -2.57 ( -8.84,   3.70)
+  explained                  -1.10 ( -5.12,   2.91)
+  unexplained                -1.47 ( -8.79,   5.86)
+  block:demographics          0.84 ( -2.52,   4.20)
+  block:ses                  -1.95 ( -3.96,   0.05)
+  block:coverage             -0.61 ( -1.22,   0.00)
+  block:health                0.24 ( -0.29,   0.77)
+  block:usual_source          0.27 ( -0.36,   0.90)
+  block:survey_year           0.11 ( -0.85,   1.08)
+  reweighted English effective sample size 156 of 12139; largest single-child weight share 0.0465
+  DFL gap            -2.57 ( -9.11,   3.97)
+  DFL explained      -0.94 ( -6.75,   4.87)
+  DFL unexplained    -1.63 (-10.46,   7.21)
+[PASS] sample flow all children                                |R-Python| 0.00e+00
+[PASS] sample flow CSHCN                                       |R-Python| 0.00e+00
+[PASS] sample flow and publicly insured                        |R-Python| 0.00e+00
+[PASS] sample flow and coordination need                       |R-Python| 0.00e+00
+[PASS] sample flow and household language known                |R-Python| 0.00e+00
+[PASS] sample flow and outcome known                           |R-Python| 0.00e+00
+[PASS] DFL effective sample size                               |R-Python| 1.14e-13
+[PASS] DFL largest weight share                                |R-Python| 6.25e-17
+[PASS] descriptive navigated_english                           |R-Python| 0.00e+00
+[PASS] descriptive navigated_spanish                           |R-Python| 1.42e-14
+[PASS] descriptive navigated_other_nonenglish                  |R-Python| 2.84e-14
+[PASS] descriptive navigated_other                             |R-Python| 1.42e-14
+[PASS] Oaxaca n                                                |R-Python| 0.00e+00
+[PASS] Oaxaca gap est                                          |R-Python| 0.00e+00
+[PASS] Oaxaca gap lo                                           |R-Python| 4.26e-14
+[PASS] Oaxaca gap hi                                           |R-Python| 4.31e-14
+[PASS] Oaxaca explained est                                    |R-Python| 8.08e-13
+[PASS] Oaxaca explained lo                                     |R-Python| 6.08e-13
+[PASS] Oaxaca explained hi                                     |R-Python| 1.01e-12
+[PASS] Oaxaca unexplained est                                  |R-Python| 8.08e-13
+[PASS] Oaxaca unexplained lo                                   |R-Python| 7.99e-14
+[PASS] Oaxaca unexplained hi                                   |R-Python| 1.54e-12
+[PASS] Oaxaca block:demographics est                           |R-Python| 1.08e-13
+[PASS] Oaxaca block:demographics lo                            |R-Python| 2.10e-13
+[PASS] Oaxaca block:demographics hi                            |R-Python| 7.11e-15
+[PASS] Oaxaca block:ses est                                    |R-Python| 8.50e-13
+[PASS] Oaxaca block:ses lo                                     |R-Python| 5.96e-13
+[PASS] Oaxaca block:ses hi                                     |R-Python| 1.10e-12
+[PASS] Oaxaca block:coverage est                               |R-Python| 3.34e-14
+[PASS] Oaxaca block:coverage lo                                |R-Python| 4.77e-14
+[PASS] Oaxaca block:coverage hi                                |R-Python| 1.90e-14
+[PASS] Oaxaca block:health est                                 |R-Python| 5.94e-15
+[PASS] Oaxaca block:health lo                                  |R-Python| 4.34e-14
+[PASS] Oaxaca block:health hi                                  |R-Python| 3.15e-14
+[PASS] Oaxaca block:usual_source est                           |R-Python| 9.65e-14
+[PASS] Oaxaca block:usual_source lo                            |R-Python| 1.34e-13
+[PASS] Oaxaca block:usual_source hi                            |R-Python| 5.91e-14
+[PASS] Oaxaca block:survey_year est                            |R-Python| 2.70e-14
+[PASS] Oaxaca block:survey_year lo                             |R-Python| 2.20e-13
+[PASS] Oaxaca block:survey_year hi                             |R-Python| 1.66e-13
+[PASS] DFL point gap                                           |R-Python| 0.00e+00
+[PASS] DFL point explained                                     |R-Python| 7.44e-15
+[PASS] DFL point unexplained                                   |R-Python| 7.33e-15
+[PASS] LOYO 2016 gap                                           |R-Python| 0.00e+00
+[PASS] LOYO 2016 oaxaca_explained                              |R-Python| 4.53e-13
+[PASS] LOYO 2016 dfl_explained                                 |R-Python| 9.10e-15
+[PASS] LOYO 2017 gap                                           |R-Python| 0.00e+00
+[PASS] LOYO 2017 oaxaca_explained                              |R-Python| 2.75e-13
+[PASS] LOYO 2017 dfl_explained                                 |R-Python| 1.48e-14
+[PASS] LOYO 2018 gap                                           |R-Python| 2.22e-14
+[PASS] LOYO 2018 oaxaca_explained                              |R-Python| 1.74e-12
+[PASS] LOYO 2018 dfl_explained                                 |R-Python| 0.00e+00
+[PASS] LOYO 2019 gap                                           |R-Python| 1.11e-14
+[PASS] LOYO 2019 oaxaca_explained                              |R-Python| 1.33e-12
+[PASS] LOYO 2019 dfl_explained                                 |R-Python| 5.55e-15
+[PASS] LOYO 2020 gap                                           |R-Python| 0.00e+00
+[PASS] LOYO 2020 oaxaca_explained                              |R-Python| 1.09e-12
+[PASS] LOYO 2020 dfl_explained                                 |R-Python| 9.33e-15
+[PASS] LOYO 2021 gap                                           |R-Python| 0.00e+00
+[PASS] LOYO 2021 oaxaca_explained                              |R-Python| 1.49e-12
+[PASS] LOYO 2021 dfl_explained                                 |R-Python| 2.60e-14
+[PASS] LOYO 2022 gap                                           |R-Python| 1.11e-14
+[PASS] LOYO 2022 oaxaca_explained                              |R-Python| 1.57e-12
+[PASS] LOYO 2022 dfl_explained                                 |R-Python| 1.89e-15
+[PASS] LOYO 2023 gap                                           |R-Python| 0.00e+00
+[PASS] LOYO 2023 oaxaca_explained                              |R-Python| 3.29e-12
+[PASS] LOYO 2023 dfl_explained                                 |R-Python| 1.49e-14
+[PASS] LOYO 2024 gap                                           |R-Python| 1.11e-14
+[PASS] LOYO 2024 oaxaca_explained                              |R-Python| 1.04e-12
+[PASS] LOYO 2024 dfl_explained                                 |R-Python| 9.55e-15
+[PASS] LOYO 2025 gap                                           |R-Python| 2.22e-14
+[PASS] LOYO 2025 oaxaca_explained                              |R-Python| 1.18e-12
+[PASS] LOYO 2025 dfl_explained                                 |R-Python| 2.00e-14
+[PASS] period 2016_2021_rereleased explained                   |R-Python| 9.12e-13
+[PASS] period 2022_2025 explained                              |R-Python| 1.72e-13
+[PASS] weight revision enhanced_weights gap                    |R-Python| 0.00e+00
+[PASS] weight revision enhanced_weights explained              |R-Python| 3.46e-13
+[PASS] weight revision original_weights gap                    |R-Python| 0.00e+00
+[PASS] weight revision original_weights explained              |R-Python| 5.24e-13
+[PASS] skip trap gap                                           |R-Python| 1.78e-15
+[INFO] DFL bootstrap CI (R RNG) explained (-6.75, 4.87) vs Python (-6.96, 5.08): Monte Carlo difference expected
+
+CROSS-CHECK: 0 FAIL

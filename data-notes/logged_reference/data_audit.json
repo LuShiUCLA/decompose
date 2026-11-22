@@ -1,0 +1,30 @@
+{
+  "raw_rows": 43536,
+  "children": 21768,
+  "strata": 102,
+  "weight_sum": 72918386.35286129,
+  "weight_min": 19.560854312,
+  "weight_max": 115613.41713,
+  "baseline_age_range": [
+    0,
+    17
+  ],
+  "followup_age_range": [
+    4,
+    23
+  ],
+  "released_psc_n": 21716,
+  "strict_psc_n": 21387,
+  "psc_agreement_complete_items": true,
+  "unknown_language_n": 84,
+  "unknown_nativity_n": 479,
+  "single_caregiver_n": 2221,
+  "known_no_visit_recoded": {
+    "W1": 2644,
+    "W2": 2348
+  },
+  "never_current_conflicts": {
+    "W1": 0,
+    "W2": 0
+  }
+}

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sources and reproducibility</title>
+<meta name="description" content="Interactive lab: Oaxaca-Blinder decomposition on survey data, taught with the NSCH-LC household-language ADHD study.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="src">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="inner">
+<a class="brand" href="index.html">Decomposition Lab</a>
+<nav class="mods" aria-label="Lab sections"><a href="index.html" data-page="home">Start</a><a href="modules/1-question.html" data-page="m1">1 Question</a><a href="modules/2-machine.html" data-page="m2">2 Machine</a><a href="modules/3-survey.html" data-page="m3">3 Survey</a><a href="modules/4-traps.html" data-page="m4">4 Traps</a><a href="modules/5-defence.html" data-page="m5">5 Defence</a><a href="exercises.html" data-page="ex">Exercises</a><a href="why-this-lab-works.html" data-page="why">Why it works</a><a href="source.html" data-page="src">Sources</a></nav>
+</div></header>
+<main id="main">
+<h1>Sources and reproducibility</h1>
+<p class="lede">Where every number comes from, how to regenerate it, and how the lab's design brief was checked.</p>
+
+<section class="screen">
+<h2>Data</h2>
+<ul>
+<li><b>NSCH Longitudinal Cohort (NSCH-LC), 2024 public-use file</b>, U.S. Census Bureau: <a href="https://www.census.gov/programs-surveys/nsch-lc.html">survey page</a>. The programs read the Stata file; the one line to edit is <code>DATA_PATH</code> at the top of each program. Checksums are in <code>data-notes/</code>.</li>
+<li><b>Documentation used</b>: the <a href="https://www2.census.gov/programs-surveys/nsch-lc/technical-documentation/methodology/2024/NSCH-LC-Methodology-Report.pdf">Methodology Report</a>, the <a href="https://www2.census.gov/programs-surveys/nsch-lc/technical-documentation/source-and-accuracy/2024/NSCH-LC-Source-and-Accuracy-Statement.pdf">Source and Accuracy Statement</a>, the <a href="https://www2.census.gov/programs-surveys/nsch-lc/technical-documentation/2024/NSCH-LC-Variable-List.xlsx">Variable List</a> and the <a href="https://www2.census.gov/programs-surveys/nsch-lc/technical-documentation/2024/NSCH-Analysis-with-Imputed-Data-Guide.pdf">guide to multiply imputed data</a>.</li>
+</ul>
+</section>
+
+<section class="screen">
+<h2>How the numbers reach this page</h2>
+<ol>
+<li><code>programs/core/decomposition_lab_core.py</code> (and its R twin) read the public-use file and write <code>core_results.json</code>, a run log and a PASS/FAIL self-check.</li>
+<li><code>programs/build_lab_data.py</code> copies those JSON files into <code>lab/assets/lab-data.js</code>.</li>
+<li>Every figure on every page is looked up in that file by name. No number in the page text is typed by hand.</li>
+</ol>
+<p>The reference values the self-check compares against come from the project's earlier, reviewed analysis pipeline (logged run of 17 November 2026, re-run on 22 November 2026 with identical results). Copies of its output tables are in <code>data-notes/logged_reference/</code>; <code>data-notes/make_reference_values.py</code> turns them into <code>reference_values.json</code>.</p>
+<p>The reference run on this page: Python <span data-num="core.environment.python" ></span>, seed <span data-num="core.environment.seed" data-dp="0"></span>, <span data-num="core.environment.n_boot" data-dp="0"></span> bootstrap replicates.</p>
+</section>
+
+<section class="screen">
+<h2>How the design brief's figures were checked</h2>
+<p>Every figure the brief quoted (30 rows) was checked against the logged runs and the public-use file (<code>data-notes/reconciliation.md</code> has the full table).</p>
+<ul>
+<li>The brief's decomposition reproduces exactly, intervals included (gap <span data-ci="sens.brief_method.gap"></span>; explained <span data-ci="sens.brief_method.explained"></span>; n <span data-num="sens.brief_method.n" data-dp="0"></span>), with the method of the project's superseded first program: an earlier caregiver mental-health rule, income averaged over the six imputations in one fit, and a bootstrap without the Rao&ndash;Wu rescaling. The lab's headline uses the reviewed choices (n <span data-num="primary.n" data-dp="0"></span>; explained <span data-num="primary.terms.explained.est"></span> pp). Module 5 shows what each choice changes.</li>
+<li>The brief's PSC means reproduce when the five items are summed only for children who answered all five; Census's released score counts an unanswered item as 0.</li>
+<li>Three values reproduce but carry the wrong label (for example, 16.3% vs 6.0% is the 2024 follow-up, not Wave 1).</li>
+<li>The brief's &ldquo;earlier specification&rdquo; (n 11,928) reproduces from the superseded program. Its all-ages figures reproduce there too, on 21,204 children; the brief&rsquo;s n of 18,042 belongs to a different specification in the same run of that program. Neither is used.</li>
+</ul>
+</section>
+
+<section class="screen">
+<h2>Methods references</h2>
+<ul class="refs">
+<li>Blinder, A. S. (1973). Wage discrimination: Reduced form and structural estimates. <i>Journal of Human Resources, 8</i>(4), 436&ndash;455. <a href="https://doi.org/10.2307/144855">doi:10.2307/144855</a></li>
+<li>DiNardo, J., Fortin, N. M., &amp; Lemieux, T. (1996). Labor market institutions and the distribution of wages, 1973&ndash;1992: A semiparametric approach. <i>Econometrica, 64</i>(5), 1001&ndash;1044. <a href="https://doi.org/10.2307/2171954">doi:10.2307/2171954</a></li>
+<li>Fairlie, R. W. (2005). An extension of the Blinder&ndash;Oaxaca decomposition technique to logit and probit models. <i>Journal of Economic and Social Measurement, 30</i>(4), 305&ndash;316. <a href="https://doi.org/10.3233/JEM-2005-0259">doi:10.3233/JEM-2005-0259</a></li>
+<li>Fortin, N., Lemieux, T., &amp; Firpo, S. (2011). Decomposition methods in economics. In O. Ashenfelter &amp; D. Card (Eds.), <i>Handbook of Labor Economics</i> (Vol. 4A, pp. 1&ndash;102). Elsevier. <a href="https://doi.org/10.1016/S0169-7218(11)00407-2">doi:10.1016/S0169-7218(11)00407-2</a></li>
+<li>Jann, B. (2008). The Blinder&ndash;Oaxaca decomposition for linear regression models. <i>The Stata Journal, 8</i>(4), 453&ndash;479. <a href="https://doi.org/10.1177/1536867X0800800401">doi:10.1177/1536867X0800800401</a></li>
+<li>Lumley, T. (2004). Analysis of complex survey samples. <i>Journal of Statistical Software, 9</i>(8). <a href="https://doi.org/10.18637/jss.v009.i08">doi:10.18637/jss.v009.i08</a></li>
+<li>Oaxaca, R. (1973). Male&ndash;female wage differentials in urban labor markets. <i>International Economic Review, 14</i>(3), 693&ndash;709. <a href="https://doi.org/10.2307/2525981">doi:10.2307/2525981</a></li>
+<li>Rao, J. N. K., &amp; Wu, C. F. J. (1988). Resampling inference with complex survey data. <i>Journal of the American Statistical Association, 83</i>(401), 231&ndash;241. <a href="https://doi.org/10.1080/01621459.1988.10478591">doi:10.1080/01621459.1988.10478591</a></li>
+<li>Sinning, M., Hahn, M., &amp; Bauer, T. K. (2008). The Blinder&ndash;Oaxaca decomposition for nonlinear regression models. <i>The Stata Journal, 8</i>(4), 480&ndash;492. <a href="https://doi.org/10.1177/1536867X0800800402">doi:10.1177/1536867X0800800402</a></li>
+<li>VanderWeele, T. J., &amp; Ding, P. (2017). Sensitivity analysis in observational research: Introducing the E-value. <i>Annals of Internal Medicine, 167</i>(4), 268&ndash;274. <a href="https://doi.org/10.7326/M16-2607">doi:10.7326/M16-2607</a></li>
+</ul>
+<p class="note">Learning-science references are on the <a href="why-this-lab-works.html">Why page</a>. All DOIs were resolved against Crossref metadata on 22 November 2026.</p>
+</section>
+
+<nav class="nextprev" aria-label="Previous and next"><a href="why-this-lab-works.html">&larr; Why this lab works</a></nav>
+</main>
+<footer><div class="inner">
+<p>Numbers on this page are generated by the lab's programs from the NSCH-LC 2024 public-use file (see <a href="source.html">Sources</a>). Your answers are stored only in this browser; nothing is sent anywhere. <button type="button" class="secondary" id="reset-progress">Clear my progress</button></p>
+<p>Content CC BY 4.0, code MIT. Not affiliated with or endorsed by the U.S. Census Bureau.</p>
+</div></footer>
+<script src="assets/lab-data.js"></script>
+<script src="assets/quizzes.js"></script>
+<script src="assets/interactions.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

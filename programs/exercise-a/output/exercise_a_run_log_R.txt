@@ -1,0 +1,131 @@
+
+==== OUTCOME PREVENTIVE_W2 ====
+
+--- A: all blocks: n=13564 (English 12729, other-language 835)
+gap                          LPM   13.22 (  6.67,  19.77)  Fairlie   13.22
+explained                    LPM   13.18 (  7.51,  18.86)  Fairlie   15.15
+unexplained                  LPM    0.04 ( -9.32,   9.40)  Fairlie   -1.93
+block:demographics           LPM    4.11 (  0.27,   7.94)  Fairlie    4.57 [  4.05,   5.08]
+block:ses                    LPM    4.11 ( -0.01,   8.22)  Fairlie    5.12 [  4.50,   5.79]
+block:insurance              LPM    1.65 (  0.22,   3.07)  Fairlie    1.91 [  1.77,   2.01]
+block:health                 LPM    1.74 (  1.08,   2.41)  Fairlie    1.64 [  1.35,   1.91]
+block:other_access           LPM    1.58 (  0.40,   2.76)  Fairlie    1.93 [  1.62,   2.21]
+Fairlie explained, POOLED logit (no group indicator; different reference)   11.51
+
+--- B: no other access, same children as A: n=13564 (English 12729, other-language 835)
+gap                          LPM   13.22 (  6.67,  19.77)  Fairlie   13.22
+explained                    LPM   12.13 (  6.39,  17.87)  Fairlie   13.45
+unexplained                  LPM    1.09 ( -8.38,  10.57)  Fairlie   -0.23
+block:demographics           LPM    4.24 (  0.49,   7.99)  Fairlie    4.74 [  4.27,   5.22]
+block:ses                    LPM    4.40 (  0.36,   8.45)  Fairlie    4.92 [  4.37,   5.56]
+block:insurance              LPM    1.70 (  0.25,   3.16)  Fairlie    1.99 [  1.88,   2.06]
+block:health                 LPM    1.78 (  1.11,   2.46)  Fairlie    1.78 [  1.43,   2.10]
+Fairlie explained, POOLED logit (no group indicator; different reference)   10.31
+
+--- C: TRAPS IN: n=12327 (English 11663, other-language 664)
+gap                          LPM   -1.68 ( -2.87,  -0.48)  Fairlie   -1.68
+explained                    LPM    2.96 ( -0.41,   6.33)  Fairlie    2.97
+unexplained                  LPM   -4.64 ( -8.73,  -0.55)  Fairlie   -4.65
+block:demographics           LPM   -0.56 ( -1.72,   0.60)  Fairlie   -0.91 [ -1.57,  -0.29]
+block:ses                    LPM    2.84 ( -0.70,   6.37)  Fairlie    3.03 [  2.43,   3.71]
+block:insurance              LPM    0.44 ( -0.47,   1.34)  Fairlie    0.57 [  0.45,   0.71]
+block:health                 LPM    0.16 ( -0.06,   0.37)  Fairlie    0.18 [  0.12,   0.28]
+block:other_access           LPM    0.09 ( -0.27,   0.46)  Fairlie    0.10 [  0.05,   0.18]
+Fairlie explained, POOLED logit (no group indicator; different reference)    0.10
+
+==== OUTCOME USUAL_SOURCE_W2 ====
+
+--- A: all blocks: n=13564 (English 12729, other-language 835)
+gap                          LPM   21.85 ( 14.69,  29.02)  Fairlie   21.85
+explained                    LPM    7.34 (  2.53,  12.14)  Fairlie    7.51
+unexplained                  LPM   14.52 (  5.71,  23.33)  Fairlie   14.34
+block:demographics           LPM    1.44 ( -1.81,   4.68)  Fairlie    1.26 [  1.03,   1.51]
+block:ses                    LPM    3.72 (  0.14,   7.31)  Fairlie    3.86 [  3.60,   4.12]
+block:insurance              LPM    0.67 ( -0.34,   1.67)  Fairlie    0.68 [  0.58,   0.77]
+block:health                 LPM    0.41 ( -0.22,   1.03)  Fairlie    0.51 [  0.44,   0.58]
+block:other_access           LPM    1.10 (  0.16,   2.05)  Fairlie    1.21 [  1.05,   1.38]
+Fairlie explained, POOLED logit (no group indicator; different reference)   12.66
+
+--- B: no other access, same children as A: n=13564 (English 12729, other-language 835)
+gap                          LPM   21.85 ( 14.69,  29.02)  Fairlie   21.85
+explained                    LPM    7.25 (  2.57,  11.92)  Fairlie    7.47
+unexplained                  LPM   14.61 (  5.78,  23.44)  Fairlie   14.38
+block:demographics           LPM    1.79 ( -1.35,   4.94)  Fairlie    1.84 [  1.63,   2.06]
+block:ses                    LPM    4.09 (  0.58,   7.60)  Fairlie    4.27 [  4.11,   4.43]
+block:insurance              LPM    0.81 ( -0.24,   1.86)  Fairlie    0.78 [  0.72,   0.83]
+block:health                 LPM    0.55 ( -0.08,   1.19)  Fairlie    0.59 [  0.50,   0.67]
+Fairlie explained, POOLED logit (no group indicator; different reference)   12.29
+
+--- C: TRAPS IN: n=12327 (English 11663, other-language 664)
+gap                          LPM   17.32 (  9.34,  25.29)  Fairlie   17.32
+explained                    LPM    7.99 (  2.39,  13.59)  Fairlie    8.52
+unexplained                  LPM    9.33 ( -0.65,  19.31)  Fairlie    8.80
+block:demographics           LPM    2.57 ( -0.96,   6.09)  Fairlie    2.93 [  2.73,   3.12]
+block:ses                    LPM    4.73 (  0.49,   8.98)  Fairlie    4.76 [  4.52,   4.99]
+block:insurance              LPM    0.46 ( -0.85,   1.76)  Fairlie    0.47 [  0.42,   0.52]
+block:health                 LPM    0.28 ( -0.40,   0.95)  Fairlie    0.43 [  0.32,   0.53]
+block:other_access           LPM   -0.04 ( -0.20,   0.12)  Fairlie   -0.06 [ -0.07,  -0.04]
+Fairlie explained, POOLED logit (no group indicator; different reference)   10.80
+[PASS] PREVENTIVE_W2 LPM identity
+[PASS] PREVENTIVE_W2 LPM blocks sum to explained
+[PASS] PREVENTIVE_W2 spec B uses the same children as A
+[PASS] USUAL_SOURCE_W2 LPM identity
+[PASS] USUAL_SOURCE_W2 LPM blocks sum to explained
+[PASS] USUAL_SOURCE_W2 spec B uses the same children as A
+[PASS] preventive_english 85.9948 vs logged 85.9948 (tol 0.05)
+[PASS] preventive_other 72.7642 vs logged 72.7642 (tol 0.05)
+[PASS] usual_english 83.7344 vs logged 83.7344 (tol 0.05)
+[PASS] usual_other 61.8396 vs logged 61.8396 (tol 0.05)
+[PASS] falsification: traps-in moves the preventive gap by -14.89 pp
+[PASS] PREVENTIVE_W2|A_all_blocks gap: |R-Python| LPM 0.00e+00, Fairlie 0.00e+00
+[PASS] PREVENTIVE_W2|A_all_blocks explained: |R-Python| LPM 1.13e-12, Fairlie 1.07e-13
+[PASS] PREVENTIVE_W2|A_all_blocks unexplained: |R-Python| LPM 1.13e-12, Fairlie 8.13e-14
+[PASS] PREVENTIVE_W2|A_all_blocks Fairlie demographics: |R-Python| 2.49e-14
+[PASS] PREVENTIVE_W2|A_all_blocks Fairlie ses: |R-Python| 3.55e-14
+[PASS] PREVENTIVE_W2|A_all_blocks Fairlie insurance: |R-Python| 1.33e-15
+[PASS] PREVENTIVE_W2|A_all_blocks Fairlie health: |R-Python| 6.22e-15
+[PASS] PREVENTIVE_W2|A_all_blocks Fairlie other_access: |R-Python| 1.11e-15
+[INFO] PREVENTIVE_W2|A_all_blocks Fairlie bootstrap CI low differs by 0.109 pp (different RNGs; Monte Carlo error)
+[PASS] PREVENTIVE_W2|B_no_other_access gap: |R-Python| LPM 0.00e+00, Fairlie 0.00e+00
+[PASS] PREVENTIVE_W2|B_no_other_access explained: |R-Python| LPM 1.03e-12, Fairlie 3.38e-14
+[PASS] PREVENTIVE_W2|B_no_other_access unexplained: |R-Python| LPM 1.03e-12, Fairlie 1.30e-14
+[PASS] PREVENTIVE_W2|B_no_other_access Fairlie demographics: |R-Python| 7.11e-15
+[PASS] PREVENTIVE_W2|B_no_other_access Fairlie ses: |R-Python| 1.78e-15
+[PASS] PREVENTIVE_W2|B_no_other_access Fairlie insurance: |R-Python| 2.66e-15
+[PASS] PREVENTIVE_W2|B_no_other_access Fairlie health: |R-Python| 2.44e-15
+[INFO] PREVENTIVE_W2|B_no_other_access Fairlie bootstrap CI low differs by 0.148 pp (different RNGs; Monte Carlo error)
+[PASS] PREVENTIVE_W2|C_traps_in gap: |R-Python| LPM 0.00e+00, Fairlie 0.00e+00
+[PASS] PREVENTIVE_W2|C_traps_in explained: |R-Python| LPM 4.66e-12, Fairlie 1.87e-13
+[PASS] PREVENTIVE_W2|C_traps_in unexplained: |R-Python| LPM 4.66e-12, Fairlie 1.75e-13
+[PASS] PREVENTIVE_W2|C_traps_in Fairlie demographics: |R-Python| 1.16e-13
+[PASS] PREVENTIVE_W2|C_traps_in Fairlie ses: |R-Python| 5.28e-14
+[PASS] PREVENTIVE_W2|C_traps_in Fairlie insurance: |R-Python| 2.22e-15
+[PASS] PREVENTIVE_W2|C_traps_in Fairlie health: |R-Python| 5.13e-15
+[PASS] PREVENTIVE_W2|C_traps_in Fairlie other_access: |R-Python| 6.86e-15
+[PASS] USUAL_SOURCE_W2|A_all_blocks gap: |R-Python| LPM 1.42e-14, Fairlie 1.42e-14
+[PASS] USUAL_SOURCE_W2|A_all_blocks explained: |R-Python| LPM 2.58e-12, Fairlie 5.42e-14
+[PASS] USUAL_SOURCE_W2|A_all_blocks unexplained: |R-Python| LPM 2.59e-12, Fairlie 3.02e-14
+[PASS] USUAL_SOURCE_W2|A_all_blocks Fairlie demographics: |R-Python| 1.44e-14
+[PASS] USUAL_SOURCE_W2|A_all_blocks Fairlie ses: |R-Python| 1.11e-14
+[PASS] USUAL_SOURCE_W2|A_all_blocks Fairlie insurance: |R-Python| 1.78e-15
+[PASS] USUAL_SOURCE_W2|A_all_blocks Fairlie health: |R-Python| 9.99e-15
+[PASS] USUAL_SOURCE_W2|A_all_blocks Fairlie other_access: |R-Python| 1.33e-15
+[INFO] USUAL_SOURCE_W2|A_all_blocks Fairlie bootstrap CI low differs by 0.697 pp (different RNGs; Monte Carlo error)
+[PASS] USUAL_SOURCE_W2|B_no_other_access gap: |R-Python| LPM 1.42e-14, Fairlie 1.42e-14
+[PASS] USUAL_SOURCE_W2|B_no_other_access explained: |R-Python| LPM 2.62e-12, Fairlie 5.86e-14
+[PASS] USUAL_SOURCE_W2|B_no_other_access unexplained: |R-Python| LPM 2.63e-12, Fairlie 2.66e-14
+[PASS] USUAL_SOURCE_W2|B_no_other_access Fairlie demographics: |R-Python| 5.77e-15
+[PASS] USUAL_SOURCE_W2|B_no_other_access Fairlie ses: |R-Python| 1.69e-14
+[PASS] USUAL_SOURCE_W2|B_no_other_access Fairlie insurance: |R-Python| 1.89e-15
+[PASS] USUAL_SOURCE_W2|B_no_other_access Fairlie health: |R-Python| 7.99e-15
+[INFO] USUAL_SOURCE_W2|B_no_other_access Fairlie bootstrap CI low differs by 0.758 pp (different RNGs; Monte Carlo error)
+[PASS] USUAL_SOURCE_W2|C_traps_in gap: |R-Python| LPM 2.49e-14, Fairlie 2.49e-14
+[PASS] USUAL_SOURCE_W2|C_traps_in explained: |R-Python| LPM 6.61e-13, Fairlie 3.73e-14
+[PASS] USUAL_SOURCE_W2|C_traps_in unexplained: |R-Python| LPM 6.84e-13, Fairlie 4.62e-14
+[PASS] USUAL_SOURCE_W2|C_traps_in Fairlie demographics: |R-Python| 1.69e-14
+[PASS] USUAL_SOURCE_W2|C_traps_in Fairlie ses: |R-Python| 1.78e-15
+[PASS] USUAL_SOURCE_W2|C_traps_in Fairlie insurance: |R-Python| 3.33e-16
+[PASS] USUAL_SOURCE_W2|C_traps_in Fairlie health: |R-Python| 8.88e-15
+[PASS] USUAL_SOURCE_W2|C_traps_in Fairlie other_access: |R-Python| 1.53e-16
+
+SELF-CHECK: 0 FAIL

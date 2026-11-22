@@ -1,0 +1,235 @@
+
+==============================================================================
+STEP 0  Synthetic dry run (known answer)
+==============================================================================
+gap=0.130000 (true 0.13) explained=0.080000 (true 0.08) unexplained=0.050000 (true 0.05) -> PASS
+
+==============================================================================
+STEP 1  Load the public-use file
+==============================================================================
+children=21768 strata=102 PSUs=21768 design df=21666
+
+==============================================================================
+STEP 2  Descriptives (hand Taylor) cross-checked with survey::svymean
+==============================================================================
+adhd        english    16.29 (14.82, 17.87) n=12763 | survey pkg 16.2880 se 0.7796 vs hand se 0.7796
+adhd        other       5.97 (3.25, 10.69) n=844 | survey pkg 5.9666 se 1.8176 vs hand se 1.8176
+psc_mean    english     2.40 (2.29, 2.51) n=12792 | survey pkg 2.4032 se 0.0568 vs hand se 0.0568
+psc_mean    other       1.50 (1.18, 1.81) n=843 | survey pkg 1.4966 se 0.1606 vs hand se 0.1606
+psc_ge7     english     8.53 (7.40, 9.80) n=12792 | survey pkg 8.5253 se 0.6094 vs hand se 0.6094
+psc_ge7     other       3.58 (1.47, 8.49) n=843 | survey pkg 3.5842 se 1.6130 vs hand se 1.6130
+usual       english    83.73 (82.11, 85.24) n=12794 | survey pkg 83.7344 se 0.7992 vs hand se 0.7992
+usual       other      61.84 (54.68, 68.52) n=840 | survey pkg 61.8396 se 3.5513 vs hand se 3.5513
+insured     english    96.91 (95.96, 97.64) n=12805 | survey pkg 96.9074 se 0.4243 vs hand se 0.4243
+insured     other      87.38 (81.08, 91.79) n=843 | survey pkg 87.3754 se 2.6968 vs hand se 2.6968
+preventive  english    85.99 (84.20, 87.62) n=12766 | survey pkg 85.9948 se 0.8711 vs hand se 0.8711
+preventive  other      72.76 (66.07, 78.57) n=844 | survey pkg 72.7642 se 3.1990 vs hand se 3.1990
+incident english          10.32 (9.02, 11.78) n=12893
+incident spanish           2.99 (1.48, 5.94) n=361
+incident other_language    1.14 (0.58, 2.21) n=441
+incident nonenglish        2.52 (1.35, 4.66) n=802
+PSC complete-item scoring english  mean 2.398; >=7 8.56%
+PSC complete-item scoring other    mean 1.535; >=7 3.61%
+
+==============================================================================
+STEP 3  Primary decomposition: LPM, English-coefficient reference
+==============================================================================
+n = 12977 (English 12198, other-language 779)
+gap                                   9.77  (  5.52,  14.03)
+explained                             8.19  (  3.64,  12.74)
+unexplained                           1.58  ( -2.95,   6.11)
+block:demographics                    1.73  ( -1.47,   4.92)
+block:concentration_fidget            3.38  (  1.89,   4.87)
+block:other_attention                 2.17  (  0.30,   4.05)
+block:persistence_homework_calm       0.26  ( -0.49,   1.02)
+block:access                          0.66  ( -0.26,   1.57)
+explained share = 83.8%  ('explained' = compositional, NOT causal)
+LPM fitted values outside [0,1], implicates 1-6: English 2557 2567 2557 2539 2539 2562; other-language 262 263 263 265 260 265
+
+==============================================================================
+STEP 4  PSU bootstrap (Rao-Wu, PSUs within strata, 200 reps; R's RNG differs from numpy's)
+==============================================================================
+gap                                   9.77  (  5.75,  13.80)  [Taylor 5.52, 14.03]
+explained                             8.19  (  3.76,  12.63)  [Taylor 3.64, 12.74]
+unexplained                           1.58  ( -2.81,   5.98)  [Taylor -2.95, 6.11]
+block:demographics                    1.73  ( -1.22,   4.67)  [Taylor -1.47, 4.92]
+block:concentration_fidget            3.38  (  1.77,   4.98)  [Taylor 1.89, 4.87]
+block:other_attention                 2.17  (  0.36,   3.98)  [Taylor 0.30, 4.05]
+block:persistence_homework_calm       0.26  ( -0.54,   1.07)  [Taylor -0.49, 1.02]
+block:access                          0.66  ( -0.25,   1.56)  [Taylor -0.26, 1.57]
+
+==============================================================================
+STEP 5  Reference-coefficient variants
+==============================================================================
+english_reference    gap=  9.77  explained=  8.19  unexplained=  1.58
+other_reference      gap=  9.77  explained=  7.25  unexplained=  2.53
+pooled_reference     gap=  9.77  explained=  8.66  unexplained=  1.11
+threefold            gap=  9.77  endowments=  7.25  coefficients=  1.58  interaction=  0.95
+
+==============================================================================
+STEP 6  Logit vs LPM: additivity (reduced covariate set, see Python file)
+==============================================================================
+gap                       9.9354
+naive_explained           3.8485
+naive_unexplained         3.2029
+naive_residual            2.8840
+fairlie_explained         7.0735
+fairlie_unexplained       2.8618
+fairlie_residual          0.0000
+lpm_explained             7.7686
+lpm_unexplained           2.1668
+lpm_residual              0.0000
+n                      13341.0000
+
+==============================================================================
+STEP 7  Sensitivity decompositions
+==============================================================================
+no_preventive_available                  n= 13016 gap    9.79  (  5.54,  14.03) explained    8.04  (  3.50,  12.57)
+no_preventive_samecase                   n= 12977 gap    9.77  (  5.52,  14.03) explained    8.17  (  3.63,  12.71)
+total_score_6to17                        n= 13210 gap   10.20  (  6.13,  14.28) explained    9.63  (  5.30,  13.96)
+total_score_allages                      n= 20276 gap   10.68  (  7.52,  13.85) explained    7.70  (  4.02,  11.38)
+earlier_caregiver_mh_rule                n= 13103 gap    9.67  (  5.49,  13.84) explained    8.89  (  4.38,  13.40)
+earlier_caregiver_mh_rule_no_preventive  n= 13143 gap    9.66  (  5.50,  13.82) explained    8.85  (  4.36,  13.34)
+brief method (points): n=13103 gap 9.67 explained 8.91 unexplained 0.76; no-preventive n=13143 gap 9.66 explained 8.86
+
+==============================================================================
+STEP 8  Falsification checks
+==============================================================================
+{"skip_counts_primary":{"structural_zero_S4Q01_no":1249,"arbitrary_missing_K4Q20R_with_visit":37,"S4Q01_missing":13,"S4Q01_missing_without_K4Q20R":12,"preventive_missing_total":49},"preventive_english":{"correct":85.994847,"dropped_skips":97.171525},"insured_english":{"currins":96.90738,"currcov":97.355373},"preventive_other":{"correct":72.764181,"dropped_skips":98.851463},"insured_other":{"currins":87.375415,"currcov":87.554575},"currins_currcov_disagree_all":93,"currins_currcov_disagree_primary":65,"decomp_dropped_skips":{"n":11817,"gap":8.841537,"explained":5.921012,"access":0.320052},"decomp_currcov":{"n":12977,"explained":8.193721,"access":0.661309},"subset_vs_domain":{"domain":{"est":5.966615,"se":1.817572},"remove":{"est":5.966615,"se":1.812747,"singletons":14,"df":765},"adjust":{"est":5.966615,"se":1.813524,"singletons":14,"df":765}},"model_n":{"model_n":12977,"design_matrix_n":13021,"missing_outcome":44}}
+
+==============================================================================
+STEP 9  SELF-CHECK against logged reference values
+==============================================================================
+[PASS] primary n                                    computed 12977.0000 reference 12977.0000 tol +/-0
+[PASS] gap (point)                                  computed    9.7741 reference    9.7741 tol +/-0.05
+[PASS] gap (95% CI low, Taylor)                     computed    5.5194 reference    5.5194 tol +/-0.05
+[PASS] gap (95% CI high, Taylor)                    computed   14.0289 reference   14.0289 tol +/-0.05
+[PASS] explained (point)                            computed    8.1935 reference    8.1935 tol +/-0.05
+[PASS] explained (95% CI low, Taylor)               computed    3.6421 reference    3.6421 tol +/-0.05
+[PASS] explained (95% CI high, Taylor)              computed   12.7449 reference   12.7449 tol +/-0.05
+[PASS] unexplained (point)                          computed    1.5807 reference    1.5807 tol +/-0.05
+[PASS] unexplained (95% CI low, Taylor)             computed   -2.9481 reference   -2.9481 tol +/-0.05
+[PASS] unexplained (95% CI high, Taylor)            computed    6.1094 reference    6.1094 tol +/-0.05
+[PASS] block:demographics (point)                   computed    1.7260 reference    1.7260 tol +/-0.05
+[PASS] block:demographics (95% CI low, Taylor)      computed   -1.4678 reference   -1.4678 tol +/-0.05
+[PASS] block:demographics (95% CI high, Taylor)     computed    4.9197 reference    4.9197 tol +/-0.05
+[PASS] block:concentration_fidget (point)           computed    3.3770 reference    3.3770 tol +/-0.05
+[PASS] block:concentration_fidget (95% CI low, Taylor) computed    1.8852 reference    1.8852 tol +/-0.05
+[PASS] block:concentration_fidget (95% CI high, Taylor) computed    4.8689 reference    4.8689 tol +/-0.05
+[PASS] block:other_attention (point)                computed    2.1719 reference    2.1719 tol +/-0.05
+[PASS] block:other_attention (95% CI low, Taylor)   computed    0.2981 reference    0.2981 tol +/-0.05
+[PASS] block:other_attention (95% CI high, Taylor)  computed    4.0458 reference    4.0458 tol +/-0.05
+[PASS] block:persistence_homework_calm (point)      computed    0.2629 reference    0.2629 tol +/-0.05
+[PASS] block:persistence_homework_calm (95% CI low, Taylor) computed   -0.4935 reference   -0.4935 tol +/-0.05
+[PASS] block:persistence_homework_calm (95% CI high, Taylor) computed    1.0194 reference    1.0194 tol +/-0.05
+[PASS] block:access (point)                         computed    0.6556 reference    0.6556 tol +/-0.05
+[PASS] block:access (95% CI low, Taylor)            computed   -0.2556 reference   -0.2556 tol +/-0.05
+[PASS] block:access (95% CI high, Taylor)           computed    1.5668 reference    1.5668 tol +/-0.05
+[PASS] no_preventive_samecase n                     computed 12977.0000 reference 12977.0000 tol +/-0
+[PASS] no_preventive_samecase gap                   computed    9.7741 reference    9.7741 tol +/-0.05
+[PASS] no_preventive_samecase explained             computed    8.1727 reference    8.1727 tol +/-0.05
+[PASS] no_preventive_samecase unexplained           computed    1.6014 reference    1.6014 tol +/-0.05
+[PASS] no_preventive_available n                    computed 13016.0000 reference 13016.0000 tol +/-0
+[PASS] no_preventive_available gap                  computed    9.7867 reference    9.7867 tol +/-0.05
+[PASS] no_preventive_available explained            computed    8.0380 reference    8.0380 tol +/-0.05
+[PASS] no_preventive_available unexplained          computed    1.7487 reference    1.7487 tol +/-0.05
+[PASS] total_score_6to17 n                          computed 13210.0000 reference 13210.0000 tol +/-0
+[PASS] total_score_6to17 gap                        computed   10.2030 reference   10.2030 tol +/-0.05
+[PASS] total_score_6to17 explained                  computed    9.6275 reference    9.6275 tol +/-0.05
+[PASS] total_score_6to17 unexplained                computed    0.5755 reference    0.5755 tol +/-0.05
+[PASS] total_score_allages n                        computed 20276.0000 reference 20276.0000 tol +/-0
+[PASS] total_score_allages gap                      computed   10.6831 reference   10.6831 tol +/-0.05
+[PASS] total_score_allages explained                computed    7.7015 reference    7.7015 tol +/-0.05
+[PASS] total_score_allages unexplained              computed    2.9816 reference    2.9816 tol +/-0.05
+[PASS] adhd_english                                 computed   16.2880 reference   16.2880 tol +/-0.05
+[PASS] adhd_english CI low                          computed   14.8171 reference   14.8171 tol +/-0.05
+[PASS] adhd_english CI high                         computed   17.8744 reference   17.8744 tol +/-0.05
+[PASS] adhd_other                                   computed    5.9666 reference    5.9666 tol +/-0.05
+[PASS] adhd_other CI low                            computed    3.2533 reference    3.2533 tol +/-0.05
+[PASS] adhd_other CI high                           computed   10.6929 reference   10.6929 tol +/-0.05
+[PASS] psc_ge7_english                              computed    8.5253 reference    8.5253 tol +/-0.05
+[PASS] psc_ge7_english CI low                       computed    7.4043 reference    7.4043 tol +/-0.05
+[PASS] psc_ge7_english CI high                      computed    9.7980 reference    9.7980 tol +/-0.05
+[PASS] psc_ge7_other                                computed    3.5842 reference    3.5842 tol +/-0.05
+[PASS] psc_ge7_other CI low                         computed    1.4672 reference    1.4672 tol +/-0.05
+[PASS] psc_ge7_other CI high                        computed    8.4925 reference    8.4925 tol +/-0.05
+[PASS] usual_english                                computed   83.7344 reference   83.7344 tol +/-0.05
+[PASS] usual_english CI low                         computed   82.1065 reference   82.1065 tol +/-0.05
+[PASS] usual_english CI high                        computed   85.2409 reference   85.2409 tol +/-0.05
+[PASS] usual_other                                  computed   61.8396 reference   61.8396 tol +/-0.05
+[PASS] usual_other CI low                           computed   54.6805 reference   54.6805 tol +/-0.05
+[PASS] usual_other CI high                          computed   68.5189 reference   68.5189 tol +/-0.05
+[PASS] insured_english                              computed   96.9074 reference   96.9074 tol +/-0.05
+[PASS] insured_english CI low                       computed   95.9581 reference   95.9581 tol +/-0.05
+[PASS] insured_english CI high                      computed   97.6392 reference   97.6392 tol +/-0.05
+[PASS] insured_other                                computed   87.3754 reference   87.3754 tol +/-0.05
+[PASS] insured_other CI low                         computed   81.0823 reference   81.0823 tol +/-0.05
+[PASS] insured_other CI high                        computed   91.7871 reference   91.7871 tol +/-0.05
+[PASS] preventive_english                           computed   85.9948 reference   85.9948 tol +/-0.05
+[PASS] preventive_english CI low                    computed   84.1989 reference   84.1989 tol +/-0.05
+[PASS] preventive_english CI high                   computed   87.6167 reference   87.6167 tol +/-0.05
+[PASS] preventive_other                             computed   72.7642 reference   72.7642 tol +/-0.05
+[PASS] preventive_other CI low                      computed   66.0674 reference   66.0674 tol +/-0.05
+[PASS] preventive_other CI high                     computed   78.5681 reference   78.5681 tol +/-0.05
+[PASS] incident_english                             computed   10.3173 reference   10.3173 tol +/-0.05
+[PASS] incident_english CI low                      computed    9.0161 reference    9.0161 tol +/-0.05
+[PASS] incident_english CI high                     computed   11.7820 reference   11.7820 tol +/-0.05
+[PASS] incident_spanish                             computed    2.9862 reference    2.9862 tol +/-0.05
+[PASS] incident_spanish CI low                      computed    1.4774 reference    1.4774 tol +/-0.05
+[PASS] incident_spanish CI high                     computed    5.9427 reference    5.9427 tol +/-0.05
+[PASS] incident_other_language                      computed    1.1380 reference    1.1380 tol +/-0.05
+[PASS] incident_other_language CI low               computed    0.5836 reference    0.5836 tol +/-0.05
+[PASS] incident_other_language CI high              computed    2.2075 reference    2.2075 tol +/-0.05
+[PASS] incident_nonenglish                          computed    2.5224 reference    2.5224 tol +/-0.05
+[PASS] incident_nonenglish CI low                   computed    1.3506 reference    1.3506 tol +/-0.05
+[PASS] incident_nonenglish CI high                  computed    4.6630 reference    4.6630 tol +/-0.05
+[PASS] psc_mean_english                             computed    2.4032 reference    2.4032 tol +/-0.005
+[PASS] psc_mean_other                               computed    1.4966 reference    1.4966 tol +/-0.005
+[PASS] survey pkg SE = adhd_english                 computed    0.7796 reference    0.7796 tol +/-1e-06
+[PASS] survey pkg SE = adhd_other                   computed    1.8176 reference    1.8176 tol +/-1e-06
+[PASS] survey pkg SE = psc_mean_english             computed    0.0568 reference    0.0568 tol +/-1e-06
+[PASS] survey pkg SE = psc_mean_other               computed    0.1606 reference    0.1606 tol +/-1e-06
+[PASS] survey pkg SE = psc_ge7_english              computed    0.6094 reference    0.6094 tol +/-1e-06
+[PASS] survey pkg SE = psc_ge7_other                computed    1.6130 reference    1.6130 tol +/-1e-06
+[PASS] survey pkg SE = usual_english                computed    0.7992 reference    0.7992 tol +/-1e-06
+[PASS] survey pkg SE = usual_other                  computed    3.5513 reference    3.5513 tol +/-1e-06
+[PASS] survey pkg SE = insured_english              computed    0.4243 reference    0.4243 tol +/-1e-06
+[PASS] survey pkg SE = insured_other                computed    2.6968 reference    2.6968 tol +/-1e-06
+[PASS] survey pkg SE = preventive_english           computed    0.8711 reference    0.8711 tol +/-1e-06
+[PASS] survey pkg SE = preventive_other             computed    3.1990 reference    3.1990 tol +/-1e-06
+[PASS] bootstrap gap CI low vs Taylor (MC tol)      computed    5.7462 reference    5.5194 tol +/-0.5
+[PASS] bootstrap gap CI high vs Taylor (MC tol)     computed   13.8020 reference   14.0289 tol +/-0.5
+[PASS] bootstrap explained CI low vs Taylor (MC tol) computed    3.7568 reference    3.6421 tol +/-0.5
+[PASS] bootstrap explained CI high vs Taylor (MC tol) computed   12.6301 reference   12.7449 tol +/-0.5
+[PASS] bootstrap unexplained CI low vs Taylor (MC tol) computed   -2.8146 reference   -2.9481 tol +/-0.5
+[PASS] bootstrap unexplained CI high vs Taylor (MC tol) computed    5.9759 reference    6.1094 tol +/-0.5
+[PASS] brief n, earlier caregiver-MH rule           computed 13103.0000 reference 13103.0000 tol +/-0
+[PASS] brief gap (point), earlier rule              computed    9.6652 reference    9.6700 tol +/-0.05
+[PASS] brief explained (point), earlier rule        computed    8.8896 reference    8.9100 tol +/-0.05
+[PASS] brief unexplained (point), earlier rule      computed    0.7757 reference    0.7600 tol +/-0.05
+[PASS] brief block:demographics (point), earlier rule computed    2.4087 reference    2.4300 tol +/-0.05
+[PASS] brief block:concentration_fidget (point), earlier rule computed    3.3654 reference    3.3700 tol +/-0.05
+[PASS] brief block:other_attention (point), earlier rule computed    2.1905 reference    2.1900 tol +/-0.05
+[PASS] brief block:persistence_homework_calm (point), earlier rule computed    0.2815 reference    0.2800 tol +/-0.05
+[PASS] brief block:access (point), earlier rule     computed    0.6434 reference    0.6400 tol +/-0.05
+[PASS] brief no-preventive n, earlier rule          computed 13143.0000 reference 13143.0000 tol +/-0
+[PASS] brief no-preventive gap (point), earlier rule computed    9.6616 reference    9.6600 tol +/-0.05
+[PASS] brief no-preventive explained (point), earlier rule computed    8.8460 reference    8.8600 tol +/-0.05
+[PASS] brief n, brief method                        computed 13103.0000 reference 13103.0000 tol +/-0
+[PASS] brief gap (point), brief method              computed    9.6652 reference    9.6700 tol +/-0.005
+[PASS] brief explained (point), brief method        computed    8.9059 reference    8.9100 tol +/-0.005
+[PASS] brief unexplained (point), brief method      computed    0.7594 reference    0.7600 tol +/-0.005
+[PASS] brief block:demographics (point), brief method computed    2.4284 reference    2.4300 tol +/-0.005
+[PASS] brief block:concentration_fidget (point), brief method computed    3.3653 reference    3.3700 tol +/-0.005
+[PASS] brief block:other_attention (point), brief method computed    2.1901 reference    2.1900 tol +/-0.005
+[PASS] brief block:persistence_homework_calm (point), brief method computed    0.2816 reference    0.2800 tol +/-0.005
+[PASS] brief block:access (point), brief method     computed    0.6405 reference    0.6400 tol +/-0.005
+[PASS] brief no-preventive n, brief method          computed 13143.0000 reference 13143.0000 tol +/-0
+[PASS] brief no-preventive gap (point), brief method computed    9.6616 reference    9.6600 tol +/-0.005
+[PASS] brief no-preventive explained (point), brief method computed    8.8637 reference    8.8600 tol +/-0.005
+[PASS] brief PSC mean other (complete-item scoring) computed    1.5351 reference    1.5400 tol +/-0.005
+[PASS] brief S4Q01-missing count that stays missing computed   12.0000 reference   12.0000 tol +/-0
+[PASS] identity: gap - explained - unexplained      computed   -0.0000 reference    0.0000 tol +/-1e-09
+[PASS] identity: sum of blocks - explained          computed    0.0000 reference    0.0000 tol +/-1e-09
+
+SELF-CHECK: 131 PASS, 0 FAIL
