@@ -12,9 +12,10 @@ Outcomes (NSCH-LC 2024 follow-up, children aged 6-17, baseline language known):
 Methods, side by side:
   * twofold Oaxaca-Blinder on the LPM (English reference), Taylor CIs,
     Rubin-pooled over the 6 income implicates;
-  * Fairlie (2005) logit decomposition with pooled coefficients, detailed
-    block contributions over EVERY block ordering (120 orders), plus a PSU
-    bootstrap (200 reps) of the aggregate explained part.
+  * Fairlie (2005) logit decomposition with English logit coefficients (the
+    same reference as the LPM; a pooled-logit version is reported alongside),
+    detailed block contributions over EVERY block ordering (120 orders), plus
+    a PSU bootstrap (200 reps) of the aggregate explained part.
 
 Covariate blocks (and why - read data-notes/exercise_a_covariates.md):
   demographics  AGE, SEX, RACE4, HISPANIC      who the child is (RACE4 = SC_RACE_R collapsed)

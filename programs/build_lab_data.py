@@ -41,8 +41,16 @@ def main():
     lab["sens"] = c["sensitivity"]
     lab["fals"] = c["falsification"]
     lab["boot"] = c["bootstrap"]
+    # derived display values for the pages (computed here, never typed)
+    t, d = c["primary"]["terms"], c["descriptives"]
+    lab["derived"] = {
+        "desc_gap_all": d["adhd_english"]["est"] - d["adhd_other"]["est"],
+        "brief_minus_primary_n": c["sensitivity"]["brief_method"]["n"] - c["primary"]["n"],
+        "blocks_sum": sum(v["est"] for k, v in t.items() if k.startswith("block:")),
+    }
     b = lab["exB"]
-    if b is not None:   # derived display values (computed here, never typed)
+    if b is not None:
+        b["n_dropped_covariates"] = b["sample_flow"]["and outcome known"] - b["oaxaca"]["n"]   # derived display values (computed here, never typed)
         g = [v["gap"] for v in b["falsification"]["leave_one_year_out"].values()]
         b["loyo_gap_min"], b["loyo_gap_max"] = min(g), max(g)
         b["dfl_max_weight_pct"] = 100 * b["dfl"]["max_weight_share"]

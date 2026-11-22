@@ -11,16 +11,25 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="inner">
 <a class="brand" href="index.html">Decomposition Lab</a>
-<nav class="mods" aria-label="Lab sections"><a href="index.html" data-page="home">Start</a><a href="modules/1-question.html" data-page="m1">1 Question</a><a href="modules/2-machine.html" data-page="m2">2 Machine</a><a href="modules/3-survey.html" data-page="m3">3 Survey</a><a href="modules/4-traps.html" data-page="m4">4 Traps</a><a href="modules/5-defence.html" data-page="m5">5 Defence</a><a href="exercises.html" data-page="ex">Exercises</a><a href="why-this-lab-works.html" data-page="why">Why it works</a><a href="source.html" data-page="src">Sources</a></nav>
+<nav class="mods" aria-label="Lab sections"><a href="index.html" data-page="home">Start</a><a href="modules/1-question.html" data-page="m1">1 Question</a><a href="modules/2-machine.html" data-page="m2">2 Machine</a><a href="modules/3-survey.html" data-page="m3">3 Survey</a><a href="modules/4-traps.html" data-page="m4">4 Traps</a><a href="modules/5-defence.html" data-page="m5">5 Defence</a><a href="exercises.html" data-page="ex">Exercises</a><a href="why-this-lab-works.html" data-page="why">Why it works</a><a href="source.html" data-page="src">Sources</a><a href="glossary.html" data-page="gloss">Glossary</a></nav>
 </div></header>
 <main id="main">
 <h1>Sources and reproducibility</h1>
 <p class="lede">Where every number comes from, how to regenerate it, and how the lab's design brief was checked.</p>
 
 <section class="screen">
+<h2>Get the programs</h2>
+<ul>
+<li><b>Repository</b> (programs, data notes, run logs, review records): <a href="https://github.com/LuShiUCLA/decompose">github.com/LuShiUCLA/decompose</a>.</li>
+<li><b>Download everything as one zip file:</b> <a href="https://github.com/LuShiUCLA/decompose/archive/refs/heads/main.zip">decompose-main.zip</a>. The paths on this site, such as <code>programs/core/&hellip;</code>, are folders inside it.</li>
+<li><b>How to run</b>: the <a href="index.html#repro">checkpoint on the home page</a> (one line in R), or the <a href="https://github.com/LuShiUCLA/decompose/blob/main/programs/README.md">programs guide</a>.</li>
+</ul>
+</section>
+
+<section class="screen">
 <h2>Data</h2>
 <ul>
-<li><b>NSCH Longitudinal Cohort (NSCH-LC), 2024 public-use file</b>, U.S. Census Bureau: <a href="https://www.census.gov/programs-surveys/nsch-lc.html">survey page</a>. The programs read the Stata file; the one line to edit is <code>DATA_PATH</code> at the top of each program. Checksums are in <code>data-notes/</code>.</li>
+<li><b>NSCH Longitudinal Cohort (NSCH-LC), 2024 public-use file</b>, U.S. Census Bureau: <a href="https://www.census.gov/programs-surveys/nschlc/data.html">data page</a> (downloads) and <a href="https://www.census.gov/programs-surveys/nsch-lc.html">survey page</a>. The programs read the Stata file; the one line to edit is <code>DATA_PATH</code> at the top of each program. Checksums are in <code>data-notes/</code>.</li>
 <li><b>Documentation used</b>: the <a href="https://www2.census.gov/programs-surveys/nsch-lc/technical-documentation/methodology/2024/NSCH-LC-Methodology-Report.pdf">Methodology Report</a>, the <a href="https://www2.census.gov/programs-surveys/nsch-lc/technical-documentation/source-and-accuracy/2024/NSCH-LC-Source-and-Accuracy-Statement.pdf">Source and Accuracy Statement</a>, the <a href="https://www2.census.gov/programs-surveys/nsch-lc/technical-documentation/2024/NSCH-LC-Variable-List.xlsx">Variable List</a> and the <a href="https://www2.census.gov/programs-surveys/nsch-lc/technical-documentation/2024/NSCH-Analysis-with-Imputed-Data-Guide.pdf">guide to multiply imputed data</a>.</li>
 </ul>
 </section>
@@ -48,6 +57,16 @@
 </section>
 
 <section class="screen">
+<h2>How this lab was checked</h2>
+<ul>
+<li><b>Self-checks.</b> Each program compares its own output with logged reference values and prints PASS or FAIL for every figure; the reference run passes all of them. The R and Python programs check each other.</li>
+<li><b>Independent review.</b> A separate reviewer, another AI agent that did not build the lab, examined the programs, data notes and pages in five rounds. The builder fixed each issue it raised. After round 5 there were no open issues. The builder made and checked the final round of fixes; the reviewer did not re-run them. Records: <a href="https://github.com/LuShiUCLA/decompose/blob/main/ISSUES.md">ISSUES.md</a>, <a href="https://github.com/LuShiUCLA/decompose/blob/main/VERIFICATION_LOG.md">VERIFICATION_LOG.md</a> and <a href="https://github.com/LuShiUCLA/decompose/tree/main/review">every round</a>.</li>
+<li><b>Beginner test.</b> A test run in the role of a student new to decomposition led to the plain-language notes and the glossary added on 22 November 2026.</li>
+<li><b>What is not public.</b> The reference values come from the study's own analysis pipeline. Its output tables are in the repository (<code>data-notes/logged_reference/</code>); its code will be added after the study is published. The lab's own programs are complete without it.</li>
+</ul>
+</section>
+
+<section class="screen">
 <h2>Methods references</h2>
 <ul class="refs">
 <li>Blinder, A. S. (1973). Wage discrimination: Reduced form and structural estimates. <i>Journal of Human Resources, 8</i>(4), 436&ndash;455. <a href="https://doi.org/10.2307/144855">doi:10.2307/144855</a></li>
@@ -58,16 +77,18 @@
 <li>Lumley, T. (2004). Analysis of complex survey samples. <i>Journal of Statistical Software, 9</i>(8). <a href="https://doi.org/10.18637/jss.v009.i08">doi:10.18637/jss.v009.i08</a></li>
 <li>Oaxaca, R. (1973). Male&ndash;female wage differentials in urban labor markets. <i>International Economic Review, 14</i>(3), 693&ndash;709. <a href="https://doi.org/10.2307/2525981">doi:10.2307/2525981</a></li>
 <li>Rao, J. N. K., &amp; Wu, C. F. J. (1988). Resampling inference with complex survey data. <i>Journal of the American Statistical Association, 83</i>(401), 231&ndash;241. <a href="https://doi.org/10.1080/01621459.1988.10478591">doi:10.1080/01621459.1988.10478591</a></li>
+<li>Rubin, D. B. (1987). <i>Multiple imputation for nonresponse in surveys</i>. Wiley. <a href="https://doi.org/10.1002/9780470316696">doi:10.1002/9780470316696</a></li>
 <li>Sinning, M., Hahn, M., &amp; Bauer, T. K. (2008). The Blinder&ndash;Oaxaca decomposition for nonlinear regression models. <i>The Stata Journal, 8</i>(4), 480&ndash;492. <a href="https://doi.org/10.1177/1536867X0800800402">doi:10.1177/1536867X0800800402</a></li>
-<li>VanderWeele, T. J., &amp; Ding, P. (2017). Sensitivity analysis in observational research: Introducing the E-value. <i>Annals of Internal Medicine, 167</i>(4), 268&ndash;274. <a href="https://doi.org/10.7326/M16-2607">doi:10.7326/M16-2607</a></li>
+<li>VanderWeele, T. J., &amp; Ding, P. (2017). Sensitivity analysis in observational research: Introducing the <a class="gl" href="glossary.html#g-evalue">E-value</a>. <i>Annals of Internal Medicine, 167</i>(4), 268&ndash;274. <a href="https://doi.org/10.7326/M16-2607">doi:10.7326/M16-2607</a></li>
 </ul>
 <p class="note">Learning-science references are on the <a href="why-this-lab-works.html">Why page</a>. All DOIs were resolved against Crossref metadata on 22 November 2026.</p>
 </section>
 
-<nav class="nextprev" aria-label="Previous and next"><a href="why-this-lab-works.html">&larr; Why this lab works</a></nav>
+<nav class="nextprev" aria-label="Previous and next"><a href="why-this-lab-works.html">&larr; Why this lab works</a><a href="glossary.html">Glossary &rarr;</a></nav>
 </main>
 <footer><div class="inner">
 <p>Numbers on this page are generated by the lab's programs from the NSCH-LC 2024 public-use file (see <a href="source.html">Sources</a>). Your answers are stored only in this browser; nothing is sent anywhere. <button type="button" class="secondary" id="reset-progress">Clear my progress</button></p>
+<p>Programs and data notes: <a href="https://github.com/LuShiUCLA/decompose">GitHub repository</a> &middot; <a href="https://github.com/LuShiUCLA/decompose/archive/refs/heads/main.zip">download as zip</a> &middot; <a href="glossary.html">Glossary</a></p>
 <p>Content CC BY 4.0, code MIT. Not affiliated with or endorsed by the U.S. Census Bureau.</p>
 </div></footer>
 <script src="assets/lab-data.js"></script>

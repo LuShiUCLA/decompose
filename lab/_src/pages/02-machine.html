@@ -5,6 +5,7 @@
 <section class="screen">
 <h2>Piece 1: two group means</h2>
 <p>The outcome <i>y</i> is 1 if the caregiver reports an ADHD diagnosis, else 0. Its weighted mean in each group is a rate. On the <span data-num="primary.n" data-dp="0"></span> complete cases: English <b><span data-num="primary.mean_english"></span>%</b>, other-language <b><span data-num="primary.mean_other"></span>%</b>.</p>
+<p class="note">Every rate and covariate mean in this module is computed on these complete cases, so it differs a little from the all-children figures in Modules 1 and 4 (for example, the share insured or with a preventive visit).</p>
 <p><b>Gap = &#563;<sub>E</sub> &minus; &#563;<sub>O</sub> = <span data-num="primary.terms.gap.est"></span> pp.</b> Everything that follows splits this number; nothing changes it.</p>
 </section>
 
@@ -49,6 +50,7 @@
 <tr><td>Persistence, homework, calmness</td><td class="n" data-ci="primary.terms.block:persistence_homework_calm"></td></tr>
 <tr><td>Access to care</td><td class="n" data-ci="primary.terms.block:access"></td></tr>
 </tbody></table></div>
+<p class="note">Each block is rounded to two decimals, so the five rounded values can add up to 0.01 more or less than the total explained part. Unrounded, they add up exactly (<span data-num="derived.blocks_sum" data-dp="4"></span> pp).</p>
 <p>The gap is <b data-num="primary.terms.gap.est"></b> pp.</p>
 <div class="q-ex"><div class="row"><label>Total explained (pp) <input type="number" step="0.01" inputmode="decimal"></label><button type="button">Check</button></div><div class="feedback hidden" role="status" aria-live="polite"></div></div>
 <div class="q-un"><div class="row"><label>Unexplained (pp) <input type="number" step="0.01" inputmode="decimal"></label><button type="button">Check</button></div><div class="feedback hidden" role="status" aria-live="polite"></div></div>

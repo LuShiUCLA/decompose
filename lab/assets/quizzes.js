@@ -157,13 +157,13 @@ var CAUSAL = ["cause", "causes", "caused", "causing", "due to", "because of", "e
   "result in", "results in", "resulted in", "responsible for", "prove", "proves", "proved", "proven", "proof", "would close", "would eliminate"];
 window.WRITING = {
   exa: { minWords: 60, items: [
-    { label: "Reports the preventive-visit gap", any: ["13.2", "13.22"], miss: "Give the gap: {{ci:exA.specs.PREVENTIVE_W2|A_all_blocks.lpm.gap}} pp." },
+    { label: "Reports the preventive-visit gap", numsFrom: ["exA.specs.PREVENTIVE_W2|A_all_blocks.lpm.gap.est"], miss: "Give the gap: {{ci:exA.specs.PREVENTIVE_W2|A_all_blocks.lpm.gap}} pp." },
     { label: "Reports both methods", any: ["fairlie"], miss: "Report the Fairlie result next to the LPM one." },
     { label: "Addresses circularity", any: ["circular", "usual source", "without", "removed", "excluding"], miss: "Say what happens without the other access outcome (specification B)." },
     { label: "Mentions ordering dependence or another limitation", any: ["order", "limitation", "sequence", "reference"], miss: "Name one limitation, e.g. Fairlie's ordering dependence." },
     { label: "Avoids causal verbs", none: CAUSAL, badmsg: "Remove \"%s\": a decomposition is accounting." } ] },
   exb: { minWords: 60, items: [
-    { label: "Reports the gap with its interval", any: [" ci ", " ci:", "(ci", "95%", "interval", "confidence"], miss: "Give the gap with its 95% CI: {{ci:exB.oaxaca.terms.gap}} pp." },
+    { label: "Reports the gap with its interval", numsFrom: ["exB.oaxaca.terms.gap.est", "exB.oaxaca.terms.gap.lo", "exB.oaxaca.terms.gap.hi"], miss: "Give the gap and both confidence limits: {{ci:exB.oaxaca.terms.gap}} pp." },
     { label: "Says the result is compatible with no gap, or imprecise", any: ["includes zero", "include zero", "includes 0", "compatible with", "imprecise", "uncertain", "cannot exclude", "cannot rule out", "could not exclude", "could not rule out", "not statistically significant", "not significant"], miss: "Say plainly that the interval includes zero, and what that does and does not mean." },
     { label: "Reports a robustness check", any: ["dfl", "reweight", "leave-one-year", "leave one year", "leaving out", "left out", "one year at a time", "period split", "2016-2021", "2016–2021", "2022-2025", "2022–2025", "original weights", "pre-revision", "weight revision", "revised weights", "skip"], miss: "Report one check: DFL, leave-one-year-out, the period split or the weight revision." },
     { label: "Avoids causal and over-claiming verbs", none: CAUSAL.concat(["no disparity", "no difference exists"]), badmsg: "Remove \"%s\": an interval that includes zero is not proof of no gap, and a decomposition is accounting." } ] },
@@ -173,10 +173,10 @@ window.WRITING = {
     { label: "Keeps the outcome as REPORTED diagnosis", any: ["diagnos", "report", "told"], miss: "The outcome is caregiver-reported diagnosis, not ADHD itself." },
     { label: "Avoids causal language", none: CAUSAL, badmsg: "You used \"%s\". A decomposition is accounting; replace causal verbs with 'is associated with' or 'accounts for'." } ] },
   results: { minWords: 60, items: [
-    { label: "Reports the sample size", any: ["12,977", "12977", " n=", " n = ", "children"], miss: "Give n ({{primary.n:0}})." },
-    { label: "Reports the gap with its CI", any: ["9.77", "9.8"], miss: "Give the gap: {{ci:primary.terms.gap}} pp." },
-    { label: "Reports the explained part with its CI", any: ["8.19", "8.2"], miss: "Give the explained part: {{ci:primary.terms.explained}} pp." },
-    { label: "Reports the unexplained part and its uncertainty", any: ["1.58", "1.6", "unexplained"], miss: "Give the unexplained part and its CI: {{ci:primary.terms.unexplained}} pp." },
+    { label: "Reports the sample size", numsFrom: ["primary.n:0"], miss: "Give the number of children in the model: n = {{primary.n:0}}." },
+    { label: "Reports the gap with its CI", numsFrom: ["primary.terms.gap.est", "primary.terms.gap.lo", "primary.terms.gap.hi"], miss: "Give the gap and both confidence limits: {{ci:primary.terms.gap}} pp." },
+    { label: "Reports the explained part with its CI", numsFrom: ["primary.terms.explained.est", "primary.terms.explained.lo", "primary.terms.explained.hi"], miss: "Give the explained part and both confidence limits: {{ci:primary.terms.explained}} pp." },
+    { label: "Reports the unexplained part with its CI", numsFrom: ["primary.terms.unexplained.est", "primary.terms.unexplained.lo", "primary.terms.unexplained.hi"], miss: "Give the unexplained part and both confidence limits: {{ci:primary.terms.unexplained}} pp." },
     { label: "Uses percentage points", any: ["percentage point", " pp", "points"], miss: "Differences of percentages are percentage points." },
     { label: "Says 'explained' is compositional / not causal", any: ["not causal", "compositional", "composition", "descriptive", "does not imply caus", "cannot establish"], miss: "Add one sentence: explained denotes measured covariate composition, not causes." },
     { label: "Avoids causal and over-claiming verbs", none: CAUSAL.concat(["no under-diagnosis", "no underdiagnosis", "rules out", "rule out"]), badmsg: "Remove \"%s\": the design cannot support it." },

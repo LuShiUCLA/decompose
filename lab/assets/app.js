@@ -121,6 +121,15 @@
     var t = " " + text.toLowerCase() + " ";
     return rules.map(function (r) {
       var hit = r.any ? r.any.some(function (k) { return t.indexOf(k) >= 0; }) : true;
+      // numsFrom: every listed number (read from the lab data) must appear,
+      // to 2 or 1 decimals ("path:0" = whole number, with or without a comma).
+      // Number boundaries stop 6.1 matching inside 16.14.
+      if (r.numsFrom) hit = hit && r.numsFrom.every(function (spec) {
+        var bits = spec.split(":"), v = Math.abs(get(bits[0]));
+        if (!isFinite(v)) return true;
+        var c = bits[1] === "0" ? [String(Math.round(v)), Math.round(v).toLocaleString("en-US")] : [v.toFixed(2), v.toFixed(1)];
+        return c.some(function (x) { return new RegExp("(^|[^0-9.])" + x.replace(/[.,]/g, "\\$&") + "(?![0-9])").test(t); });
+      });
       // Causal wording cannot be judged reliably by keywords: "does not show
       // that X causes" is a correct disclaimer, "it is not surprising that X
       // causes" is a causal claim. So the checklist does not pass or fail it:
@@ -184,6 +193,25 @@
     btn.addEventListener("click", function () {
       var fields = [["gap", "primary.terms.gap.est"], ["explained", "primary.terms.explained.est"], ["unexplained", "primary.terms.unexplained.est"]];
       var msgs = [], ok = true;
+      // The study's headline and the design brief's earlier coding are both
+      // correct reproductions of different, documented choices (Module 5).
+      var vals = fields.map(function (f) { return parseFloat(el.querySelector("[name=" + f[0] + "]").value); });
+      var alt = [["sens.brief_method", 0.01, "the design brief's figures (n = " + num("sens.brief_method.n", 0) + "): the earlier caregiver mental-health rule, with income averaged over the six imputations in one fit"],
+                 ["sens.earlier_caregiver_mh_rule", 0.1, "the earlier caregiver mental-health rule (n = " + num("sens.earlier_caregiver_mh_rule.n", 0) + ") with Rubin's rules over the six imputations"]];
+      for (var a = 0; a < alt.length; a++) {
+        var pre = alt[a][0], tol = alt[a][1];
+        if (fields.every(function (f, i) { return isFinite(vals[i]) && Math.abs(vals[i] - get(pre + "." + f[0] + ".est")) <= tol; })) {
+          out.className = "feedback good";
+          out.innerHTML = "<b>Your numbers are a correct reproduction</b> of " + esc(alt[a][2]) + ". " +
+            "That coding counts caregiver mental health as &ldquo;not poor&rdquo; when the first caregiver answered, even if a second caregiver living in the home did not. " +
+            "This lab teaches the reviewed coding, which keeps such children out of the model until every caregiver in the home has answered: n = " + num("primary.n", 0) +
+            ", gap " + fmt(get("primary.terms.gap.est")) + ", explained " + fmt(get("primary.terms.explained.est")) + ", unexplained " + fmt(get("primary.terms.unexplained.est")) + " pp. " +
+            "Neither is an arithmetic error; Module 5 (&ldquo;Three choices, two headlines&rdquo;) shows both side by side. To match the lab's headline, change that one rule.";
+          out.classList.remove("hidden");
+          P.done.reproduced = true; saveProgress(P); updateProgress();
+          return;
+        }
+      }
       fields.forEach(function (f) {
         var v = parseFloat(el.querySelector("[name=" + f[0] + "]").value);
         var ref = get(f[1]);

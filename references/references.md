@@ -28,6 +28,7 @@ Checking a DOI confirms the source exists and is cited correctly. It does not co
 - Rao, J. N. K., & Wu, C. F. J. (1988). Resampling inference with complex survey data. *Journal of the American Statistical Association, 83*(401), 231–241. <https://doi.org/10.1080/01621459.1988.10478591>
 - Renkl, A., Atkinson, R. K., Maier, U. H., & Staley, R. (2002). From example study to problem solving: Smooth transitions help learning. *Journal of Experimental Education, 70*(4), 293–315. <https://doi.org/10.1080/00220970209599510>
 - Roediger, H. L., & Karpicke, J. D. (2006). Test-enhanced learning: Taking memory tests improves long-term retention. *Psychological Science, 17*(3), 249–255. <https://doi.org/10.1111/j.1467-9280.2006.01693.x>
+- Rubin, D. B. (1987). *Multiple imputation for nonresponse in surveys*. Wiley. <https://doi.org/10.1002/9780470316696> (book; Crossref confirms title, author, year and publisher)
 - Sinning, M., Hahn, M., & Bauer, T. K. (2008). The Blinder–Oaxaca decomposition for nonlinear regression models. *The Stata Journal, 8*(4), 480–492. <https://doi.org/10.1177/1536867X0800800402>
 - Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. *Cognitive Science, 12*(2), 257–285. <https://doi.org/10.1016/0364-0213(88)90023-7>
 - VanderWeele, T. J., & Ding, P. (2017). Sensitivity analysis in observational research: Introducing the E-value. *Annals of Internal Medicine, 167*(4), 268–274. <https://doi.org/10.7326/M16-2607>
