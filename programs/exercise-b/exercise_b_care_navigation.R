@@ -5,11 +5,45 @@
 # CSHCN with a coordination need, pooled annual NSCH 2016-2025.
 # Oaxaca-Blinder (LPM, English reference, year fixed effects) + DFL reweighting.
 # See the Python file header for the full design rationale.
-# RUN from repo root:  Rscript programs/exercise-b/exercise_b_care_navigation.R
+# RUN: Rscript programs/exercise-b/exercise_b_care_navigation.R, or source() this file,
+# or paste it into the R console (it finds or downloads the lab folder itself).
 # =============================================================================
-args <- commandArgs(trailingOnly = FALSE)
-this <- normalizePath(sub("^--file=", "", args[grep("^--file=", args)]))
-ROOT <- normalizePath(file.path(dirname(this), "..", ".."))
+# ---- Find the lab folder ----------------------------------------------------
+# Works with Rscript, with source() / RStudio's "Source" button, and when the
+# whole program is pasted into the R console. If the lab folder cannot be
+# found, the program downloads it from GitHub (about 2 MB) into the current
+# working directory and carries on. To use a copy you already have, put its
+# path here (the folder that contains 'programs' and 'data-notes'):
+LAB_FOLDER <- ""   # e.g. "C:/Users/you/Downloads/decompose-main"
+LAB_ZIP_URL <- "https://github.com/LuShiUCLA/decompose/archive/refs/heads/main.zip"
+find_lab_root <- function(hint) {
+  is_root <- function(d) length(d) == 1 && !is.na(d) && nzchar(d) && file.exists(file.path(d, "programs", "lib", "labsvy.R"))
+  cand <- hint
+  a <- commandArgs(trailingOnly = FALSE); f <- sub("^--file=", "", a[grep("^--file=", a)])
+  if (length(f) == 1) cand <- c(cand, file.path(dirname(f), "..", ".."))
+  for (i in rev(seq_len(sys.nframe()))) {                     # source("...")
+    of <- tryCatch(sys.frame(i)$ofile, error = function(e) NULL)
+    if (is.character(of) && length(of) == 1) { cand <- c(cand, file.path(dirname(of), "..", "..")); break }
+  }
+  if (requireNamespace("rstudioapi", quietly = TRUE) && isTRUE(tryCatch(rstudioapi::isAvailable(), error = function(e) FALSE))) {
+    p <- tryCatch(rstudioapi::getSourceEditorContext()$path, error = function(e) "")
+    if (is.character(p) && length(p) == 1 && nzchar(p)) cand <- c(cand, file.path(dirname(p), "..", ".."))
+  }
+  d <- getwd(); for (i in 1:4) { cand <- c(cand, d, file.path(d, "decompose-main")); d <- dirname(d) }
+  for (x in cand) if (is_root(x)) return(normalizePath(x, winslash = "/"))
+  dest <- file.path(getwd(), "decompose-main")
+  message("Lab folder not found. Downloading it from ", LAB_ZIP_URL, " into ", dest, " ...")
+  z <- tempfile(fileext = ".zip")
+  utils::download.file(LAB_ZIP_URL, z, mode = "wb", quiet = TRUE)
+  utils::unzip(z, exdir = getwd())
+  if (!is_root(dest)) stop("Could not set up the lab folder. Download ", LAB_ZIP_URL,
+                           ", unzip it, and set LAB_FOLDER at the top of this program to the unzipped folder.")
+  normalizePath(dest, winslash = "/")
+}
+ROOT <- find_lab_root(LAB_FOLDER)
+message("Lab folder: ", ROOT)
+# Install any missing package (versions used for the logged runs: programs/R-packages.lock)
+for (pkg in c("survey", "haven", "jsonlite")) if (!requireNamespace(pkg, quietly = TRUE)) utils::install.packages(pkg, repos = "https://cloud.r-project.org")
 source(file.path(ROOT, "programs", "lib", "labsvy.R"))
 suppressPackageStartupMessages(library(jsonlite))
 
@@ -208,4 +242,5 @@ if (file.exists(py)) {
 cat(sprintf("\nCROSS-CHECK: %d FAIL\n", nf))
 writeLines(toJSON(R, auto_unbox = TRUE, digits = 10, pretty = TRUE), file.path(OUT, "exercise_b_results_R.json"))
 sink(); close(LOGF)
-quit(status = if (nf == 0) 0 else 1)
+# Rscript: exit code 1 on any FAIL. Interactive (console/RStudio): keep R open.
+if (!interactive()) quit(status = if (nf == 0) 0 else 1) else message(if (nf == 0) "All self-checks passed." else paste(nf, "self-check(s) FAILED: see the log above."))

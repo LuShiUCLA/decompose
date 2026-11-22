@@ -58,14 +58,48 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parents[2]
+# ---- Find the lab folder ----------------------------------------------------
+# Works as a script (python programs/...), and when pasted into a Python
+# console or a Jupyter cell. If the lab folder cannot be found, it is downloaded
+# from GitHub (about 2 MB) into the current working directory. To use a copy
+# you already have, put its path here (the folder containing 'programs'):
+LAB_FOLDER = ""   # e.g. r"C:\Users\you\Downloads\decompose-main"
+LAB_ZIP_URL = "https://github.com/LuShiUCLA/decompose/archive/refs/heads/main.zip"
+
+
+def find_lab_root(hint):
+    def is_root(d):
+        return d is not None and (Path(d) / "programs" / "lib" / "labsvy.py").is_file()
+    cand = [hint] if hint else []
+    if "__file__" in globals():
+        cand.append(Path(__file__).resolve().parents[2])
+    d = Path.cwd()
+    for _ in range(4):
+        cand += [d, d / "decompose-main"]
+        d = d.parent
+    for c in cand:
+        if is_root(c):
+            return Path(c).resolve()
+    import io, urllib.request, zipfile as _zf
+    dest = Path.cwd() / "decompose-main"
+    print(f"Lab folder not found. Downloading it from {LAB_ZIP_URL} into {dest} ...")
+    with urllib.request.urlopen(LAB_ZIP_URL) as r:
+        _zf.ZipFile(io.BytesIO(r.read())).extractall(Path.cwd())
+    if not is_root(dest):
+        raise SystemExit(f"Could not set up the lab folder. Download {LAB_ZIP_URL}, unzip it, "
+                         "and set LAB_FOLDER at the top of this program to the unzipped folder.")
+    return dest.resolve()
+
+
+ROOT = find_lab_root(LAB_FOLDER)
+print("Lab folder:", ROOT)
 sys.path.insert(0, str(ROOT / "programs" / "lib"))
 import labsvy as L                      # noqa: E402
 
 # >>>>>>>>>>>>>>>>>>>>>>>> EDIT THIS ONE LINE IF NEEDED <<<<<<<<<<<<<<<<<<<<<<<<
 ANNUAL_DIR = ROOT / "data" / "annual_nsch"
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-OUT = Path(__file__).resolve().parent / "output"
+OUT = ROOT / "programs" / "exercise-b" / "output"
 YEARS = list(range(2016, 2026))
 BASE = "https://www2.census.gov/programs-surveys/nsch/datasets"
 PP = 100.0
@@ -407,4 +441,9 @@ def main():
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    _rc = main()
+    # Script: exit code 1 on any FAIL. Console/Jupyter: keep the session open.
+    if hasattr(sys, "ps1") or "__file__" not in globals() or "ipykernel" in sys.modules:
+        print("All self-checks passed." if not _rc else "Some self-checks FAILED: see the log above.")
+    else:
+        sys.exit(_rc)

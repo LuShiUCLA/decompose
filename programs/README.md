@@ -1,6 +1,14 @@
 # Running the programs
 
-All commands run from the repository root. Each program has **one line to edit** if your data live elsewhere: `DATA_PATH` near the top. If the file is missing, the core and Exercise A programs download the official Census zip into `data/` and extract `nschlc_2024_puf.dta`.
+**Quickest start (R or RStudio):** paste this into the console:
+
+```r
+source("https://raw.githubusercontent.com/LuShiUCLA/decompose/main/programs/core/decomposition_lab_core.R")
+```
+
+Every R and Python program also runs when its whole text is pasted into a console or a Jupyter cell. If it cannot find the lab folder, it downloads it from GitHub into the working directory as `decompose-main/`. To use a copy you already have, set `LAB_FOLDER` at the top of the program. Missing R packages are installed automatically. In a console the program keeps the session open; run as a script, it exits with code 1 on any FAIL.
+
+The commands below run from the repository root. Each program has **one line to edit** if your data live elsewhere: `DATA_PATH` near the top. If the file is missing, the core and Exercise A programs download the official Census zip into `data/` and extract `nschlc_2024_puf.dta`.
 
 ## Install
 

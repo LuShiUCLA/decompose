@@ -4,16 +4,50 @@
 # Household language and caregiver-reported ADHD diagnosis, NSCH-LC 2024.
 # Independent R twin of decomposition_lab_core.py (same steps, same checks).
 #
-# RUN from the repository root:   Rscript programs/core/decomposition_lab_core.R
+# RUN: Rscript programs/core/decomposition_lab_core.R, or source() this file,
+# or paste it into the R console (it finds or downloads the lab folder itself).
 # Packages (see programs/R-packages.lock): survey 4.2.1, haven 2.5.4,
 # jsonlite 1.8.8; tested on R 4.3.3.
 # Why no 'oaxaca' / 'srvyr' package? The CRAN 'oaxaca' package does not
 # accept a survey design (no strata/PSU variance); srvyr only wraps survey.
 # We use survey directly for descriptives and hand-code the decomposition.
 # =============================================================================
-args <- commandArgs(trailingOnly = FALSE)
-this <- normalizePath(sub("^--file=", "", args[grep("^--file=", args)]))
-ROOT <- normalizePath(file.path(dirname(this), "..", ".."))
+# ---- Find the lab folder ----------------------------------------------------
+# Works with Rscript, with source() / RStudio's "Source" button, and when the
+# whole program is pasted into the R console. If the lab folder cannot be
+# found, the program downloads it from GitHub (about 2 MB) into the current
+# working directory and carries on. To use a copy you already have, put its
+# path here (the folder that contains 'programs' and 'data-notes'):
+LAB_FOLDER <- ""   # e.g. "C:/Users/you/Downloads/decompose-main"
+LAB_ZIP_URL <- "https://github.com/LuShiUCLA/decompose/archive/refs/heads/main.zip"
+find_lab_root <- function(hint) {
+  is_root <- function(d) length(d) == 1 && !is.na(d) && nzchar(d) && file.exists(file.path(d, "programs", "lib", "labsvy.R"))
+  cand <- hint
+  a <- commandArgs(trailingOnly = FALSE); f <- sub("^--file=", "", a[grep("^--file=", a)])
+  if (length(f) == 1) cand <- c(cand, file.path(dirname(f), "..", ".."))
+  for (i in rev(seq_len(sys.nframe()))) {                     # source("...")
+    of <- tryCatch(sys.frame(i)$ofile, error = function(e) NULL)
+    if (is.character(of) && length(of) == 1) { cand <- c(cand, file.path(dirname(of), "..", "..")); break }
+  }
+  if (requireNamespace("rstudioapi", quietly = TRUE) && isTRUE(tryCatch(rstudioapi::isAvailable(), error = function(e) FALSE))) {
+    p <- tryCatch(rstudioapi::getSourceEditorContext()$path, error = function(e) "")
+    if (is.character(p) && length(p) == 1 && nzchar(p)) cand <- c(cand, file.path(dirname(p), "..", ".."))
+  }
+  d <- getwd(); for (i in 1:4) { cand <- c(cand, d, file.path(d, "decompose-main")); d <- dirname(d) }
+  for (x in cand) if (is_root(x)) return(normalizePath(x, winslash = "/"))
+  dest <- file.path(getwd(), "decompose-main")
+  message("Lab folder not found. Downloading it from ", LAB_ZIP_URL, " into ", dest, " ...")
+  z <- tempfile(fileext = ".zip")
+  utils::download.file(LAB_ZIP_URL, z, mode = "wb", quiet = TRUE)
+  utils::unzip(z, exdir = getwd())
+  if (!is_root(dest)) stop("Could not set up the lab folder. Download ", LAB_ZIP_URL,
+                           ", unzip it, and set LAB_FOLDER at the top of this program to the unzipped folder.")
+  normalizePath(dest, winslash = "/")
+}
+ROOT <- find_lab_root(LAB_FOLDER)
+message("Lab folder: ", ROOT)
+# Install any missing package (versions used for the logged runs: programs/R-packages.lock)
+for (pkg in c("survey", "haven", "jsonlite")) if (!requireNamespace(pkg, quietly = TRUE)) utils::install.packages(pkg, repos = "https://cloud.r-project.org")
 source(file.path(ROOT, "programs", "lib", "labsvy.R"))
 source(file.path(ROOT, "programs", "lib", "nschlc_prepare.R"))
 suppressPackageStartupMessages({ library(survey); library(jsonlite) })
@@ -310,4 +344,5 @@ nf <- sum(sapply(checks, `[[`, "result") == "FAIL")
 say(sprintf("\nSELF-CHECK: %d PASS, %d FAIL", length(checks) - nf, nf))
 writeLines(toJSON(R, auto_unbox = TRUE, digits = 10, pretty = TRUE), file.path(OUT, "core_results_R.json"))
 writeLines(LOG, file.path(OUT, "core_run_log_R.txt"))
-quit(status = if (nf == 0) 0 else 1)
+# Rscript: exit code 1 on any FAIL. Interactive (console/RStudio): keep R open.
+if (!interactive()) quit(status = if (nf == 0) 0 else 1) else message(if (nf == 0) "All self-checks passed." else paste(nf, "self-check(s) FAILED: see the log above."))
