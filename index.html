@@ -38,7 +38,12 @@
 
 <section class="screen" aria-labelledby="repro">
 <h2 id="repro">Checkpoint: did you reproduce the headline?</h2>
-<p>Run <code>python programs/core/decomposition_lab_core.py</code> or <code>Rscript programs/core/decomposition_lab_core.R</code> (instructions in <code>programs/README.md</code>), then type your three numbers in percentage points.</p>
+<p>Run the core program in R or Python, then type your three numbers in percentage points. You do not need to download anything first: the program fetches the lab files (about 2 MB) and the Census public-use file (about 6 MB) by itself.</p>
+<ul>
+<li><strong>R or RStudio:</strong> paste this one line into the console and press Enter. Missing packages are installed for you.<br><code>source("https://raw.githubusercontent.com/LuShiUCLA/decompose/main/programs/core/decomposition_lab_core.R")</code></li>
+<li><strong>Python 3.12 or later:</strong> download <a href="https://github.com/LuShiUCLA/decompose/archive/refs/heads/main.zip">the lab as a zip file</a> and unzip it. Open a terminal in the unzipped folder, then run <code>pip install -r programs/requirements-lock.txt</code> followed by <code>python programs/core/decomposition_lab_core.py</code>.</li>
+</ul>
+<p>The run takes about a minute. It ends with a line such as <code>SELF-CHECK: 131 PASS, 0 FAIL</code>; your numbers are in the lines under "STEP 3". R saves its files in a folder named <code>decompose-main</code> inside its working directory; type <code>getwd()</code> to see where that is. More options are in <a href="https://github.com/LuShiUCLA/decompose/blob/main/programs/README.md">the programs guide</a>.</p>
 <div data-reproduce>
 <div class="row">
 <label>Gap <input type="number" step="0.01" name="gap" inputmode="decimal"></label>
