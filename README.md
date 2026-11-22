@@ -2,6 +2,8 @@
 
 A free, self-paced lab that teaches the **twofold Oaxaca–Blinder decomposition on survey data** by having you reproduce a real study from the raw U.S. Census public-use file, break it on purpose, and defend it.
 
+**Open the lab:** https://lushiucla.github.io/decompose/ (runs in any web browser; nothing to install, no sign-in, no tracking).
+
 **The study.** In the NSCH Longitudinal Cohort (2018/2019 baseline, 2024 follow-up), caregivers in English-language households reported an ADHD diagnosis for 16.29% of children aged 6–17, versus 5.97% in other-language households. On the 12,977 children with complete data the gap is 9.77 percentage points; differences in measured characteristics account for 8.19 pp of it. "Accounted for" means **composition, never cause**.
 
 **Your goal.** Reproduce the headline (gap, explained, unexplained) within ±0.1 pp, then defend each modelling choice.
