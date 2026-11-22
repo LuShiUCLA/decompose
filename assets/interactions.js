@@ -191,6 +191,12 @@
              ["none", false, "Small, but not zero: compare the rates to two decimals, and count the disagreeing children."]] },
     { id: "subset", title: "Case C: a standard error from a pre-subset file",
       pred: "about the same", hint: "The rate is unchanged, so look at how the design was declared: which PSUs does the variance formula see?",
+      predNote: function (p, n) {
+        var w = n("fals.subset_vs_domain.remove.se", 3), r = n("fals.subset_vs_domain.domain.se", 3);
+        if (p === "about the same") return "Your prediction (about the same) matched: the corrected SE is " + r + " pp against " + w + " pp in this output, a difference of well under 1%.";
+        if (p === "higher") return "Strictly, you are right: the corrected SE (" + r + " pp) is a little higher than this output's (" + w + " pp). The difference is well under 1%, so in practice it is about the same. The damage is to the design, not to this one number.";
+        return "The corrected SE (" + r + " pp) is not lower; it is a little higher than this output's (" + w + " pp), and the two are about the same.";
+      },
       wrong: function (f, n) { return "Analyst kept only other-language children aged 6–17, then declared the survey design: ADHD rate " + n("fals.subset_vs_domain.remove.est") + "%, SE <b>" + n("fals.subset_vs_domain.remove.se", 3) + " pp</b>, design df " + n("fals.subset_vs_domain.remove.df", 0) + "; " + n("fals.subset_vs_domain.remove.singletons", 0) + " strata now have a single PSU (the software must drop or 'adjust' them; 'adjust' gives SE " + n("fals.subset_vs_domain.adjust.se", 3) + ")."; },
       right: function (f, n) { return "Domain estimation on the full design: same rate " + n("fals.subset_vs_domain.domain.est") + "%, SE <b>" + n("fals.subset_vs_domain.domain.se", 3) + " pp</b>, design df " + n("fals.subset_vs_domain.domain.df", 0) + ", no singleton strata."; },
       errors: [["subset", true, "Right. Subsetting before declaring the design throws away the PSUs with no domain members, creates singleton strata and changes the degrees of freedom."],
@@ -240,9 +246,9 @@
         if (!p || !e || !d) { R().feedback(fb, false, "Answer all three steps first: prediction, error, direction. The lab only reveals the corrected output after you commit."); return; }
         var E = c.errors[Number(e.value)], B = c.bias[Number(d.value)];
         var ok = E[1] && B[1];
-        var predMsg = p.value === c.pred ? "Your prediction (" + p.value + ") matched." :
+        var predMsg = c.predNote ? c.predNote(p.value, n) : p.value === c.pred ? "Your prediction (" + p.value + ") matched." :
           "You predicted " + p.value + "; the corrected value is " + (c.pred === "lower" ? "lower than" : "about the same as") + " this output. Ask what you were picturing when you predicted.";
-        R().feedback(fb, ok, "<b>Prediction:</b> " + predMsg + "<br><b>Error:</b> " + R().T(E[2]) + "<br><b>Direction:</b> " + R().T(B[2]));
+        R().feedback(fb, ok, "<b>Your diagnosis</b> (error and direction) " + (ok ? "is right." : "needs another look.") + "<br><b>Error:</b> " + R().T(E[2]) + "<br><b>Direction:</b> " + R().T(B[2]) + "<br><b>Your prediction</b> (not graded): " + predMsg);
         if (E[1]) { sec.querySelector(".right-out").classList.remove("hidden"); sec.querySelector(".causal").classList.remove("hidden"); }
         else fb.innerHTML += "<br>Smallest next step: " + c.hint + " The corrected output appears once you name the error.";
         var P = R().progress(); if (P.done["sandbox-" + c.id] == null) { P.done["sandbox-" + c.id] = ok; R().save(); }

@@ -11,15 +11,16 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="inner">
 <a class="brand" href="../index.html">Decomposition Lab</a>
-<nav class="mods" aria-label="Lab sections"><a href="../index.html" data-page="home">Start</a><a href="../modules/1-question.html" data-page="m1">1 Question</a><a href="../modules/2-machine.html" data-page="m2">2 Machine</a><a href="../modules/3-survey.html" data-page="m3">3 Survey</a><a href="../modules/4-traps.html" data-page="m4">4 Traps</a><a href="../modules/5-defence.html" data-page="m5">5 Defence</a><a href="../exercises.html" data-page="ex">Exercises</a><a href="../why-this-lab-works.html" data-page="why">Why it works</a><a href="../source.html" data-page="src">Sources</a></nav>
+<nav class="mods" aria-label="Lab sections"><a href="../index.html" data-page="home">Start</a><a href="../modules/1-question.html" data-page="m1">1 Question</a><a href="../modules/2-machine.html" data-page="m2">2 Machine</a><a href="../modules/3-survey.html" data-page="m3">3 Survey</a><a href="../modules/4-traps.html" data-page="m4">4 Traps</a><a href="../modules/5-defence.html" data-page="m5">5 Defence</a><a href="../exercises.html" data-page="ex">Exercises</a><a href="../why-this-lab-works.html" data-page="why">Why it works</a><a href="../source.html" data-page="src">Sources</a><a href="../glossary.html" data-page="gloss">Glossary</a></nav>
 </div></header>
 <main id="main">
 <h1>Module 2. The machine</h1>
-<p class="lede">Twofold Oaxaca&ndash;Blinder on the linear probability model, one piece per screen, always with the study's own numbers.</p>
+<p class="lede">Twofold Oaxaca&ndash;Blinder on the <a class="gl" href="../glossary.html#g-lpm">linear probability model</a>, one piece per screen, always with the study's own numbers.</p>
 
 <section class="screen">
 <h2>Piece 1: two group means</h2>
-<p>The outcome <i>y</i> is 1 if the caregiver reports an ADHD diagnosis, else 0. Its weighted mean in each group is a rate. On the <span data-num="primary.n" data-dp="0"></span> complete cases: English <b><span data-num="primary.mean_english"></span>%</b>, other-language <b><span data-num="primary.mean_other"></span>%</b>.</p>
+<p>The outcome <i>y</i> is 1 if the caregiver reports an ADHD diagnosis, else 0. Its weighted mean in each group is a rate. On the <span data-num="primary.n" data-dp="0"></span> <a class="gl" href="../glossary.html#g-complete">complete cases</a>: English <b><span data-num="primary.mean_english"></span>%</b>, other-language <b><span data-num="primary.mean_other"></span>%</b>.</p>
+<p class="note">Every rate and covariate mean in this module is computed on these complete cases, so it differs a little from the all-children figures in Modules 1 and 4 (for example, the share insured or with a preventive visit).</p>
 <p><b>Gap = &#563;<sub>E</sub> &minus; &#563;<sub>O</sub> = <span data-num="primary.terms.gap.est"></span> pp.</b> Everything that follows splits this number; nothing changes it.</p>
 </section>
 
@@ -47,7 +48,7 @@
 <h3>Step 3: on your own: the whole access block</h3>
 <div class="blank-table"></div>
 <div class="blank"><div class="row"><label>Access block (pp) <input type="number" step="0.01" inputmode="decimal"></label><button type="button">Check</button></div><div class="feedback hidden" role="status" aria-live="polite"></div></div>
-<p class="note">Means and coefficients are averaged over the six income implicates, so a hand calculation can differ from the program by about 0.01 pp.</p>
+<p class="note">Means and coefficients are averaged over the six income <a class="gl" href="../glossary.html#g-imputation">implicates</a>, so a hand calculation can differ from the program by about 0.01 pp.</p>
 <p class="why">Why faded examples: moving from full worked examples to partially completed ones to independent problems supports the transition to problem solving (Renkl et al., 2002).</p>
 </section>
 
@@ -64,6 +65,7 @@
 <tr><td>Persistence, homework, calmness</td><td class="n" data-ci="primary.terms.block:persistence_homework_calm"></td></tr>
 <tr><td>Access to care</td><td class="n" data-ci="primary.terms.block:access"></td></tr>
 </tbody></table></div>
+<p class="note">Each block is rounded to two decimals, so the five rounded values can add up to 0.01 more or less than the total explained part. Unrounded, they add up exactly (<span data-num="derived.blocks_sum" data-dp="4"></span> pp).</p>
 <p>The gap is <b data-num="primary.terms.gap.est"></b> pp.</p>
 <div class="q-ex"><div class="row"><label>Total explained (pp) <input type="number" step="0.01" inputmode="decimal"></label><button type="button">Check</button></div><div class="feedback hidden" role="status" aria-live="polite"></div></div>
 <div class="q-un"><div class="row"><label>Unexplained (pp) <input type="number" step="0.01" inputmode="decimal"></label><button type="button">Check</button></div><div class="feedback hidden" role="status" aria-live="polite"></div></div>
@@ -126,6 +128,7 @@
 </main>
 <footer><div class="inner">
 <p>Numbers on this page are generated by the lab's programs from the NSCH-LC 2024 public-use file (see <a href="../source.html">Sources</a>). Your answers are stored only in this browser; nothing is sent anywhere. <button type="button" class="secondary" id="reset-progress">Clear my progress</button></p>
+<p>Programs and data notes: <a href="https://github.com/LuShiUCLA/decompose">GitHub repository</a> &middot; <a href="https://github.com/LuShiUCLA/decompose/archive/refs/heads/main.zip">download as zip</a> &middot; <a href="../glossary.html">Glossary</a></p>
 <p>Content CC BY 4.0, code MIT. Not affiliated with or endorsed by the U.S. Census Bureau.</p>
 </div></footer>
 <script src="../assets/lab-data.js"></script>

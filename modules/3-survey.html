@@ -11,11 +11,11 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="inner">
 <a class="brand" href="../index.html">Decomposition Lab</a>
-<nav class="mods" aria-label="Lab sections"><a href="../index.html" data-page="home">Start</a><a href="../modules/1-question.html" data-page="m1">1 Question</a><a href="../modules/2-machine.html" data-page="m2">2 Machine</a><a href="../modules/3-survey.html" data-page="m3">3 Survey</a><a href="../modules/4-traps.html" data-page="m4">4 Traps</a><a href="../modules/5-defence.html" data-page="m5">5 Defence</a><a href="../exercises.html" data-page="ex">Exercises</a><a href="../why-this-lab-works.html" data-page="why">Why it works</a><a href="../source.html" data-page="src">Sources</a></nav>
+<nav class="mods" aria-label="Lab sections"><a href="../index.html" data-page="home">Start</a><a href="../modules/1-question.html" data-page="m1">1 Question</a><a href="../modules/2-machine.html" data-page="m2">2 Machine</a><a href="../modules/3-survey.html" data-page="m3">3 Survey</a><a href="../modules/4-traps.html" data-page="m4">4 Traps</a><a href="../modules/5-defence.html" data-page="m5">5 Defence</a><a href="../exercises.html" data-page="ex">Exercises</a><a href="../why-this-lab-works.html" data-page="why">Why it works</a><a href="../source.html" data-page="src">Sources</a><a href="../glossary.html" data-page="gloss">Glossary</a></nav>
 </div></header>
 <main id="main">
 <h1>Module 3. The survey reality</h1>
-<p class="lede">The NSCH-LC is not a simple random sample. Weights, strata and primary sampling units (PSUs) are load-bearing: they decide what the estimates mean and how uncertain they are.</p>
+<p class="lede">The NSCH-LC is not a simple random sample. Weights, strata and primary sampling units (<a class="gl" href="../glossary.html#g-psu">PSUs</a>) are load-bearing: they decide what the estimates mean and how uncertain they are.</p>
 
 <section class="screen">
 <h2>The design, from the Census documentation</h2>
@@ -25,7 +25,8 @@
 <li><b>Strata</b> original state <code>FIPSSTO</code> &times; <code>STRATUM</code>, with stratum &ldquo;2A&rdquo; recoded to &ldquo;2&rdquo; (the lab calls the combination <code>STRATACROSS</code>): <span data-num="core.design.strata" data-dp="0"></span> strata;</li>
 <li><b>PSU</b> the household, <code>HHID</code>: <span data-num="core.design.psus" data-dp="0"></span> PSUs, one sampled child each.</li>
 </ul>
-<p>Design degrees of freedom = PSUs &minus; strata = <span data-num="core.design.df" data-dp="0"></span>.</p>
+<p>The 2024 public-use file holds <b><span data-num="core.design.children" data-dp="0"></span> children</b>, one per household, so the number of PSUs equals the number of children.</p>
+<p><a class="gl" href="../glossary.html#g-df">Design degrees of freedom</a> = PSUs &minus; strata = <span data-num="core.design.psus" data-dp="0"></span> &minus; <span data-num="core.design.strata" data-dp="0"></span> = <span data-num="core.design.df" data-dp="0"></span>.</p>
 </section>
 
 <section class="screen">
@@ -36,7 +37,7 @@
 
 <section class="screen">
 <h2>Taylor linearisation in one paragraph</h2>
-<p>Every estimate here (a mean, a regression coefficient, a decomposition term) can be written as a weighted sum of per-child <em>influence values</em>. Sum those within each PSU, compare the PSU totals within each stratum, and add up the squared deviations, multiplied by n<sub>h</sub>/(n<sub>h</sub>&minus;1). That is the with-replacement Taylor variance the Census documentation describes. For the decomposition, the influence of each child includes both its effect on the group means and its effect on the English coefficients (product rule), which is why the programs carry both.</p>
+<p>Every estimate here (a mean, a regression coefficient, a decomposition term) can be written as a weighted sum of per-child <em><a class="gl" href="../glossary.html#g-influence">influence values</a></em>. Sum those within each PSU, compare the PSU totals within each stratum, and add up the squared deviations, multiplied by n<sub>h</sub>/(n<sub>h</sub>&minus;1). That is the with-replacement <a class="gl" href="../glossary.html#g-taylor">Taylor</a> variance the Census documentation describes. For the decomposition, the influence of each child includes both its effect on the group means and its effect on the English coefficients (product rule), which is why the programs carry both.</p>
 <p>Check yourself: the R program computes the descriptive SEs both by hand and with the <code>survey</code> package (Lumley, 2004); they agree to at least six decimals.</p>
 </section>
 
@@ -57,7 +58,7 @@
 <li><b>Remove</b> (a singleton contributes zero; R <code>survey</code>: <code>options(survey.lonely.psu = "remove")</code>): SE <b data-num="fals.subset_vs_domain.remove.se" data-dp="3"></b> pp.</li>
 <li><b>Adjust</b> (centre the singleton at the grand mean, so it adds variance; <code>"adjust"</code>): SE <b data-num="fals.subset_vs_domain.adjust.se" data-dp="3"></b> pp.</li>
 </ul>
-<p>Domain estimation on the full design needs neither convention: SE <b data-num="fals.subset_vs_domain.domain.se" data-dp="3"></b> pp. The full NSCH-LC frame has no singleton strata; the lab's programs stop with an error if they ever find one.</p>
+<p><a class="gl" href="../glossary.html#g-domain">Domain estimation</a> on the full design needs neither convention: SE <b data-num="fals.subset_vs_domain.domain.se" data-dp="3"></b> pp. The full NSCH-LC frame has no <a class="gl" href="../glossary.html#g-lonely">singleton strata</a>; the lab's programs stop with an error if they ever find one.</p>
 </section>
 
 <section class="screen">
@@ -67,7 +68,7 @@
 
 <section class="screen">
 <h2>The PSU bootstrap: a second opinion on the variance</h2>
-<p>Resample households within each stratum (n<sub>h</sub>&minus;1 draws with replacement, weights rescaled; Rao &amp; Wu, 1988), refit, repeat 200 times (seed 20261117), and combine with the between-implicate variance (Rubin's rules). In this file each household contributed one child, so resampling households is the same as resampling children; what the bootstrap must respect here is the stratification. In a file with several children per household, resampling children one by one would ignore the clustering.</p>
+<p>Resample households within each stratum (n<sub>h</sub>&minus;1 draws with replacement, weights rescaled; Rao &amp; Wu, 1988), refit, repeat 200 times (seed 20261117), and combine with the between-implicate variance (<a class="gl" href="../glossary.html#g-rubin">Rubin's rules</a>). In this file each household contributed one child, so resampling households is the same as resampling children; what the bootstrap must respect here is the stratification. In a file with several children per household, resampling children one by one would ignore the clustering.</p>
 <div class="tablewrap"><table><thead><tr><th>Component</th><th class="n">Taylor 95% CI</th><th class="n">Bootstrap 95% CI</th></tr></thead><tbody>
 <tr><td>Gap</td><td class="n" data-ci="primary.terms.gap"></td><td class="n" data-ci="boot.gap"></td></tr>
 <tr><td>Explained</td><td class="n" data-ci="primary.terms.explained"></td><td class="n" data-ci="boot.explained"></td></tr>
@@ -90,6 +91,7 @@
 </main>
 <footer><div class="inner">
 <p>Numbers on this page are generated by the lab's programs from the NSCH-LC 2024 public-use file (see <a href="../source.html">Sources</a>). Your answers are stored only in this browser; nothing is sent anywhere. <button type="button" class="secondary" id="reset-progress">Clear my progress</button></p>
+<p>Programs and data notes: <a href="https://github.com/LuShiUCLA/decompose">GitHub repository</a> &middot; <a href="https://github.com/LuShiUCLA/decompose/archive/refs/heads/main.zip">download as zip</a> &middot; <a href="../glossary.html">Glossary</a></p>
 <p>Content CC BY 4.0, code MIT. Not affiliated with or endorsed by the U.S. Census Bureau.</p>
 </div></footer>
 <script src="../assets/lab-data.js"></script>

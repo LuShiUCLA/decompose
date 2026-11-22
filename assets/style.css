@@ -103,3 +103,11 @@ footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 0.88
   .hbar .lab { grid-column: 1 / -1; }
 }
 main a, .refs li, code { overflow-wrap: anywhere; }
+
+/* glossary links and page */
+a.gl { color: inherit; text-decoration: underline dotted; text-underline-offset: 3px; }
+dl.gloss dt { font-weight: 700; margin-top: 1rem; scroll-margin-top: 4rem; }
+dl.gloss dd { margin: .25rem 0 0 0; }
+dl.gloss dt:target { background: var(--hl, rgba(255, 220, 0, .25)); }
+details.twosets { margin: 1rem 0; padding: .75rem 1rem; border: 1px solid currentColor; border-radius: 8px; }
+details.twosets summary { cursor: pointer; }

@@ -6,6 +6,15 @@
 <h2 id="bar">Your goal</h2>
 <p><b>Reproduce the study's headline decomposition from the raw Census public-use file, within &plusmn;0.1 percentage points on every figure, and defend each modelling choice under questioning.</b></p>
 <p>The headline you will reproduce: gap <b data-ci="primary.terms.gap"></b> pp, explained <b data-ci="primary.terms.explained"></b> pp, unexplained <b data-ci="primary.terms.unexplained"></b> pp, n = <b data-num="primary.n" data-dp="0"></b> children aged 6&ndash;17.</p>
+<details class="twosets"><summary><b>Seen different numbers elsewhere (n = 13,103, explained 8.91)?</b> Both are correct reproductions; here is why.</summary>
+<p>The study's numbers can be produced with two codings of one covariate, caregiver mental health, when a second caregiver lives in the home but did not answer that question:</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Coding</th><th class="n">n</th><th class="n">Gap, pp (95% CI)</th><th class="n">Explained, pp (95% CI)</th><th class="n">Unexplained, pp</th></tr></thead><tbody>
+<tr><td><b>This lab's headline</b> (reviewed coding): the child stays out of the model until every caregiver in the home has answered</td><td class="n" data-num="primary.n" data-dp="0"></td><td class="n" data-ci="primary.terms.gap"></td><td class="n" data-ci="primary.terms.explained"></td><td class="n" data-num="primary.terms.unexplained.est"></td></tr>
+<tr><td>Earlier coding (the figures in the brief this lab was built from): counted as &ldquo;not poor&rdquo; if the first caregiver answered; income averaged before fitting</td><td class="n" data-num="sens.brief_method.n" data-dp="0"></td><td class="n" data-ci="sens.brief_method.gap"></td><td class="n" data-ci="sens.brief_method.explained"></td><td class="n" data-num="sens.brief_method.unexplained.est"></td></tr>
+</tbody></table></div>
+<p>The earlier coding guesses that an unanswered caregiver was in good mental health, which keeps <span data-num="derived.brief_minus_primary_n" data-dp="0"></span> more children in the model. The lab teaches the reviewed coding because it does not guess. The checkpoint below accepts either set and tells you which one you matched. <a href="modules/5-defence.html#three-choices">Module 5</a> shows the step-by-step difference.</p>
+</details>
 <p class="causal"><strong>Read this on every results screen:</strong> &ldquo;explained&rdquo; means <em>accounted for by differences in measured characteristics (composition)</em>. It never means &ldquo;caused by&rdquo;.</p>
 <div data-progress><div class="progress" aria-hidden="true"><div></div></div><p class="ptext note"></p></div>
 <p class="why">Why a specific, hard goal: people given specific, difficult goals tend to outperform those told to &ldquo;do their best&rdquo; (Locke &amp; Latham, 2002). See <a href="why-this-lab-works.html">Why this lab works this way</a>.</p>
@@ -28,6 +37,7 @@
 <li><strong>R or RStudio:</strong> paste this one line into the console and press Enter. Missing packages are installed for you.<br><code>source("https://raw.githubusercontent.com/LuShiUCLA/decompose/main/programs/core/decomposition_lab_core.R")</code></li>
 <li><strong>Python 3.12 or later:</strong> download <a href="https://github.com/LuShiUCLA/decompose/archive/refs/heads/main.zip">the lab as a zip file</a> and unzip it. Open a terminal in the unzipped folder, then run <code>pip install -r programs/requirements-lock.txt</code> followed by <code>python programs/core/decomposition_lab_core.py</code>.</li>
 </ul>
+<p>Prefer to look first? The programs, notes and run logs are in the <a href="https://github.com/LuShiUCLA/decompose">lab's GitHub repository</a>.</p>
 <p>The run takes about a minute. It ends with a line such as <code>SELF-CHECK: 131 PASS, 0 FAIL</code>; your numbers are in the lines under "STEP 3". R saves its files in a folder named <code>decompose-main</code> inside its working directory; type <code>getwd()</code> to see where that is. More options are in <a href="https://github.com/LuShiUCLA/decompose/blob/main/programs/README.md">the programs guide</a>.</p>
 <div data-reproduce>
 <div class="row">

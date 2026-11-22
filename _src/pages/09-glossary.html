@@ -1,0 +1,77 @@
+<!--{"out": "glossary.html", "title": "Glossary", "page": "gloss", "prev": ["source.html", "Sources and reproducibility"]}-->
+<h1>Glossary</h1>
+<p class="lede">Plain-language definitions of the terms this lab uses, in the order you meet them. Words in the modules that are underlined with dots link here.</p>
+
+<section class="screen">
+<h2>The decomposition</h2>
+<dl class="gloss">
+<dt id="g-pp">Percentage point (pp)</dt>
+<dd>The unit for a difference between two percentages. If 16% of one group and 6% of another have a diagnosis, the gap is 10 percentage points. It is not &ldquo;10%&rdquo;, which would suggest a relative change.</dd>
+<dt id="g-gap">Gap</dt>
+<dd>The difference in the average outcome between two groups. Here it is the share of children with a reported ADHD diagnosis in English-language households minus the share in other-language households.</dd>
+<dt id="g-oaxaca">Twofold Oaxaca&ndash;Blinder decomposition</dt>
+<dd>A way of splitting a gap into two parts using a regression fitted in each group. One part is due to the groups having different average characteristics; the other is what remains (Blinder, 1973; Oaxaca, 1973).</dd>
+<dt id="g-explained">Explained part</dt>
+<dd>How much smaller the gap would be if the second group had the first group's average measured characteristics, holding the regression coefficients fixed. &ldquo;Explained&rdquo; means <em>accounted for by composition</em>. It is accounting, not a cause.</dd>
+<dt id="g-unexplained">Unexplained part</dt>
+<dd>The rest of the gap: the part linked to differences in the regression coefficients, which includes anything not measured. It can be negative.</dd>
+<dt id="g-reference">Reference coefficients</dt>
+<dd>The set of regression coefficients used to value differences in characteristics. This lab uses the English-language group's coefficients. Using the other group's, or a pooled set, changes the split (Module 2's switcher).</dd>
+<dt id="g-lpm">Linear probability model (LPM)</dt>
+<dd>An ordinary linear regression with a 0/1 outcome. Its coefficients are changes in probability, so its decomposition adds up exactly. Some fitted values can fall outside 0&ndash;1.</dd>
+<dt id="g-logit">Logit model</dt>
+<dd>A regression for a 0/1 outcome that keeps predicted probabilities between 0 and 1. Because it is not linear, a decomposition plugged in at the group means does not add up to the gap.</dd>
+<dt id="g-fairlie">Fairlie decomposition</dt>
+<dd>A decomposition for logit models that averages predicted probabilities over children instead of plugging in means, so the parts add up (Fairlie, 2005). Its block-by-block split depends on the order in which blocks are switched.</dd>
+<dt id="g-dfl">DFL reweighting</dt>
+<dd>A decomposition that reweights one group so that its covariate mix looks like the other group's, then compares the averages (DiNardo, Fortin &amp; Lemieux, 1996). No outcome regression is needed.</dd>
+<dt id="g-ess">Effective sample size</dt>
+<dd>After reweighting, how many equally weighted children the data are worth. If a few children carry very large weights, the effective sample size is small and the estimate is unstable.</dd>
+</dl>
+</section>
+
+<section class="screen">
+<h2>Survey design</h2>
+<dl class="gloss">
+<dt id="g-weight">Survey weight</dt>
+<dd>How many children in the population each sampled child represents. Weighted estimates describe the population, not just the sample.</dd>
+<dt id="g-stratum">Stratum (plural strata)</dt>
+<dd>A group the sample was drawn from separately, such as a state. Sampling within strata makes estimates more precise, and variance formulas must know the strata.</dd>
+<dt id="g-psu">Primary sampling unit (PSU)</dt>
+<dd>The unit sampled first, here the household. Children in the same PSU can be alike, so the variance is computed from differences between PSUs. In this file each household has one sampled child.</dd>
+<dt id="g-df">Design degrees of freedom</dt>
+<dd>For a stratified design: number of PSUs minus number of strata. It sets how much the variance estimate itself can be trusted.</dd>
+<dt id="g-domain">Domain estimation</dt>
+<dd>Estimating for a subgroup (a &ldquo;domain&rdquo;, such as other-language children) while keeping the whole sample in the variance calculation. Children outside the domain count as zeros. Deleting them first, then declaring the design, gives the wrong variance (Module 3, Case C).</dd>
+<dt id="g-lonely">Lonely (singleton) PSU</dt>
+<dd>A stratum left with only one PSU, usually after wrongly subsetting the file. Variance cannot be computed from one PSU, so software must drop the stratum or apply an arbitrary adjustment.</dd>
+<dt id="g-taylor">Taylor linearization</dt>
+<dd>The standard way to compute variances for survey estimates. It approximates a complex estimate by a weighted sum and applies the design's variance formula to that sum.</dd>
+<dt id="g-influence">Influence values (influence function)</dt>
+<dd>Each child's contribution to an estimate: how much the estimate would move because of that child. Summing them within PSUs and comparing PSUs gives the Taylor variance.</dd>
+<dt id="g-bootstrap">Bootstrap (Rao&ndash;Wu)</dt>
+<dd>Estimating uncertainty by recomputing the result many times on resampled data. For surveys, whole PSUs are resampled within strata, and the Rao&ndash;Wu method rescales the weights so the variance is not understated (Rao &amp; Wu, 1988).</dd>
+<dt id="g-ci">95% confidence interval</dt>
+<dd>A range computed so that, over repeated samples, 95% of such ranges would contain the true value. A wide interval means the data are imprecise about that number.</dd>
+</dl>
+</section>
+
+<section class="screen">
+<h2>Missing data and checks</h2>
+<dl class="gloss">
+<dt id="g-complete">Complete cases</dt>
+<dd>The children with every variable in the model observed. A regression can only use these, so its sample is smaller than the sample for a simple rate.</dd>
+<dt id="g-imputation">Multiple imputation; implicates</dt>
+<dd>Census filled in missing family income several times with plausible values. Each filled-in version is an &ldquo;implicate&rdquo;; this file has six (FPL_I1 to FPL_I6). Analysing all six shows how much the guesses matter.</dd>
+<dt id="g-rubin">Rubin's rules</dt>
+<dd>How to combine results across implicates: average the six estimates, and add the spread between them to the average variance, so the interval includes the uncertainty about the missing income (Rubin, 1987).</dd>
+<dt id="g-skip">Skip pattern; structural zero</dt>
+<dd>A question is skipped because an earlier answer makes it irrelevant. For example, if a child saw no doctor, the question about preventive visits is skipped, and the true answer is zero visits. Treating that skip as missing drops exactly the children with no visits (Module 4, Trap 1).</dd>
+<dt id="g-falsification">Falsification check</dt>
+<dd>A deliberate test that should change the result if your code is right (or leave it unchanged when it should). If it doesn't move as expected, something is wrong.</dd>
+<dt id="g-sensitivity">Sensitivity analysis</dt>
+<dd>Re-running the analysis with a different reasonable choice to see whether the conclusion holds.</dd>
+<dt id="g-evalue">E-value</dt>
+<dd>The minimum strength of association, on the risk-ratio scale, that an unmeasured confounder would need with both the exposure and the outcome to fully explain away an observed association (VanderWeele &amp; Ding, 2017). It does not show that no such confounder exists.</dd>
+</dl>
+</section>
