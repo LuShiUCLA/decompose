@@ -1,0 +1,100 @@
+<!--{"out": "modules/5-defence.html", "title": "5 From description to defence", "page": "m5", "prev": ["modules/4-traps.html", "Module 4"], "next": ["exercises.html", "Exercises"]}-->
+<h1>Module 5. From description to defence</h1>
+<p class="lede">You have the numbers. Now say what they mean, what they cannot mean, and which checks would have caught you if you were wrong.</p>
+
+<section class="screen">
+<h2>The headline, with every part</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Component</th><th class="n">pp (95% CI, Taylor)</th></tr></thead>
+<tbody>
+<tr><td>Gap (English &minus; other-language)</td><td class="n" data-ci="primary.terms.gap"></td></tr>
+<tr><td><b>Explained (composition)</b></td><td class="n" data-ci="primary.terms.explained"></td></tr>
+<tr><td>&nbsp;&nbsp;Demographics</td><td class="n" data-ci="primary.terms.block:demographics"></td></tr>
+<tr><td>&nbsp;&nbsp;Concentration + fidgeting items</td><td class="n" data-ci="primary.terms.block:concentration_fidget"></td></tr>
+<tr><td>&nbsp;&nbsp;Other attention items</td><td class="n" data-ci="primary.terms.block:other_attention"></td></tr>
+<tr><td>&nbsp;&nbsp;Persistence, homework, calmness</td><td class="n" data-ci="primary.terms.block:persistence_homework_calm"></td></tr>
+<tr><td>&nbsp;&nbsp;Access to care</td><td class="n" data-ci="primary.terms.block:access"></td></tr>
+<tr><td><b>Unexplained</b></td><td class="n" data-ci="primary.terms.unexplained"></td></tr>
+</tbody></table></div>
+<p class="note">n = <span data-num="primary.n" data-dp="0"></span> children aged 6&ndash;17 (English <span data-num="primary.n_english" data-dp="0"></span>, other-language <span data-num="primary.n_other" data-dp="0"></span>). Linear probability model, English coefficients as reference, FWC weights, Taylor variance over <span data-num="core.design.strata" data-dp="0"></span> strata and household PSUs, six income implicates pooled with Rubin's rules.</p>
+<p class="causal"><strong>Compositional, not causal.</strong> The explained part is the share of the gap that lines up with differences in measured characteristics. It does not say those characteristics cause diagnosis, and the unexplained part is not &ldquo;discrimination&rdquo; or &ldquo;under-diagnosis&rdquo;: it is everything the model does not measure, including differences in reporting.</p>
+</section>
+
+<section class="screen"><div data-quiz="m5-a"></div></section>
+
+<section class="screen">
+<h2>Sensitivity: does the story survive other reasonable choices?</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Specification</th><th class="n">n</th><th class="n">Gap</th><th class="n">Explained</th><th class="n">Unexplained</th></tr></thead>
+<tbody>
+<tr><td>Primary</td><td class="n" data-num="primary.n" data-dp="0"></td><td class="n" data-num="primary.terms.gap.est"></td><td class="n" data-num="primary.terms.explained.est"></td><td class="n" data-num="primary.terms.unexplained.est"></td></tr>
+<tr><td>Same children, preventive visit removed from the access block</td><td class="n" data-num="sens.no_preventive_samecase.n" data-dp="0"></td><td class="n" data-num="sens.no_preventive_samecase.gap.est"></td><td class="n" data-num="sens.no_preventive_samecase.explained.est"></td><td class="n" data-num="sens.no_preventive_samecase.unexplained.est"></td></tr>
+<tr><td>Preventive visit removed, every child with the remaining covariates</td><td class="n" data-num="sens.no_preventive_available.n" data-dp="0"></td><td class="n" data-num="sens.no_preventive_available.gap.est"></td><td class="n" data-num="sens.no_preventive_available.explained.est"></td><td class="n" data-num="sens.no_preventive_available.unexplained.est"></td></tr>
+<tr><td>Attention items replaced by their total score (Census&rsquo;s released PSCATT, which counts an unanswered item as 0), ages 6&ndash;17</td><td class="n" data-num="sens.total_score_6to17.n" data-dp="0"></td><td class="n" data-num="sens.total_score_6to17.gap.est"></td><td class="n" data-num="sens.total_score_6to17.explained.est"></td><td class="n" data-num="sens.total_score_6to17.unexplained.est"></td></tr>
+<tr><td>Total score, all cohort ages with a language answer</td><td class="n" data-num="sens.total_score_allages.n" data-dp="0"></td><td class="n" data-num="sens.total_score_allages.gap.est"></td><td class="n" data-num="sens.total_score_allages.explained.est"></td><td class="n" data-num="sens.total_score_allages.unexplained.est"></td></tr>
+<tr><td>Earlier caregiver mental-health rule (see below)</td><td class="n" data-num="sens.earlier_caregiver_mh_rule.n" data-dp="0"></td><td class="n" data-num="sens.earlier_caregiver_mh_rule.gap.est"></td><td class="n" data-num="sens.earlier_caregiver_mh_rule.explained.est"></td><td class="n" data-num="sens.earlier_caregiver_mh_rule.unexplained.est"></td></tr>
+<tr><td>Pooled reference coefficients (Module 2)</td><td class="n" data-num="primary.n" data-dp="0"></td><td class="n" data-num="variants.pooled_reference.gap"></td><td class="n" data-num="variants.pooled_reference.explained"></td><td class="n" data-num="variants.pooled_reference.unexplained"></td></tr>
+<tr><td>Other-language reference coefficients</td><td class="n" data-num="primary.n" data-dp="0"></td><td class="n" data-num="variants.other_reference.gap"></td><td class="n" data-num="variants.other_reference.explained"></td><td class="n" data-num="variants.other_reference.unexplained"></td></tr>
+</tbody></table></div>
+<p>Two things to notice. First, the same-case comparison (same children, one covariate removed) isolates the effect of the covariate; the available-case comparison mixes it with a change of sample. Second, in every specification shown the explained part stays positive and is more than half of the gap; intervals for the sensitivity rows are in <code>programs/core/output/core_run_log.txt</code>.</p>
+<h3>Three choices, two headlines</h3>
+<p>The brief that specified this lab quoted a different headline. It reproduces exactly once three choices made in the project's first program are restored:</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Run</th><th class="n">n</th><th class="n">Gap (95% CI)</th><th class="n">Explained (95% CI)</th></tr></thead><tbody>
+<tr><td>Lab headline: every present caregiver must have answered; Rubin&rsquo;s rules over six income imputations; Taylor intervals</td><td class="n" data-num="primary.n" data-dp="0"></td><td class="n" data-ci="primary.terms.gap"></td><td class="n" data-ci="primary.terms.explained"></td></tr>
+<tr><td>+ caregiver mental health coded &ldquo;not poor&rdquo; when caregiver 1 answered, even if a present second caregiver did not</td><td class="n" data-num="sens.earlier_caregiver_mh_rule.n" data-dp="0"></td><td class="n" data-ci="sens.earlier_caregiver_mh_rule.gap"></td><td class="n" data-ci="sens.earlier_caregiver_mh_rule.explained"></td></tr>
+<tr><td>+ income averaged over the imputations in one fit, and a bootstrap without the Rao&ndash;Wu rescaling (the brief&rsquo;s figures)</td><td class="n" data-num="sens.brief_method.n" data-dp="0"></td><td class="n" data-ci="sens.brief_method.gap"></td><td class="n" data-ci="sens.brief_method.explained"></td></tr>
+</tbody></table></div>
+<p>The caregiver rule moves the sample by <span data-num="sens.earlier_caregiver_mh_rule.n" data-dp="0"></span> &minus; <span data-num="primary.n" data-dp="0"></span> children and the explained part by most of a point (demographics block <span data-num="primary.terms.block:demographics.est"></span> &rarr; <span data-num="sens.earlier_caregiver_mh_rule.block:demographics.est"></span> pp). Averaging the imputations moves the points in the second decimal but drops the imputation uncertainty; drawing n<sub>h</sub> rather than n<sub>h</sub>&minus;1 households without rescaling tends to understate the variance when strata hold few households. None of these is an arithmetic error. The lab uses the reviewed choices because they do not guess an unanswered caregiver&rsquo;s health and they carry every source of uncertainty. Report which choices you made.</p>
+<p class="causal"><strong>Compositional, not causal.</strong> Robust accounting is still accounting.</p>
+</section>
+
+<section class="screen"><div data-quiz="m5-b"></div></section>
+
+<section class="screen">
+<h2>A longitudinal look: who is newly reported?</h2>
+<p>Among children aged 6&ndash;17 at baseline with no reported diagnosis then, the weighted share newly reported by 2024 was <b><span data-num="desc.incident_english.est"></span>%</b> in English-language households, <b><span data-num="desc.incident_spanish.est"></span>%</b> in Spanish-language households and <b><span data-num="desc.incident_other_language.est"></span>%</b> in other-language households (n = <span data-num="desc.incident_english.n" data-dp="0"></span>, <span data-num="desc.incident_spanish.n" data-dp="0"></span>, <span data-num="desc.incident_other_language.n" data-dp="0"></span>).</p>
+<p>The project's logged pipeline also fitted a modified Poisson model of new reports (n = <span data-num="ref.models.D1_new_report_risk_ratio|language=Spanish.n" data-dp="0"></span>), adjusted for baseline age, income, low task persistence and concentration difficulty at baseline, sex and caregiver education. Adjusted risk ratios versus English: Spanish <b><span data-num="ref.models.D1_new_report_risk_ratio|language=Spanish.effect"></span></b> (95% CI <span data-num="ref.models.D1_new_report_risk_ratio|language=Spanish.lo"></span>&ndash;<span data-num="ref.models.D1_new_report_risk_ratio|language=Spanish.hi"></span>), other non-English <b><span data-num="ref.models.D1_new_report_risk_ratio|language=Other non-English.effect"></span></b> (<span data-num="ref.models.D1_new_report_risk_ratio|language=Other non-English.lo"></span>&ndash;<span data-num="ref.models.D1_new_report_risk_ratio|language=Other non-English.hi"></span>).</p>
+<p><b>E-values</b> (VanderWeele &amp; Ding, 2017): <span data-num="ref.evalues.language=Spanish.e_value"></span> and <span data-num="ref.evalues.language=Other non-English.e_value"></span> for the point estimates; <span data-num="ref.evalues.language=Spanish.e_value_ci"></span> and <span data-num="ref.evalues.language=Other non-English.e_value_ci"></span> for the confidence limits closest to 1. An E-value is the minimum strength of association, on the risk-ratio scale, that an unmeasured confounder would need with both language group and new reports, beyond the measured covariates, to fully explain away the observed risk ratio.</p>
+<p class="note">These model results are read from the logged pipeline output (<code>data-notes/logged_reference/</code>), not recomputed by the lab's programs; the descriptive shares above are recomputed by <code>decomposition_lab_core.py</code>.</p>
+<p class="causal"><strong>Not causal either.</strong> A large E-value says how strong hidden confounding would have to be; it does not show that there is none, and it says nothing about whether reporting, recognition or access is the mechanism.</p>
+</section>
+
+<section class="screen"><div data-quiz="m5-c"></div></section>
+
+<section class="screen">
+<h2>Mock seminar <span class="mine">builder's addition</span></h2>
+<p>Three questions a reviewer or discussant is likely to ask. Pick the defence you would give; the feedback uses the study's own numbers.</p>
+<div data-quiz="seminar-1"></div>
+<div data-quiz="seminar-2"></div>
+<div data-quiz="seminar-3"></div>
+<p class="why">Why rehearse objections: answering questions from memory (retrieval practice) strengthens later recall more than re-reading (Roediger &amp; Karpicke, 2006).</p>
+</section>
+
+<section class="screen" data-writing="results">
+<h2>Write the results paragraph</h2>
+<label for="res-text">Write 60&ndash;150 words, as for the Results section of a paper.</label>
+<textarea id="res-text" rows="8"></textarea>
+<div class="row"><button type="button" class="check">Get checklist feedback</button></div>
+<div class="feedback hidden" role="status" aria-live="polite"></div>
+<div class="model hidden">
+<h3>A model answer</h3>
+<p>&ldquo;Among <span data-num="primary.n" data-dp="0"></span> children aged 6&ndash;17 with complete data, caregiver-reported ADHD diagnosis was <span data-num="primary.terms.gap.est"></span> percentage points (95% CI <span data-num="primary.terms.gap.lo"></span> to <span data-num="primary.terms.gap.hi"></span>) higher in English-language than in other-language households. Differences in measured covariates accounted for <span data-num="primary.terms.explained.est"></span> pp (<span data-num="primary.terms.explained.lo"></span> to <span data-num="primary.terms.explained.hi"></span>), mostly through caregiver-reported attention items; <span data-num="primary.terms.unexplained.est"></span> pp (<span data-num="primary.terms.unexplained.lo"></span> to <span data-num="primary.terms.unexplained.hi"></span>) remained unexplained. Removing the preventive visit from the same sample left the explained part at <span data-num="sens.no_preventive_samecase.explained.est"></span> pp. The decomposition is compositional: it describes how the gap lines up with measured characteristics and does not identify causes.&rdquo;</p>
+</div>
+<p class="why">Why write it: explaining in your own words is associated with better learning (Chi et al., 1989). The checklist is keyword-based; compare your text with the model answer yourself.</p>
+</section>
+
+<section class="screen" id="exporter">
+<h2>Export a manuscript table <span class="mine">builder's addition</span></h2>
+<p>The table below is built from the lab's reference run. Load the <code>core_results.json</code> your own run wrote (it is read in your browser; nothing is uploaded) to rebuild it from your numbers.</p>
+<label for="ex-file">Your <code>programs/core/output/core_results.json</code></label>
+<input id="ex-file" type="file" accept=".json,application/json">
+<p class="ex-status note" aria-live="polite"></p>
+<pre class="ex-table"></pre>
+<div class="row"><button type="button" class="dl">Download as Markdown</button></div>
+</section>
+
+<section class="screen">
+<h2>Before you leave</h2>
+<p>Go back to the <a href="../index.html#repro">checkpoint on the start page</a> and enter the numbers from your own run. Then sleep on it: Day 2 is the <a href="../exercises.html">exercises</a>.</p>
+</section>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4 The two traps</title>
+<meta name="description" content="Interactive lab: Oaxaca-Blinder decomposition on survey data, taught with the NSCH-LC household-language ADHD study.">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="m4">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="inner">
+<a class="brand" href="../index.html">Decomposition Lab</a>
+<nav class="mods" aria-label="Lab sections"><a href="../index.html" data-page="home">Start</a><a href="../modules/1-question.html" data-page="m1">1 Question</a><a href="../modules/2-machine.html" data-page="m2">2 Machine</a><a href="../modules/3-survey.html" data-page="m3">3 Survey</a><a href="../modules/4-traps.html" data-page="m4">4 Traps</a><a href="../modules/5-defence.html" data-page="m5">5 Defence</a><a href="../exercises.html" data-page="ex">Exercises</a><a href="../why-this-lab-works.html" data-page="why">Why it works</a><a href="../source.html" data-page="src">Sources</a></nav>
+</div></header>
+<main id="main">
+<h1>Module 4. The two traps</h1>
+<p class="lede">Two coding decisions quietly change the study's numbers. You will find both in the codebook yourself. The lab will not point at them until you have looked.</p>
+
+<section class="screen">
+<h2>Read the codebook: preventive visits</h2>
+<p>These rows are copied from the official <a href="https://www2.census.gov/programs-surveys/nsch-lc/technical-documentation/2024/NSCH-LC-Variable-List.xlsx">NSCH-LC 2024 Variable List</a>. Read every column.</p>
+<div class="tablewrap"><table class="codebook">
+<thead><tr><th>Variable</th><th>Description</th><th>Universe</th><th>Question (2024)</th><th>Values</th></tr></thead>
+<tbody>
+<tr><td>S4Q01</td><td>Doctor Visit</td><td>All Children</td><td>During the past 12 months, did this child/person see a doctor, nurse, or other health care professional for medical care &hellip;?</td><td>1 = Yes<br>2 = No</td></tr>
+<tr><td>K4Q20R</td><td>Preventive Visit &ndash; How Many Times</td><td>Skip if S4Q01 = 2</td><td>If yes, during the past 12 months, how many times did this child/person visit a doctor, nurse, or other health care professional to receive a PREVENTIVE check-up?</td><td>1 = 0 visits<br>2 = 1 visit<br>3 = 2 or more visits</td></tr>
+</tbody></table></div>
+<p class="note">The question text is abridged with &hellip; where the Variable List gives year-specific wording.</p>
+</section>
+
+<section class="screen"><div data-quiz="m4-find1"></div></section>
+<section class="screen"><div data-quiz="m4-a"></div></section>
+
+<section class="screen"><h2>Falsification sandbox: preventive visits</h2><div data-cases="skips"></div></section>
+
+<section class="screen">
+<h2>Read the codebook: insurance</h2>
+<div class="tablewrap"><table class="codebook">
+<thead><tr><th>Variable</th><th>Description</th><th>Question</th><th>Values</th></tr></thead>
+<tbody>
+<tr><td>CURRCOV</td><td>Health Insurance Coverage &ndash; Currently Covered (Use CURRINS)</td><td>Is this child/person CURRENTLY covered by ANY kind of health insurance or health coverage plan?</td><td>1 = Yes<br>2 = No</td></tr>
+<tr><td>CURRINS</td><td>Health Insurance Coverage &ndash; Currently Covered</td><td>(derived)</td><td>1 = Currently insured (does not include Indian Health Service or a religious health share)<br>2 = Currently uninsured, or only insured through Indian Health Service or a religious health share</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="screen"><div data-quiz="m4-find2"></div></section>
+
+<section class="screen"><h2>Falsification sandbox: insurance</h2><div data-cases="currcov"></div></section>
+
+<section class="screen"><div data-quiz="m4-b"></div></section>
+
+<section class="screen">
+<h2>What each falsification check proves</h2>
+<ul>
+<li><b>Re-run with the skips dropped.</b> The other-language preventive-visit rate jumps from <span data-num="fals.preventive_other.correct"></span>% to <span data-num="fals.preventive_other.dropped_skips"></span>%. If your program shows no change, it is not reading S4Q01.</li>
+<li><b>Re-run with CURRCOV.</b> The insured rate moves (English <span data-num="fals.insured_english.currins"></span>% &rarr; <span data-num="fals.insured_english.currcov"></span>%) and <span data-num="fals.currins_currcov_disagree_primary" data-dp="0"></span> children change status. If nothing moves, your program is not reading the variable you think it is.</li>
+<li><b>Re-run on a pre-subset file.</b> Singleton strata appear and the design df falls (Module 3).</li>
+</ul>
+<p>A check that cannot fail proves nothing. Each of these is built so that a specific coding error would make it fail.</p>
+<p class="causal"><strong>Compositional, not causal.</strong> Correct coding makes the description accurate; it does not make it causal.</p>
+</section>
+
+<nav class="nextprev" aria-label="Previous and next"><a href="../modules/3-survey.html">&larr; Module 3</a><a href="../modules/5-defence.html">Module 5: From description to defence &rarr;</a></nav>
+</main>
+<footer><div class="inner">
+<p>Numbers on this page are generated by the lab's programs from the NSCH-LC 2024 public-use file (see <a href="../source.html">Sources</a>). Your answers are stored only in this browser; nothing is sent anywhere. <button type="button" class="secondary" id="reset-progress">Clear my progress</button></p>
+<p>Content CC BY 4.0, code MIT. Not affiliated with or endorsed by the U.S. Census Bureau.</p>
+</div></footer>
+<script src="../assets/lab-data.js"></script>
+<script src="../assets/quizzes.js"></script>
+<script src="../assets/interactions.js"></script>
+<script src="../assets/app.js"></script>
+</body>
+</html>

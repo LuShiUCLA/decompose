@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why this lab works this way</title>
+<meta name="description" content="Interactive lab: Oaxaca-Blinder decomposition on survey data, taught with the NSCH-LC household-language ADHD study.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="why">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="inner">
+<a class="brand" href="index.html">Decomposition Lab</a>
+<nav class="mods" aria-label="Lab sections"><a href="index.html" data-page="home">Start</a><a href="modules/1-question.html" data-page="m1">1 Question</a><a href="modules/2-machine.html" data-page="m2">2 Machine</a><a href="modules/3-survey.html" data-page="m3">3 Survey</a><a href="modules/4-traps.html" data-page="m4">4 Traps</a><a href="modules/5-defence.html" data-page="m5">5 Defence</a><a href="exercises.html" data-page="ex">Exercises</a><a href="why-this-lab-works.html" data-page="why">Why it works</a><a href="source.html" data-page="src">Sources</a></nav>
+</div></header>
+<main id="main">
+<h1>Why this lab works this way</h1>
+<p class="lede">Each design choice below names the behavioural finding it relies on, the source, and what the source does not show. The lab itself has not been evaluated in a trial; these are reasons for the design, not evidence that the lab works.</p>
+
+<section class="screen">
+<h2>Design choices and their evidence</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>What the lab does</th><th>Finding it relies on</th><th>Source</th><th>Limit</th></tr></thead>
+<tbody>
+<tr><td>One specific, hard goal: reproduce the headline within &plusmn;0.1 pp and defend it</td><td>Specific, difficult goals lead to higher performance than &ldquo;do your best&rdquo;</td><td>Locke &amp; Latham, 2002</td><td>Mostly shown for effort-driven tasks; for complex new tasks, learning goals can matter more than performance goals (discussed in the same review)</td></tr>
+<tr><td>Two days with a night in between; recall questions return to earlier modules</td><td>Distributed practice improves retention relative to massed practice</td><td>Cepeda et al., 2006</td><td>The best gap depends on how long you need to remember; the review found that the best gap grows with the retention interval, so a one-day gap is a choice for a two-day lab, not an optimum</td></tr>
+<tr><td>Sleep between Day 1 and Day 2</td><td>Sleep after learning supports memory consolidation</td><td>Diekelmann &amp; Born, 2010</td><td>Evidence is mainly from laboratory memory tasks, not from learning statistics</td></tr>
+<tr><td>Quizzes after each idea, with recall of earlier modules</td><td>Taking a test improves later retention more than restudying (the testing effect)</td><td>Roediger &amp; Karpicke, 2006</td><td>Shown with prose passages and delayed tests; the lab's quizzes are short and multiple-choice</td></tr>
+<tr><td>Predict before seeing (the split, logit vs LPM, sandbox step 1)</td><td>Attempting an answer, even unsuccessfully, before seeing it can enhance later learning</td><td>Kornell, Hays &amp; Bjork, 2009; Bjork &amp; Bjork, 2020</td><td>Shown with verbal materials (word pairs, trivia); applying it to predicting a quantitative result is an extrapolation. The benefit depends on feedback following the attempt, which the lab always gives</td></tr>
+<tr><td>Faded worked examples in Module 2</td><td>Moving from worked examples to partly completed ones to independent problems supports the transition to problem solving</td><td>Renkl et al., 2002</td><td>Studied with novices; if you already know Oaxaca&ndash;Blinder, skip to Step 3</td></tr>
+<tr><td>One piece of the formula per screen; no simultaneous text-plus-formula walls</td><td>Working memory holds only a few chunks; problem solving without guidance loads it heavily</td><td>Cowan, 2001; Sweller, 1988</td><td>Capacity estimates are for unrelated items; the screen size here is a judgement, not a calculation</td></tr>
+<tr><td>Words next to the numbers they explain; no decorative media</td><td>Evidence-based principles for reducing extraneous load in multimedia learning</td><td>Mayer &amp; Moreno, 2003; Mayer, 2008</td><td>Principles were tested mostly with short science explanations</td></tr>
+<tr><td>Write the question and the results in your own words</td><td>Students who explain examples to themselves learn more from them</td><td>Chi et al., 1989</td><td>Correlational in the original study; the lab's keyword checklist cannot judge quality, so it shows a model answer</td></tr>
+<tr><td>Feedback says what was right, why, and the smallest next step</td><td>Feedback about the task and the process is more effective than praise</td><td>Hattie &amp; Timperley, 2007</td><td>Effects vary widely across studies</td></tr>
+<tr><td>A reproduction checkpoint you can pass</td><td>Mastery experiences are a strong source of self-efficacy</td><td>Bandura, 1977</td><td>Self-efficacy is not competence; the seminar questions test the latter</td></tr>
+</tbody></table></div>
+<p><b>What would count against the lab's use of these findings.</b> If learners who complete the lab reproduced the headline, diagnosed the sandbox cases and answered the seminar questions no better than learners who read the same material without the quizzes, predictions, fading and checkpoint, these design choices would not be earning their place. The lab has not been tested this way; a two-arm comparison on those three outcomes is the test.</p>
+</section>
+
+<section class="screen">
+<h2>What the lab deliberately does not do</h2>
+<ul>
+<li><b>No &ldquo;learning styles&rdquo;.</b> A review found no adequate evidence that matching instruction to a learner's preferred style improves learning (Pashler et al., 2008), so the lab offers one path for everyone.</li>
+<li><b>No neuroscience claims.</b> The lab's predict-first prompts rest on the behavioural evidence above, not on brain findings.</li>
+<li><b>No tracking.</b> Progress is stored only in your browser (localStorage). Nothing you type, including the files you load into the exporter, leaves your computer.</li>
+<li><b>No grades.</b> The checklist feedback is keyword-based and transparent; the model answers are for comparison, not for marking.</li>
+</ul>
+</section>
+
+<section class="screen">
+<h2>References</h2>
+<ul class="refs">
+<li>Bandura, A. (1977). Self-efficacy: Toward a unifying theory of behavioral change. <i>Psychological Review, 84</i>(2), 191&ndash;215. <a href="https://doi.org/10.1037/0033-295X.84.2.191">doi:10.1037/0033-295X.84.2.191</a></li>
+<li>Bjork, R. A., &amp; Bjork, E. L. (2020). Desirable difficulties in theory and practice. <i>Journal of Applied Research in Memory and Cognition, 9</i>(4), 475&ndash;479. <a href="https://doi.org/10.1016/j.jarmac.2020.09.003">doi:10.1016/j.jarmac.2020.09.003</a></li>
+<li>Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T., &amp; Rohrer, D. (2006). Distributed practice in verbal recall tasks: A review and quantitative synthesis. <i>Psychological Bulletin, 132</i>(3), 354&ndash;380. <a href="https://doi.org/10.1037/0033-2909.132.3.354">doi:10.1037/0033-2909.132.3.354</a></li>
+<li>Chi, M. T. H., Bassok, M., Lewis, M. W., Reimann, P., &amp; Glaser, R. (1989). Self-explanations: How students study and use examples in learning to solve problems. <i>Cognitive Science, 13</i>(2), 145&ndash;182. <a href="https://doi.org/10.1016/0364-0213(89)90002-5">doi:10.1016/0364-0213(89)90002-5</a></li>
+<li>Cowan, N. (2001). The magical number 4 in short-term memory: A reconsideration of mental storage capacity. <i>Behavioral and Brain Sciences, 24</i>(1), 87&ndash;114. <a href="https://doi.org/10.1017/S0140525X01003922">doi:10.1017/S0140525X01003922</a></li>
+<li>Diekelmann, S., &amp; Born, J. (2010). The memory function of sleep. <i>Nature Reviews Neuroscience, 11</i>(2), 114&ndash;126. <a href="https://doi.org/10.1038/nrn2762">doi:10.1038/nrn2762</a></li>
+<li>Hattie, J., &amp; Timperley, H. (2007). The power of feedback. <i>Review of Educational Research, 77</i>(1), 81&ndash;112. <a href="https://doi.org/10.3102/003465430298487">doi:10.3102/003465430298487</a></li>
+<li>Kornell, N., Hays, M. J., &amp; Bjork, R. A. (2009). Unsuccessful retrieval attempts enhance subsequent learning. <i>Journal of Experimental Psychology: Learning, Memory, and Cognition, 35</i>(4), 989&ndash;998. <a href="https://doi.org/10.1037/a0015729">doi:10.1037/a0015729</a></li>
+<li>Locke, E. A., &amp; Latham, G. P. (2002). Building a practically useful theory of goal setting and task motivation: A 35-year odyssey. <i>American Psychologist, 57</i>(9), 705&ndash;717. <a href="https://doi.org/10.1037/0003-066X.57.9.705">doi:10.1037/0003-066X.57.9.705</a></li>
+<li>Mayer, R. E. (2008). Applying the science of learning: Evidence-based principles for the design of multimedia instruction. <i>American Psychologist, 63</i>(8), 760&ndash;769. <a href="https://doi.org/10.1037/0003-066X.63.8.760">doi:10.1037/0003-066X.63.8.760</a></li>
+<li>Mayer, R. E., &amp; Moreno, R. (2003). Nine ways to reduce cognitive load in multimedia learning. <i>Educational Psychologist, 38</i>(1), 43&ndash;52. <a href="https://doi.org/10.1207/S15326985EP3801_6">doi:10.1207/S15326985EP3801_6</a></li>
+<li>Pashler, H., McDaniel, M., Rohrer, D., &amp; Bjork, R. (2008). Learning styles: Concepts and evidence. <i>Psychological Science in the Public Interest, 9</i>(3), 105&ndash;119. <a href="https://doi.org/10.1111/j.1539-6053.2009.01038.x">doi:10.1111/j.1539-6053.2009.01038.x</a></li>
+<li>Renkl, A., Atkinson, R. K., Maier, U. H., &amp; Staley, R. (2002). From example study to problem solving: Smooth transitions help learning. <i>Journal of Experimental Education, 70</i>(4), 293&ndash;315. <a href="https://doi.org/10.1080/00220970209599510">doi:10.1080/00220970209599510</a></li>
+<li>Roediger, H. L., &amp; Karpicke, J. D. (2006). Test-enhanced learning: Taking memory tests improves long-term retention. <i>Psychological Science, 17</i>(3), 249&ndash;255. <a href="https://doi.org/10.1111/j.1467-9280.2006.01693.x">doi:10.1111/j.1467-9280.2006.01693.x</a></li>
+<li>Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. <i>Cognitive Science, 12</i>(2), 257&ndash;285. <a href="https://doi.org/10.1016/0364-0213(88)90023-7">doi:10.1016/0364-0213(88)90023-7</a></li>
+</ul>
+<p class="note">Bibliographic details were checked against Crossref metadata on 22 November 2026. The one-line summaries paraphrase each source's main finding; read the sources for their full scope.</p>
+</section>
+
+<nav class="nextprev" aria-label="Previous and next"><a href="exercises.html">&larr; Exercises</a><a href="source.html">Sources and reproducibility &rarr;</a></nav>
+</main>
+<footer><div class="inner">
+<p>Numbers on this page are generated by the lab's programs from the NSCH-LC 2024 public-use file (see <a href="source.html">Sources</a>). Your answers are stored only in this browser; nothing is sent anywhere. <button type="button" class="secondary" id="reset-progress">Clear my progress</button></p>
+<p>Content CC BY 4.0, code MIT. Not affiliated with or endorsed by the U.S. Census Bureau.</p>
+</div></footer>
+<script src="assets/lab-data.js"></script>
+<script src="assets/quizzes.js"></script>
+<script src="assets/interactions.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!--{"out": "modules/2-machine.html", "title": "2 The machine", "page": "m2", "prev": ["modules/1-question.html", "Module 1"], "next": ["modules/3-survey.html", "Module 3: Survey reality"]}-->
+<h1>Module 2. The machine</h1>
+<p class="lede">Twofold Oaxaca&ndash;Blinder on the linear probability model, one piece per screen, always with the study's own numbers.</p>
+
+<section class="screen">
+<h2>Piece 1: two group means</h2>
+<p>The outcome <i>y</i> is 1 if the caregiver reports an ADHD diagnosis, else 0. Its weighted mean in each group is a rate. On the <span data-num="primary.n" data-dp="0"></span> complete cases: English <b><span data-num="primary.mean_english"></span>%</b>, other-language <b><span data-num="primary.mean_other"></span>%</b>.</p>
+<p><b>Gap = &#563;<sub>E</sub> &minus; &#563;<sub>O</sub> = <span data-num="primary.terms.gap.est"></span> pp.</b> Everything that follows splits this number; nothing changes it.</p>
+</section>
+
+<section class="screen">
+<h2>Piece 2: one regression per group</h2>
+<p>Fit the same linear probability model (LPM) separately in each group: <i>y</i> = <b>x</b>&prime;<b>b</b> + error, with the same columns <b>x</b> (intercept, demographics, attention items, behaviours, access). A coefficient is the change in the probability of reported diagnosis per unit of that covariate, within that group.</p>
+<p>Because each model has an intercept, it passes exactly through its group's means: &#563;<sub>E</sub> = x&#772;<sub>E</sub>&prime;<b>b</b><sub>E</sub> and &#563;<sub>O</sub> = x&#772;<sub>O</sub>&prime;<b>b</b><sub>O</sub>. That one fact makes the decomposition add up exactly.</p>
+</section>
+
+<section class="screen">
+<h2>Piece 3: the counterfactual</h2>
+<p>Add and subtract x&#772;<sub>O</sub>&prime;<b>b</b><sub>E</sub>, the rate the other-language group would have with its own covariates but the English slopes:</p>
+<p style="text-align:center"><b>Gap = (x&#772;<sub>E</sub> &minus; x&#772;<sub>O</sub>)&prime;<b>b</b><sub>E</sub> &nbsp;+&nbsp; x&#772;<sub>O</sub>&prime;(<b>b</b><sub>E</sub> &minus; <b>b</b><sub>O</sub>)</b></p>
+<p>The first term is <b>explained</b> (differences in covariate means, weighted by English slopes). The second is <b>unexplained</b> (differences in slopes and intercepts). Each explained term belongs to one covariate, so you can add terms up into blocks.</p>
+<p class="causal"><strong>Compositional, not causal.</strong> &ldquo;Explained&rdquo; is the part of the gap that lines up with differences in measured covariates.</p>
+</section>
+
+<section class="screen" id="fading">
+<h2>Worked examples, faded</h2>
+<h3>Step 1: fully worked</h3>
+<p class="worked"></p>
+<h3>Step 2: you finish it</h3>
+<p class="partial-given"></p>
+<div class="partial"><div class="row"><label>Contribution (pp) <input type="number" step="0.01" inputmode="decimal"></label><button type="button">Check</button></div><div class="feedback hidden" role="status" aria-live="polite"></div></div>
+<h3>Step 3: on your own: the whole access block</h3>
+<div class="blank-table"></div>
+<div class="blank"><div class="row"><label>Access block (pp) <input type="number" step="0.01" inputmode="decimal"></label><button type="button">Check</button></div><div class="feedback hidden" role="status" aria-live="polite"></div></div>
+<p class="note">Means and coefficients are averaged over the six income implicates, so a hand calculation can differ from the program by about 0.01 pp.</p>
+<p class="why">Why faded examples: moving from full worked examples to partially completed ones to independent problems supports the transition to problem solving (Renkl et al., 2002).</p>
+</section>
+
+<section class="screen"><div data-quiz="m2-a"></div></section>
+
+<section class="screen" id="rebuild">
+<h2>Rebuild the headline from its blocks</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Block of covariates</th><th class="n">Explained, pp (95% CI)</th></tr></thead>
+<tbody>
+<tr><td>Demographics</td><td class="n" data-ci="primary.terms.block:demographics"></td></tr>
+<tr><td>Concentration + fidgeting items</td><td class="n" data-ci="primary.terms.block:concentration_fidget"></td></tr>
+<tr><td>Other attention items</td><td class="n" data-ci="primary.terms.block:other_attention"></td></tr>
+<tr><td>Persistence, homework, calmness</td><td class="n" data-ci="primary.terms.block:persistence_homework_calm"></td></tr>
+<tr><td>Access to care</td><td class="n" data-ci="primary.terms.block:access"></td></tr>
+</tbody></table></div>
+<p>The gap is <b data-num="primary.terms.gap.est"></b> pp.</p>
+<div class="q-ex"><div class="row"><label>Total explained (pp) <input type="number" step="0.01" inputmode="decimal"></label><button type="button">Check</button></div><div class="feedback hidden" role="status" aria-live="polite"></div></div>
+<div class="q-un"><div class="row"><label>Unexplained (pp) <input type="number" step="0.01" inputmode="decimal"></label><button type="button">Check</button></div><div class="feedback hidden" role="status" aria-live="polite"></div></div>
+<p><b>Predict:</b> if the access block were twice as large, what would the unexplained part be?</p>
+<div class="q-double"><div class="row"><label>Unexplained if access doubled (pp) <input type="number" step="0.01" inputmode="decimal"></label><button type="button">Check</button></div><div class="feedback hidden" role="status" aria-live="polite"></div></div>
+<p class="causal"><strong>Compositional, not causal.</strong> Block contributions are accounting shares and can be negative; correlated blocks can offset each other.</p>
+</section>
+
+<section class="screen" id="calculator">
+<h2>Interaction 1: live decomposition calculator</h2>
+<p>Move <b>one</b> block's covariate difference at a time and watch the split. The gap never moves.</p>
+<label for="calc-block">Block to change</label>
+<select id="calc-block">
+<option value="access">Access to care</option>
+<option value="demographics">Demographics</option>
+<option value="concentration_fidget">Concentration + fidgeting</option>
+<option value="other_attention">Other attention items</option>
+<option value="persistence_homework_calm">Persistence, homework, calmness</option>
+</select>
+<label for="calc-scale">Size of this block's covariate difference: <span class="scale-label"></span></label>
+<input id="calc-scale" type="range" min="0" max="300" step="5" value="100">
+<div class="calc-out" aria-live="polite"><div class="stack bars"></div><p class="nums"></p></div>
+<p class="causal"><strong>Compositional, not causal.</strong> Moving a slider is arithmetic on the decomposition, not a simulated intervention.</p>
+</section>
+
+<section class="screen" id="switcher">
+<h2>Interaction 2: which coefficients are the reference?</h2>
+<p>The split depends on whose slopes weight the covariate differences. Try each:</p>
+<div class="row" role="group" aria-label="Reference coefficients">
+<button type="button" class="secondary" data-v="english_reference">English (study)</button>
+<button type="button" class="secondary" data-v="other_reference">Other-language</button>
+<button type="button" class="secondary" data-v="pooled_reference">Pooled</button>
+<button type="button" class="secondary" data-v="threefold">Threefold</button>
+</div>
+<div class="sw-out bars" aria-live="polite"></div>
+<p class="sw-text"></p>
+<p>The choice is a judgement about which counterfactual you want, not a default. The study uses English coefficients because it asks what the gap would be if the English group's covariate&ndash;diagnosis relations applied to the other-language group's composition, and because the English group (<span data-num="primary.n_english" data-dp="0"></span> children) yields far more precise slopes than the other-language group (<span data-num="primary.n_other" data-dp="0"></span>). Report the alternatives as sensitivity analyses.</p>
+<p class="causal"><strong>Compositional, not causal</strong>, under every reference.</p>
+</section>
+
+<section class="screen"><div data-quiz="m2-c"></div></section>
+
+<section class="screen" id="logit">
+<h2>Interaction 3: logit versus linear probability model</h2>
+<p>Same children, same covariates (a reduced set, so that both group logits converge with only <span data-num="primary.events_other" data-dp="0"></span> diagnoses among the <span data-num="primary.n_other" data-dp="0"></span> other-language children in the full specification). Each method splits the gap into explained and unexplained.</p>
+<fieldset><legend>Predict first: if you plug group means into a logit model, will explained + unexplained equal the observed gap?</legend>
+<label class="opt"><input type="radio" name="lgpred" value="naive-yes"><span>Yes, exactly, like the LPM</span></label>
+<label class="opt"><input type="radio" name="lgpred" value="naive-no"><span>No, something will be left over</span></label>
+</fieldset>
+<div class="row"><button type="button" class="reveal">Run all three</button></div>
+<div class="feedback hidden" role="status" aria-live="polite"></div>
+<div class="lg-out hidden"></div>
+<p class="causal"><strong>Compositional, not causal</strong>, on any scale.</p>
+<p class="why">Why predict first: committing to an answer before seeing the result, then getting feedback, can improve later learning (Kornell, Hays &amp; Bjork, 2009, with verbal materials; using it here is an extrapolation).</p>
+</section>
+
+<section class="screen"><div data-quiz="m2-b"></div></section>
